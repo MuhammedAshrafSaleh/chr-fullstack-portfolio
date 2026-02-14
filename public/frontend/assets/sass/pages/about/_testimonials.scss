@@ -1,0 +1,182 @@
+@import '../../abstracts/variables';
+
+.testimonials {
+  padding: 80px 20px;
+  background-color: var(--color-background-dark);
+  font-family: var(--font-family-base);
+  text-align: center;
+
+  &__container {
+    max-width: var(--breakpoint-large);
+    margin: 0 auto;
+  }
+
+  &__header {
+    margin-bottom: 50px;
+  }
+
+  &__subtitle {
+    display: block;
+    color: var(--color-text-gray);
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    color: var(--color-text-white);
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+  }
+
+  &__slider {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto; // Basic slider functionality for mobile
+    gap: 24px;
+    padding: 10px 0;
+    scrollbar-width: none; // Hide scrollbar for clean look
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    background-color: var(--color-background-card);
+    border: 1px solid var(--color-border-light);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: left;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    min-width: 300px; // Ensure cards don't shrink too small on mobile
+
+    &--active {
+      border: 1px solid var(--color-primary); // Featured card border
+      box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  &__star {
+    color: #f59e0b; // Standard gold for stars
+    font-size: 18px;
+  }
+
+  &__score {
+    color: #4f46e5; // Blue score from the design
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  &__text {
+    color: var(--color-text-gray);
+    line-height: 1.6;
+    font-size: 16px;
+    margin-bottom: 30px;
+    min-height: 80px; // Maintain consistency across cards
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border-light);
+  }
+
+  &__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__name {
+    color: var(--color-text-white);
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__role {
+    color: var(--color-text-muted);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-border-divider);
+    cursor: pointer;
+    transition: background-color 0.3s ease, width 0.3s ease;
+
+    &--active {
+      background-color: var(--color-primary);
+      width: 24px; // Elongated active dot as seen in image
+      border-radius: 4px;
+    }
+  }
+
+  &__slider {
+    padding: 20px 0 60px; // Extra bottom padding for pagination
+    overflow: hidden;
+  }
+
+  &__card {
+    height: auto; // Allow swiper to equalize heights
+    background-color: var(--color-background-card);
+    border: 1px solid var(--color-border-light);
+    border-radius: 12px;
+    padding: 32px;
+    transition: border-color 0.3s ease;
+
+    // Swiper's active slide gets the gold border from your design
+    &.swiper-slide-active {
+      border-color: var(--color-primary);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  // Customizing Swiper Pagination Dots
+  &__pagination {
+    bottom: 0 !important;
+
+    .swiper-pagination-bullet {
+      background: var(--color-text-gray);
+      opacity: 0.3;
+      transition: all 0.3s ease;
+
+      &-active {
+        background: var(--color-primary) !important;
+        opacity: 1;
+        width: 24px; // Long pill shape for the active dot
+        border-radius: 4px;
+      }
+    }
+  }
+}

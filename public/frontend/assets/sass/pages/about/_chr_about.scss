@@ -1,0 +1,92 @@
+@import '../../abstracts/variables';
+
+.chr-about {
+  padding: 60px 20px;
+  background-color: var(--color-background-dark);
+  color: var(--color-text-white);
+  font-family: var(--font-family-base);
+  overflow: hidden;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 100px 40px;
+  }
+
+  &__container {
+    max-width: var(--breakpoint-large);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+
+    @media (min-width: $breakpoint-desktop) {
+      grid-template-columns: 1.2fr 0.8fr; // Matching the image proportions
+      gap: 80px;
+    }
+  }
+
+  // --- Left Side: Content ---
+  &__label {
+    display: block;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text-gray);
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    font-size: 36px;
+    font-weight: 400; // Lighter weight as per the image
+    margin-bottom: 30px;
+    color: var(--color-text-white);
+    text-transform: uppercase;
+
+    @media (min-width: $breakpoint-tablet) {
+      font-size: 48px;
+    }
+  }
+
+  &__description {
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--color-text-gray);
+      margin-bottom: 20px;
+      max-width: 600px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // --- Right Side: Visual ---
+  &__visual {
+    position: relative;
+    width: 100%;
+  }
+
+  &__image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 24px; // Rounded corners as per image_7151eb.jpg
+    overflow: hidden;
+    
+    @media (min-width: $breakpoint-tablet) {
+       aspect-ratio: 1 / 1;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

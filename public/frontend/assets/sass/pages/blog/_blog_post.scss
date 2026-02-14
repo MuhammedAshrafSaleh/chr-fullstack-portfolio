@@ -1,0 +1,69 @@
+@import '../../abstracts/variables';
+
+.blog-post {
+  padding-top: 8rem;
+  &__hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 24px;
+    // Uses dynamic border color from theme
+    border: 1px solid var(--color-border-light); 
+  }
+  &__title{
+    color: var(--color-text-light);
+  }
+
+    &__meta{
+    color: var(--color-text-gray);
+  }
+
+  &__content {
+    margin-top: 40px;
+  }
+
+  &__paragraph {
+    font-size: 1.25rem; 
+    line-height: 1.8;   
+    color: var(--color-text-light); // Dynamically shifts based on theme
+    margin-bottom: 2rem;
+    font-family: 'Georgia', serif; 
+
+    // Dropcap for the first paragraph
+    &--dropcap::first-letter {
+      float: left;
+      font-size: 4.5rem;
+      line-height: 1;
+      font-weight: bold;
+      margin-right: 12px;
+      // Highlights first letter with your primary Gold/Bronze
+      color: var(--color-primary); 
+    }
+  }
+
+  &__quote {
+    margin: 3rem 0;
+    padding: 20px 40px;
+    // Accent border using primary theme color
+    border-left: 4px solid var(--color-primary); 
+    background-color: var(--color-background-card); 
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--color-text-white);
+  }
+
+  &__subtitle {
+    font-size: 2rem;
+    margin: 4rem 0 1.5rem;
+    color: var(--color-text-white);
+    font-family: var(--font-family-base); // Synced with your variable font
+  }
+}
+
+// Adjust container for reading focus
+.container--narrow {
+  // Uses your large breakpoint for consistency while capping width
+  max-width: 740px; 
+  margin: 0 auto;
+}

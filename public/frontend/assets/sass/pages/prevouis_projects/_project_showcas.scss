@@ -1,0 +1,309 @@
+@import "../../abstracts/variables";
+
+.project-showcase {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    background-color: var(--color-background-dark);
+    position: relative;
+    overscroll-behavior-y: contain;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    // Added a top gradient mask so projects fade out behind the fixed title
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 25vh;
+        background: linear-gradient(to bottom, var(--color-background-dark) 20%, transparent 100%);
+        z-index: 400; // Sits just below the intro text
+        pointer-events: none;
+    }
+}
+
+.project-item {
+    height: 100vh;
+    width: 100%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    box-sizing: border-box;
+    position: relative;
+
+    padding-top: 150px;
+
+    @media (max-width: 1000px) {
+        padding-top: 100px; // Maintain padding even on desktop to prevent overlap
+    }
+
+    &__container {
+        max-width: var(--breakpoint-large);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+
+        @media (min-width: $breakpoint-desktop) {
+            flex-direction: row;
+            align-items: center;
+            gap: 80px;
+
+            &--reverse {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+
+    .project-item__container {
+        max-width: var(--breakpoint-large);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        // gap: 20px; // Reduced gap for tablet
+        width: 100%;
+        max-height: calc(100vh - 180px); // Keep container within viewport minus padding
+
+        @media (min-width: $breakpoint-desktop) {
+            flex-direction: row;
+            align-items: center;
+            gap: 80px;
+            max-height: none;
+        }
+    }
+
+    &__visual {
+        position: relative;
+        flex: 1.2;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+
+        // FIX: Limit height on mobile/tablet so content has room
+        height: 25vh;
+        width: 100%;
+
+        @media (min-width: $breakpoint-desktop) {
+            height: 55vh; // Restore/increase height for desktop
+            border-radius: 30px;
+            flex: 1.2;
+        }
+
+        &:hover {
+            .tooltip {
+                opacity: 1;
+                transform: translate(-50%, -10px); // Subtle lift effect on hover
+            }
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+
+    &:hover &__img {
+        transform: scale(1.08);
+    }
+
+    &__content {
+        flex: 1;
+        max-height: 45vh;
+        // overflow-y: auto;
+
+        @media (min-width: $breakpoint-desktop) {
+            max-height: none;
+            overflow-y: visible;
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        scrollbar-width: none;
+    }
+
+    &__label {
+        color: var(--color-primary);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    &__title {
+        color: var(--color-text-white);
+        font-size: clamp(24px, 4vw, 48px); // Slightly smaller clamp for better fit
+        font-weight: 800;
+        margin-bottom: 15px;
+        line-height: 1.1;
+    }
+
+    &__description {
+        color: var(--color-text-gray);
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    &__specs {
+        list-style: none;
+        padding: 0;
+        padding-top: 20px;
+        padding-right: 20px;
+
+        li {
+            color: var(--color-text-light);
+            margin-bottom: 10px;
+            font-size: 14px;
+
+            strong {
+                color: var(--color-primary);
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .project-info__cta {
+        margin-top: 30px;
+
+        @media (max-width: 500px) {
+            display: none;
+        }
+    }
+
+    .tooltip {
+        position: absolute;
+        top: 20px; // Positions it at the top of the card
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 6px 14px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        white-space: nowrap;
+        pointer-events: none; // Prevents the tooltip from interfering with clicks
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 10;
+        border: 1px solid rgba(197, 160, 89, 0.3); // Subtle gold border to match style
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid rgba(0, 0, 0, 0.8);
+        }
+    }
+}
+
+.project__footer {
+    border-top: 1px solid var(--color-border-divider);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (max-width: 1000px) {
+        flex-direction: row;
+    }
+}
+
+.project-intro {
+    padding-top: 4rem;
+    position: fixed;
+    top: 4rem; // Moved down to account for your glassy navbar
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+    z-index: 500;
+    pointer-events: none;
+
+    @media (max-width: 500px) {
+        top: 3rem;
+    }
+
+    &__title {
+        color: var(--color-text-white);
+        font-size: clamp(1.8rem, 4vw, 2rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    &__subtitle {
+        color: var(--color-text-white);
+        font-size: 0.9rem;
+        line-height: 1.4;
+
+        margin: 0 auto;
+        opacity: 0.8;
+        font-weight: 500;
+
+        @media (max-width: 768px) {
+            display: none; // Hide subtitle on small phones to save space
+        }
+    }
+}
+
+.project-nav {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+
+    @media (max-width: 500px) {
+        left: 8px;
+        // display: none;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    &__link {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border: 2px solid var(--color-primary);
+        border-radius: 50%;
+        transition: 0.3s ease;
+
+        &--active,
+        &:hover {
+            background: var(--color-primary);
+            transform: scale(1.3);
+        }
+    }
+}

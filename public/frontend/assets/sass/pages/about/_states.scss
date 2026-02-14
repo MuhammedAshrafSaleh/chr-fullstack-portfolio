@@ -1,0 +1,103 @@
+@import '../../abstracts/variables';
+
+.stats {
+    background-color: var(--color-background-dark);
+    padding: 100px 0;
+    font-family: var(--font-family-base);
+
+    &__container {
+        max-width: var(--breakpoint-large);
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+
+        @media (min-width: $breakpoint-desktop) {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+    }
+
+    &__content {
+        @media (min-width: $breakpoint-desktop) {
+            width: 45%;
+            position: sticky;
+            top: 100px; // Sticks while right side scrolls
+        }
+    }
+
+    &__title {
+        color: var(--color-text-white);
+        font-size: clamp(32px, 4vw, 48px);
+        line-height: 1.2;
+        margin-bottom: 24px;
+        font-weight: 700;
+    }
+
+    &__description {
+        color: var(--color-text-gray);
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 40px;
+    }
+
+    &__btn {
+        display: inline-block;
+        background-color: var(--color-primary); // Matches your gold primary color
+        color: #fff;
+        padding: 16px 32px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+    }
+
+    &__list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        @media (min-width: $breakpoint-desktop) {
+            width: 55%;
+        }
+    }
+
+    &__card {
+        background-color: var(--color-background-card);
+        padding: 40px;
+        border-radius: 16px;
+        border: 1px solid var(--color-border-light);
+        transition: border-color 0.3s ease;
+
+        &:hover {
+            border-color: var(--color-border-primary);
+        }
+    }
+
+    &__number {
+        display: block;
+        font-size: 42px;
+        font-weight: 700;
+        color: var(--color-text-white);
+        margin-bottom: 8px;
+    }
+
+    &__label {
+        font-size: 20px;
+        color: var(--color-text-light);
+        margin-bottom: 12px;
+    }
+
+    &__text {
+        color: var(--color-text-gray-dark);
+        line-height: 1.5;
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,46 @@
+// Main SCSS file - Import all partials
+
+// Base
+@use 'abstracts/variables';
+@use 'base/global';
+
+// Components
+@use 'components/navbar';
+@use 'components/map';
+@use 'components/sideaction';
+
+
+// Home Page
+@use 'pages/home/hero';
+@use 'pages/home/about_home';
+@use 'pages/home/featured_projects';
+@use 'pages/home/contact_us';
+@use 'pages/home/footer';
+
+// Blog Page
+@use 'pages/blog/blogs';
+@use 'pages/blog/blog_post';
+@use 'pages/blog/blog_section';
+
+// About Page
+@use 'pages/about/ceo_message';
+@use 'pages/about/chr_about';
+@use 'pages/about/features';
+@use 'pages/about/states';
+@use 'pages/about/team';
+@use 'pages/about/testimonials';
+
+
+// Previous Projects
+@use 'pages/prevouis_projects/prevoius_projects';
+@use 'pages/prevouis_projects/project_showcas';
+
+// Previous Projects
+@use 'pages/projects_details/project_bread';
+@use 'pages/projects_details/project_details';
+@use 'pages/projects_details/project_services';
+@use 'pages/projects_details/plans';
+
+
+@use 'pages/construction_updates/construction_updates.scss';
+@use 'pages/construction_updates/construction_updates_projects.scss';

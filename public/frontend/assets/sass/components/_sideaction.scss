@@ -1,0 +1,84 @@
+// @import "../../abstracts/variables";
+
+.side-actions {
+    // --- LOCAL DARK THEME VARIABLES ---
+    $side-bg: rgba(10, 22, 40, 0.9);
+    $side-text: #FFFFFF;
+    $side-primary: #C5A059; // Your Gold
+    $side-border: rgba(197, 160, 89, 0.3);
+    $side-whatsapp: #25D366;
+
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 3000;
+
+    &__btn {
+        width: 50px;
+        height: 50px;
+        background-color: $side-bg;
+        border: 1px solid $side-border;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $side-text;
+        text-decoration: none;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+
+        &:hover {
+            border-color: $side-primary;
+            transform: scale(1.1);
+            color: $side-primary;
+        }
+
+        &--whatsapp:hover {
+            color: $side-whatsapp;
+            border-color: $side-whatsapp;
+        }
+
+        &--sub {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+
+    &__lang {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    // Social Group Animation
+    &__social-group {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        &:hover .side-actions__sub-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-60px);
+        }
+    }
+
+    &__sub-menu {
+        position: absolute;
+        right: 0;
+        display: flex;
+        flex-direction: row; // Expands horizontally to the left
+        gap: 8px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+}

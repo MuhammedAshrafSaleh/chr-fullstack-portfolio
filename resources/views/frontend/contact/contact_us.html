@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHR Development</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="icon" type="media/png" sizes="32x32" href="media/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="media/png" sizes="16x16" href="media/favicon_io/favicon-16x16.png">
+    <link rel="shortcut icon" href="media/favicon_io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="media/favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="media/favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!--================================================= Fixed Actions -->
+    <div class="scroll-progress"></div>
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!--================================================= Side Actions -->
+    <aside class="side-actions">
+        <button class="side-actions__btn" id="themeToggle" title="Switch Theme">
+            <span class="side-actions__icon">🌓</span>
+        </button>
+        <a href="#" class="side-actions__btn" title="Switch Language">
+            <span class="side-actions__lang">EN</span>
+        </a>
+
+        <a href="https://wa.me/yournumber" class="side-actions__btn side-actions__btn--whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <a href="https://goo.gl/maps/yourlink" class="side-actions__btn" target="_blank">
+            <i class="fas fa-map-marker-alt"></i>
+        </a>
+
+        <div class="side-actions__social-group">
+            <button class="side-actions__btn side-actions__trigger">
+                <i class="fas fa-share-alt"></i>
+            </button>
+            <div class="side-actions__sub-menu">
+                <a href="#" class="side-actions__btn side-actions__btn--sub"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="side-actions__btn side-actions__btn--sub"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="side-actions__btn side-actions__btn--sub"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </aside>
+
+
+    <nav class="navbar">
+        <div class="navbar__container">
+            <div class="navbar__left">
+                <button class="navbar__toggle" id="menuToggle" aria-label="Open Menu">
+                    <span class="navbar__toggle-line"></span>
+                    <span class="navbar__toggle-line"></span>
+                </button>
+                <a href="/" class="navbar__logo">
+                    <img src="media/Logos/CHR_V1.png" alt="CHR Developments" class="navbar__logo-img">
+                </a>
+            </div>
+
+            <ul class="navbar__links">
+                <li class="navbar__item">
+                    <span class="navbar__item-num">01</span>
+                    <a href="about.html" class="navbar__link">About</a>
+                </li>
+                <li class="navbar__item">
+                    <span class="navbar__item-num">02</span>
+                    <a href="current_projects.html" class="navbar__link">Projects</a>
+                </li>
+                <li class="navbar__item">
+                    <span class="navbar__item-num">03</span>
+                    <a href="blogs.html" class="navbar__link">Blog</a>
+                </li>
+                <li class="navbar__item">
+                    <span class="navbar__item-num">04</span>
+                    <a href="contact_us.html" class="navbar__link">Contact us</a>
+                </li>
+            </ul>
+
+            <div class="navbar__right">
+                <a href="tel:15722" class="navbar__phone">
+                    <span class="navbar__phone-icon">📞</span> 15722
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="menu-overlay__close" id="menuClose" aria-label="Close Menu">&times;</button>
+
+        <div class="menu-overlay__content">
+            <ul class="menu-overlay__list">
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">01</span>
+                    <a href="contact_us.html" class="menu-overlay__link menu-overlay__link--active">About</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">02</span>
+                    <a href="current_projects.html" class="menu-overlay__link">Projects</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">03</span>
+                    <a href="blogs.html" class="menu-overlay__link">Blog</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">04</span>
+                    <a href="contact_us.html" class="menu-overlay__link">Contact us</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">05</span>
+                    <a href="construction_updates.html" class="menu-overlay__link">Construction Update</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">06</span>
+                    <a href="prevoius_projects.html" class="menu-overlay__link">Previous Porjects</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--================================================= Map -->
+    <section class="location-section" style="padding-top: 5rem;">
+        <div class="map-card">
+            <div class="map-card__wrapper">
+                <div id="map" class="map-card__canvas"></div>
+
+                <div class="map-card__controls">
+                    <button class="map-card__btn map-card__btn--zoom-in" type="button" aria-label="Zoom In">+</button>
+                    <button class="map-card__btn map-card__btn--zoom-out" type="button" aria-label="Zoom Out">−</button>
+                </div>
+
+                <button class="project-info__cta map-card__directions-btn">
+                    <span class="project-info__cta-icon"><i class="fas fa-location-arrow"></i></span>
+                    <span class="project-info__cta-text">Get Direction</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!--================================================= Contact Section -->
+    <section class="contact">
+        <div class="contact__container">
+
+            <!-- Left Side - Locations -->
+            <div class="contact__info">
+
+                <!-- Headquarter -->
+                <div class="location-card">
+                    <h3 class="location-card__title">HEADQUARTER</h3>
+                    <div class="location-card__divider"></div>
+
+                    <address class="location-card__address">
+                        <p class="location-card__text">4 Nasr St, Golden Square,</p>
+                        <p class="location-card__text">New Cairo,</p>
+                        <p class="location-card__text">Cairo, Egypt</p>
+                    </address>
+
+                    <button class="location-card__button">
+                        <i data-lucide="navigation" class="location-card__icon"></i>
+                        Navigate
+                    </button>
+                </div>
+
+                <!-- Sheikh Zayed -->
+                <div class="location-card">
+                    <h3 class="location-card__title">SHEIKH ZAYED</h3>
+                    <div class="location-card__divider"></div>
+
+                    <address class="location-card__address">
+                        <p class="location-card__text">F3-5-3 Arkan Extension</p>
+                        <p class="location-card__text">Sheikh Zayed</p>
+                        <p class="location-card__text">Giza, Egypt</p>
+                    </address>
+
+                    <button class="location-card__button">
+                        <i data-lucide="navigation" class="location-card__icon"></i>
+                        Navigate
+                    </button>
+                </div>
+
+                <!-- Hotline -->
+                <div class="hotline">
+                    <svg class="hotline__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <span class="hotline__number">15722</span>
+                </div>
+
+            </div>
+
+            <!-- Right Side - Contact Form -->
+            <div class="contact__form-wrapper">
+                <h2 class="contact__title">REQUEST A CALL</h2>
+
+                <form class="contact-form" id="contactForm">
+
+                    <!-- Row 1: Name & Email -->
+                    <div class="contact-form__row">
+                        <div class="form-group">
+                            <label for="fullName" class="form-group__label">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" class="form-group__input"
+                                placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-group__label">Email</label>
+                            <input type="email" id="email" name="email" class="form-group__input"
+                                placeholder="Your work email" required>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Telephone & Company -->
+                    <div class="contact-form__row">
+                        <div class="form-group">
+                            <label for="telephone" class="form-group__label">Telephone</label>
+                            <input type="tel" id="telephone" name="telephone" class="form-group__input"
+                                placeholder="Your direct number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company" class="form-group__label">Company</label>
+                            <input type="text" id="company" name="company" class="form-group__input"
+                                placeholder="Your company name">
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Subject -->
+                    <div class="form-group">
+                        <label for="subject" class="form-group__label">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-group__input"
+                            placeholder="Message subject" required>
+                    </div>
+
+                    <!-- Row 4: Message -->
+                    <!-- Date Field -->
+                    <div class="form-group">
+                        <label for="date" class="form-group__label">Preferred Date</label>
+                        <input type="date" id="date" name="date" class="form-group__input" required>
+                    </div>
+
+                    <!-- Role Field -->
+                    <div class="form-group">
+                        <label for="role" class="form-group__label">Your Role</label>
+                        <select id="role" name="role" class="form-group__select" required>
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="ceo">CEO</option>
+                            <option value="project-manager">Project Manager</option>
+                            <option value="senior-engineer">Senior Engineer</option>
+                            <option value="engineer">Engineer</option>
+                            <option value="investor">Investor</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Time Field -->
+                    <div class="form-group">
+                        <label for="time" class="form-group__label">Preferred Time</label>
+                        <input type="time" id="time" name="time" class="form-group__input" required>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button class="project-info__cta">
+                        <span class="project-info__cta-icon">+</span>
+                        <span class="project-info__cta-text">Submit</span>
+                    </button>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+   <!--================================================= Footer Section -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__content">
+                <!-- Brand Section -->
+                <div class="footer__brand">
+                    <a href="/" class="footer__logo--img">
+                        <img src="media/Logos/CHR_V1.png" alt="CHR Developments" class="footer__logo--img">
+                    </a>
+                    <!-- <h2 class="footer__logo">CHR DEVELOPMENTS</h2> -->
+                    <p class="footer__tagline">
+                        Crafting landmark properties that redefine luxury and utility.
+                        Excellence in every detail, integrity in every interaction.
+                    </p>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="footer__section">
+                    <h3 class="footer__heading">CONTACT</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <a href="mailto:info@chr-dev.com" class="footer__link">info@chr-dev.com</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="tel:+2021234567" class="footer__link">+20 2 1234 5678</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__link">Book a Viewing</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Section -->
+                <div class="footer__section">
+                    <h3 class="footer__heading">SOCIAL</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__link">Instagram</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__link">LinkedIn</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__link">Twitter / X</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    © 2026 CHR Developments. All Rights Reserved.
+                </p>
+                <div class="footer__legal">
+                    <a href="#" class="footer__legal-link">Privacy Policy</a>
+                    <a href="#" class="footer__legal-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Custom JS -->
+    <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
+    <script src="js/theme_toggle.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/map.js"></script>
+</body>
+
+</html>

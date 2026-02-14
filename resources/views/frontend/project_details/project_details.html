@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="icon" type="media/png" sizes="32x32" href="media/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="media/png" sizes="16x16" href="media/favicon_io/favicon-16x16.png">
+    <link rel="shortcut icon" href="media/favicon_io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="media/favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="media/favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!--================================================= Fixed Actions -->
+    <div class="scroll-progress"></div>
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!--================================================= Side Actions -->
+    <aside class="side-actions">
+        <button class="side-actions__btn" id="themeToggle" title="Switch Theme">
+            <span class="side-actions__icon">🌓</span>
+        </button>
+        <a href="#" class="side-actions__btn" title="Switch Language">
+            <span class="side-actions__lang">EN</span>
+        </a>
+
+        <a href="https://wa.me/yournumber" class="side-actions__btn side-actions__btn--whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <a href="https://goo.gl/maps/yourlink" class="side-actions__btn" target="_blank">
+            <i class="fas fa-map-marker-alt"></i>
+        </a>
+
+        <div class="side-actions__social-group">
+            <button class="side-actions__btn side-actions__trigger">
+                <i class="fas fa-share-alt"></i>
+            </button>
+            <div class="side-actions__sub-menu">
+                <a href="#" class="side-actions__btn side-actions__btn--sub"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="side-actions__btn side-actions__btn--sub"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="side-actions__btn side-actions__btn--sub"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </aside>
+
+
+    <nav class="navbar">
+        <div class="navbar__container">
+            <div class="navbar__left">
+                <button class="navbar__toggle" id="menuToggle" aria-label="Open Menu">
+                    <span class="navbar__toggle-line"></span>
+                    <span class="navbar__toggle-line"></span>
+                </button>
+                <a href="/" class="navbar__logo">
+                    <img src="media/Logos/CHR_V1.png" alt="CHR Developments" class="navbar__logo-img">
+                </a>
+            </div>
+
+            <ul class="navbar__links">
+                <li class="navbar__item">
+                    <span class="navbar__item-num">01</span>
+                    <a href="about.html" class="navbar__link">About</a>
+                </li>
+                <li class="navbar__item">
+                    <span class="navbar__item-num">02</span>
+                    <a href="current_projects.html" class="navbar__link">Projects</a>
+                </li>
+                <li class="navbar__item">
+                    <span class="navbar__item-num">03</span>
+                    <a href="blogs.html" class="navbar__link">Blog</a>
+                </li>
+                <li class="navbar__item">
+                    <span class="navbar__item-num">04</span>
+                    <a href="contact_us.html" class="navbar__link">Contact us</a>
+                </li>
+            </ul>
+
+            <div class="navbar__right">
+                <a href="tel:15722" class="navbar__phone">
+                    <span class="navbar__phone-icon">📞</span> 15722
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="menu-overlay__close" id="menuClose" aria-label="Close Menu">&times;</button>
+
+        <div class="menu-overlay__content">
+            <ul class="menu-overlay__list">
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">01</span>
+                    <a href="contact_us.html" class="menu-overlay__link menu-overlay__link--active">About</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">02</span>
+                    <a href="current_projects.html" class="menu-overlay__link">Projects</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">03</span>
+                    <a href="blogs.html" class="menu-overlay__link">Blog</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">04</span>
+                    <a href="contact_us.html" class="menu-overlay__link">Contact us</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">05</span>
+                    <a href="construction_updates.html" class="menu-overlay__link">Construction Update</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">06</span>
+                    <a href="prevoius_projects.html" class="menu-overlay__link">Previous Porjects</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--================================================= Project Hero -->
+    <section class="project-hero">
+        <div class="project-hero__bg">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80"
+                alt="New Cairo Project Overview">
+            <div class="project-hero__overlay"></div>
+        </div>
+
+        <div class="project-hero__container">
+            <nav class="project-hero__breadcrumbs">
+                <a href="index.html" class="project-hero__crumb">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <span class="project-hero__separator">/</span>
+                <a href="projects.html" class="project-hero__crumb">Projects</a>
+                <span class="project-hero__separator">/</span>
+                <span class="project-hero__crumb project-hero__crumb--active">New Cairo</span>
+            </nav>
+
+            <h1 class="project-hero__title">New Cairo</h1>
+
+            <div class="project-hero__scroll">
+                <div class="project-hero__scroll-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!--================================================= Project Details -->
+    <section class="project-details">
+        <div class="project-details__container">
+            <aside class="project-details__info">
+                <span class="project-details__label">Project Specification</span>
+                <h2 class="project-details__title">Technical Overview</h2>
+
+                <div class="project-details__table">
+                    <div class="project-details__row">
+                        <span>First Year</span>
+                        <span>Licenses & Land Settlement</span>
+                    </div>
+                    <div class="project-details__row">
+                        <span>Second Year</span>
+                        <span>Concrete Structure Completion</span>
+                    </div>
+                    <div class="project-details__row">
+                        <span>Third & Fourth Year</span>
+                        <span>Finishing & Operations</span>
+                    </div>
+
+                    <div class="project-details__row">
+                        <span>Project Use</span>
+                        <span>Clinics, Hospitals, Pharmacies & Commercial</span>
+                    </div>
+                    <div class="project-details__row">
+                        <span>Building Height</span>
+                        <span>20 Meters (G+4 Floors)</span>
+                    </div>
+                    <div class="project-details__row">
+                        <span>Basement Levels</span>
+                        <span>2 to 3 Underground Levels</span>
+                    </div>
+                    <div class="project-details__row">
+                        <span>Total Land Area</span>
+                        <span>6,500 SQM</span>
+                    </div>
+                    <div class="project-details__row">
+                        <span>Building Area</span>
+                        <span>50,000 SQM</span>
+                    </div>
+                    <div class="project-details__row">
+                        <span>Plaza Space</span>
+                        <span>3,900 SQM</span>
+                    </div>
+                    <div class="project-details__row">
+                        <span>Medical Unit Area</span>
+                        <span>From 27m to 1,000m</span>
+                    </div>
+                    <div class="project-details__row">
+                        <span>Commercial Unit Area</span>
+                        <span>From 27m to 2,000m</span>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="project-details__gallery">
+                <div class="project-details__image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
+                        alt="Main Building Perspective">
+                </div>
+                <div class="project-details__image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
+                        alt="Plaza and Retail Entrance">
+                </div>
+                <div class="project-details__image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+                        alt="Aerial Construction View">
+                </div>
+                <div class="project-details__image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80"
+                        alt="Modern Medical Interior">
+                </div>
+                <div class="project-details__image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
+                        alt="Main Building Perspective">
+                </div>
+                <div class="project-details__image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80"
+                        alt="Architectural Detail">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--================================================= Project services -->
+
+    <section class="services">
+        <div class="services__header">
+            <span class="services__label">Premium Amenities</span>
+            <h2 class="services__title">World-Class Services</h2>
+        </div>
+
+        <div class="services__slider">
+            <div class="services__track services__track--left">
+                <div class="services__card"><i class="fas fa-clinic-medical services__icon"></i>
+                    <h3 class="services__name">Fully Finished Serviced Clinics</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-recycle services__icon"></i>
+                    <h3 class="services__name">Eco Friendly Waste Management</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-leaf services__icon"></i>
+                    <h3 class="services__name">Onsite Healing Garden</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-microchip services__icon"></i>
+                    <h3 class="services__name">Smart Building Automation</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-shield-alt services__icon"></i>
+                    <h3 class="services__name">24/7 Advanced Security</h3>
+                </div>
+
+                <div class="services__card"><i class="fas fa-clinic-medical services__icon"></i>
+                    <h3 class="services__name">Fully Finished Serviced Clinics</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-recycle services__icon"></i>
+                    <h3 class="services__name">Eco Friendly Waste Management</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-leaf services__icon"></i>
+                    <h3 class="services__name">Onsite Healing Garden</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-microchip services__icon"></i>
+                    <h3 class="services__name">Smart Building Automation</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-shield-alt services__icon"></i>
+                    <h3 class="services__name">24/7 Advanced Security</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="services__slider">
+            <div class="services__track services__track--right">
+                <div class="services__card"><i class="fas fa-briefcase-medical services__icon"></i>
+                    <h3 class="services__name">Reusable Medical Supplies</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-tree services__icon"></i>
+                    <h3 class="services__name">Outdoor Relaxation Spaces</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-charging-station services__icon"></i>
+                    <h3 class="services__name">Electric Vehicle Stations</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-handshake services__icon"></i>
+                    <h3 class="services__name">Premium Executive Lounges</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-parking services__icon"></i>
+                    <h3 class="services__name">Underground Parking</h3>
+                </div>
+
+                <div class="services__card"><i class="fas fa-briefcase-medical services__icon"></i>
+                    <h3 class="services__name">Reusable Medical Supplies</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-tree services__icon"></i>
+                    <h3 class="services__name">Outdoor Relaxation Spaces</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-charging-station services__icon"></i>
+                    <h3 class="services__name">Electric Vehicle Stations</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-handshake services__icon"></i>
+                    <h3 class="services__name">Premium Executive Lounges</h3>
+                </div>
+                <div class="services__card"><i class="fas fa-parking services__icon"></i>
+                    <h3 class="services__name">Underground Parking</h3>
+                </div>
+            </div>
+        </div>
+        <div class="services__slider">
+            <div class="services__track services__track--left">
+                <div class="services__card">
+                    <i class="fas fa-charging-station services__icon"></i>
+                    <h3 class="services__name">Electric Vehicle Charging</h3>
+                </div>
+                <div class="services__card">
+                    <i class="fas fa-parking services__icon"></i>
+                    <h3 class="services__name">Triple-Level Secure Parking</h3>
+                </div>
+                <div class="services__card">
+                    <i class="fas fa-handshake services__icon"></i>
+                    <h3 class="services__name">Premium Executive Lounges</h3>
+                </div>
+                <div class="services__card">
+                    <i class="fas fa-wind services__icon"></i>
+                    <h3 class="services__name">Hospital-Grade Air Filtration</h3>
+                </div>
+                <div class="services__card">
+                    <i class="fas fa-tools services__icon"></i>
+                    <h3 class="services__name">24/7 Facility Management</h3>
+                </div>
+
+                <div class="services__card">
+                    <i class="fas fa-charging-station services__icon"></i>
+                    <h3 class="services__name">Electric Vehicle Charging</h3>
+                </div>
+                <div class="services__card">
+                    <i class="fas fa-parking services__icon"></i>
+                    <h3 class="services__name">Triple-Level Secure Parking</h3>
+                </div>
+                <div class="services__card">
+                    <i class="fas fa-handshake services__icon"></i>
+                    <h3 class="services__name">Premium Executive Lounges</h3>
+                </div>
+                <div class="services__card">
+                    <i class="fas fa-wind services__icon"></i>
+                    <h3 class="services__name">Hospital-Grade Air Filtration</h3>
+                </div>
+                <div class="services__card">
+                    <i class="fas fa-tools services__icon"></i>
+                    <h3 class="services__name">24/7 Facility Management</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--================================================= Plans Section -->
+    <section class="plans">
+        <div class="plans__container">
+            <header class="plans__header">
+                <span class="plans__label">Floor Plans</span>
+                <h2 class="plans__title">Floors and Spaces</h2>
+            </header>
+
+            <div class="swiper plans__slider" id="plans-gallery">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide plans__item">
+                        <a href="media/f1.jpg" data-pswp-width="1200" data-pswp-height="1500" class="plans__image-box">
+                            <img src="media/f1.jpg" alt="G3 Floor Plan">
+                        </a>
+                        <h3 class="plans__floor-name">G3</h3>
+                    </div>
+
+                    <div class="swiper-slide plans__item">
+                        <a href="media/f1.jpg" data-pswp-width="1200" data-pswp-height="1500" class="plans__image-box">
+                            <img src="media/f1.jpg" alt="First Floor Plan">
+                        </a>
+                        <h3 class="plans__floor-name">First Floor</h3>
+                    </div>
+
+                    <div class="swiper-slide plans__item">
+                        <a href="media/f1.jpg" data-pswp-width="1200" data-pswp-height="1500" class="plans__image-box">
+                            <img src="media/f1.jpg" alt="Second Floor Plan">
+                        </a>
+                        <h3 class="plans__floor-name">Second Floor</h3>
+                    </div>
+
+                    <div class="swiper-slide plans__item">
+                        <a href="media/f1.jpg" data-pswp-width="1200" data-pswp-height="1500" class="plans__image-box">
+                            <img src="media/f1.jpg" alt="Third Floor Plan">
+                        </a>
+                        <h3 class="plans__floor-name">Third Floor</h3>
+                    </div>
+
+                    <div class="swiper-slide plans__item">
+                        <a href="media/f1.jpg" data-pswp-width="1200" data-pswp-height="1500" class="plans__image-box">
+                            <img src="media/f1.jpg" alt="Fourth Floor Plan">
+                        </a>
+                        <h3 class="plans__floor-name">Fourth Floor</h3>
+                    </div>
+                </div>
+
+                <div class="swiper-pagination plans__pagination"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!--================================================= Map -->
+    <section class="location-section">
+        <div class="map-card">
+            <div class="map-card__wrapper">
+                <div id="map" class="map-card__canvas"></div>
+
+                <div class="map-card__controls">
+                    <button class="map-card__btn map-card__btn--zoom-in" type="button" aria-label="Zoom In">+</button>
+                    <button class="map-card__btn map-card__btn--zoom-out" type="button" aria-label="Zoom Out">−</button>
+                </div>
+
+                <button class="project-info__cta map-card__directions-btn">
+                    <span class="project-info__cta-icon"><i class="fas fa-location-arrow"></i></span>
+                    <span class="project-info__cta-text">Get Direction</span>
+                </button>
+            </div>
+        </div>
+    </section>
+   <!--================================================= Footer Section -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__content">
+                <!-- Brand Section -->
+                <div class="footer__brand">
+                    <a href="/" class="footer__logo--img">
+                        <img src="media/Logos/CHR_V1.png" alt="CHR Developments" class="footer__logo--img">
+                    </a>
+                    <!-- <h2 class="footer__logo">CHR DEVELOPMENTS</h2> -->
+                    <p class="footer__tagline">
+                        Crafting landmark properties that redefine luxury and utility.
+                        Excellence in every detail, integrity in every interaction.
+                    </p>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="footer__section">
+                    <h3 class="footer__heading">CONTACT</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <a href="mailto:info@chr-dev.com" class="footer__link">info@chr-dev.com</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="tel:+2021234567" class="footer__link">+20 2 1234 5678</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__link">Book a Viewing</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Section -->
+                <div class="footer__section">
+                    <h3 class="footer__heading">SOCIAL</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__link">Instagram</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__link">LinkedIn</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__link">Twitter / X</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    © 2026 CHR Developments. All Rights Reserved.
+                </p>
+                <div class="footer__legal">
+                    <a href="#" class="footer__legal-link">Privacy Policy</a>
+                    <a href="#" class="footer__legal-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/theme_toggle.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/map.js"></script>
+    <script type="module">
+        // Import PhotoSwipe as a module
+        import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe-lightbox.esm.min.js';
+
+        // 1. Initialize Swiper first
+        const plansSwiper = new Swiper('.plans__slider', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            centeredSlides: false,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 4, // Show 4 per row like your reference
+                    spaceBetween: 30,
+                }
+            }
+        });
+
+        // 2. Initialize PhotoSwipe Lightbox
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: '#plans-gallery',
+            children: 'a.plans__image-box',
+            // This is the critical part for modular loading
+            pswpModule: () => import('https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.esm.min.js')
+        });
+
+        lightbox.init();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+@import "../../abstracts/variables";
+
+.services {
+    background-color: var(--color-background-dark);
+    padding: 100px 0;
+    width: 100%;
+    overflow: hidden; 
+
+    &__header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    &__label {
+        color: var(--color-primary); // Your signature Gold
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 700;
+        font-size: 14px;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    &__title {
+        color: var(--color-text-white);
+        font-size: clamp(32px, 5vw, 48px);
+        font-weight: 800;
+        margin: 0;
+    }
+
+    &__slider {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 30px;
+        // Creates a soft fade on left and right edges
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    &__track {
+        padding: 10px;
+        display: flex;
+        width: max-content; // Important: track must be as wide as all cards combined
+        gap: 30px;
+
+        &--left {
+            animation: infiniteScrollLeft 40s linear infinite;
+        }
+
+        &--right {
+            animation: infiniteScrollRight 40s linear infinite;
+        }
+
+        // Pause the loop when the user wants to read a specific service
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+
+    &__card {
+        flex-shrink: 0; // Prevents cards from squishing
+        width: 280px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(197, 160, 89, 0.15); // Signature gold border
+        border-radius: 20px;
+        padding: 40px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+
+        &:hover {
+            background: rgba(197, 160, 89, 0.08);
+            border-color: var(--color-primary);
+            transform: translateY(-10px);
+        }
+    }
+
+    &__icon {
+        font-size: 42px;
+        color: var(--color-primary); // Euphoria Gold
+        margin-bottom: 20px;
+        filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.4));
+    }
+
+    &__name {
+        color: var(--color-text-white);
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+}
+
+// THE INFINITE LOGIC
+@keyframes infiniteScrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } // Moves exactly one full set of cards
+}
+
+@keyframes infiniteScrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}

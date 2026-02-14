@@ -1,0 +1,96 @@
+@import "../../abstracts/variables";
+
+.project-details {
+    background-color: var(--color-background-dark);
+    padding: 100px 0;
+    position: relative;
+
+    &__container {
+        max-width: var(--breakpoint-large);
+        margin: 0 auto;
+        padding: 0 5%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 60px;
+
+        @media (min-width: $breakpoint-desktop) {
+            grid-template-columns: 450px 1fr;
+            align-items: start;
+        }
+    }
+
+    &__info {
+        @media (min-width: $breakpoint-desktop) {
+            position: sticky;
+            top: 120px; // Aligns with your fixed header/nav space
+        }
+    }
+
+    &__label {
+        color: var(--color-primary);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 14px;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    &__title {
+        color: var(--color-text-white);
+        font-size: clamp(32px, 4vw, 42px);
+        font-weight: 800;
+        margin-bottom: 40px;
+    }
+
+    &__table {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        gap: 20px;
+
+        span:first-child {
+            color: var(--color-text-white);
+            font-weight: 600;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+
+        span:last-child {
+            color: var(--color-text-gray);
+            font-size: 15px;
+            text-align: right;
+            line-height: 1.4;
+        }
+    }
+
+    &__gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    &__image-wrapper {
+        width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(197, 160, 89, 0.2); // Signature gold border
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+            
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+}

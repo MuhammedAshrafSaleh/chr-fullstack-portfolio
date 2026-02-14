@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About CHR Development</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="icon" type="media/png" sizes="32x32" href="media/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="media/png" sizes="16x16" href="media/favicon_io/favicon-16x16.png">
+    <link rel="shortcut icon" href="media/favicon_io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="media/favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="media/favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!--================================================= Fixed Actions -->
+    <div class="scroll-progress"></div>
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!--================================================= Side Actions -->
+    <aside class="side-actions">
+        <button class="side-actions__btn" id="themeToggle" title="Switch Theme">
+            <span class="side-actions__icon">🌓</span>
+        </button>
+        <a href="#" class="side-actions__btn" title="Switch Language">
+            <span class="side-actions__lang">EN</span>
+        </a>
+
+        <a href="https://wa.me/yournumber" class="side-actions__btn side-actions__btn--whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <a href="https://goo.gl/maps/yourlink" class="side-actions__btn" target="_blank">
+            <i class="fas fa-map-marker-alt"></i>
+        </a>
+
+        <div class="side-actions__social-group">
+            <button class="side-actions__btn side-actions__trigger">
+                <i class="fas fa-share-alt"></i>
+            </button>
+            <div class="side-actions__sub-menu">
+                <a href="#" class="side-actions__btn side-actions__btn--sub"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="side-actions__btn side-actions__btn--sub"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="side-actions__btn side-actions__btn--sub"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </aside>
+
+
+    <nav class="navbar">
+        <div class="navbar__container">
+            <div class="navbar__left">
+                <button class="navbar__toggle" id="menuToggle" aria-label="Open Menu">
+                    <span class="navbar__toggle-line"></span>
+                    <span class="navbar__toggle-line"></span>
+                </button>
+                <a href="/" class="navbar__logo">
+                    <img src="media/Logos/CHR_V1.png" alt="CHR Developments" class="navbar__logo-img">
+                </a>
+            </div>
+
+            <ul class="navbar__links">
+                <li class="navbar__item">
+                    <span class="navbar__item-num">01</span>
+                    <a href="about.html" class="navbar__link">About</a>
+                </li>
+                <li class="navbar__item">
+                    <span class="navbar__item-num">02</span>
+                    <a href="current_projects.html" class="navbar__link">Projects</a>
+                </li>
+                <li class="navbar__item">
+                    <span class="navbar__item-num">03</span>
+                    <a href="blogs.html" class="navbar__link">Blog</a>
+                </li>
+                <li class="navbar__item">
+                    <span class="navbar__item-num">04</span>
+                    <a href="contact_us.html" class="navbar__link">Contact us</a>
+                </li>
+            </ul>
+
+            <div class="navbar__right">
+                <a href="tel:15722" class="navbar__phone">
+                    <span class="navbar__phone-icon">📞</span> 15722
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="menu-overlay__close" id="menuClose" aria-label="Close Menu">&times;</button>
+
+        <div class="menu-overlay__content">
+            <ul class="menu-overlay__list">
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">01</span>
+                    <a href="contact_us.html" class="menu-overlay__link menu-overlay__link--active">About</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">02</span>
+                    <a href="current_projects.html" class="menu-overlay__link">Projects</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">03</span>
+                    <a href="blogs.html" class="menu-overlay__link">Blog</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">04</span>
+                    <a href="contact_us.html" class="menu-overlay__link">Contact us</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">05</span>
+                    <a href="construction_updates.html" class="menu-overlay__link">Construction Update</a>
+                </li>
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">06</span>
+                    <a href="prevoius_projects.html" class="menu-overlay__link">Previous Porjects</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!--============================================= CHR-ABOUR Section -->
+    <section class="chr-about">
+        <div class="chr-about__container">
+
+            <div class="chr-about__content">
+                <span class="chr-about__label">TRUE TO YOU</span>
+                <h2 class="chr-about__title">ABOUT CHR</h2>
+                <div class="chr-about__description">
+                    <p>
+                        Crafting transformative residential and commercial experiences has been LMD's
+                        dedicated pursuit since 2007. An ever-evolving journey of exceptional innovation with
+                        the future in mind. Our signature is larger-than-life destinations that set the benchmark
+                        in quality integration & progressive design.
+                    </p>
+                    <p>
+                        We inspire limitless possibilities that empower communities to live, connect and thrive —
+                        a combination that truly sets us apart. Our journey resulted in a significant portfolio
+                        of iconic mixed-use developments. Spanning the best locations in Egypt, Dubai, Spain, and
+                        Greece.
+                        We offer community-centric experiences powered by a holistic vision of seamless living —
+                        forever transforming the conventional norms of real estate.
+                    </p>
+                </div>
+            </div>
+
+            <div class="chr-about__visual">
+                <div class="chr-about__image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80"
+                        alt="LMD Lifestyle" class="chr-about__img">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--============================================= States Section -->
+    <section class="stats" id="stats-section">
+        <div class="stats__container">
+            <div class="stats__content">
+                <h2 class="stats__title">Our Impressive Growth: A Deep Dive into Our Key Stats and Milestones</h2>
+                <p class="stats__description">
+                    Our stats at a glance provide a snapshot of our success, highlighting important metrics like
+                    portfolio value and market reach.
+                </p>
+                <!-- <a href="#" class="stats__btn">Lets get started</a> -->
+            </div>
+
+            <div class="stats__list">
+                <div class="stats__card">
+                    <span class="stats__number">260+</span>
+                    <h3 class="stats__label">Expert Consultants</h3>
+                    <p class="stats__text">Specialized professionals with extensive real estate experience.</p>
+                </div>
+                <div class="stats__card">
+                    <span class="stats__number">$1.2B+</span>
+                    <h3 class="stats__label">Portfolio Value</h3>
+                    <p class="stats__text">Total value of active residential and commercial developments.</p>
+                </div>
+                <div class="stats__card">
+                    <span class="stats__number">724+</span>
+                    <h3 class="stats__label">Projects Delivered</h3>
+                    <p class="stats__text">Successful completion and handover of premium luxury initiatives.</p>
+                </div>
+                <div class="stats__card">
+                    <span class="stats__number">15+</span>
+                    <h3 class="stats__label">Years Experience</h3>
+                    <p class="stats__text">A legacy of excellence in the Egyptian and international markets.</p>
+                </div>
+                <div class="stats__card">
+                    <span class="stats__number">45k+</span>
+                    <h3 class="stats__label">Happy Homeowners</h3>
+                    <p class="stats__text">Families who have found their dream homes in our communities.</p>
+                </div>
+                <div class="stats__card">
+                    <span class="stats__number">12</span>
+                    <h3 class="stats__label">Global Awards</h3>
+                    <h3 class="stats__label">Global Awards</h3>
+                    <p class="stats__text">Recognition for architecture, innovation, and design leadership.</p>
+                </div>
+                <div class="stats__card">
+                    <span class="stats__number">4</span>
+                    <h3 class="stats__label">Countries Reached</h3>
+                    <p class="stats__text">Spanning prime locations in Egypt, Dubai, Spain, and Greece.</p>
+                </div>
+                <div class="stats__card">
+                    <span class="stats__number">98%</span>
+                    <h3 class="stats__label">Retention Rate</h3>
+                    <p class="stats__text">Consistent trust from our investors and recurring clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--============================================= testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonials__container">
+            <header class="testimonials__header">
+                <span class="testimonials__subtitle">TESTIMONIAL</span>
+                <h2 class="testimonials__title">What our happy user says!</h2>
+            </header>
+
+            <div class="testimonials__slider swiper">
+                <div class="swiper-wrapper">
+
+                    <article class="testimonials__card swiper-slide">
+                        <div class="testimonials__rating">
+                            <span class="testimonials__star">★</span>
+                            <span class="testimonials__score">4.9</span>
+                        </div>
+                        <p class="testimonials__text">
+                            Thanks to pagedone, I feel more informed and confident about my investment decisions than
+                            ever before.
+                        </p>
+                        <footer class="testimonials__user">
+                            <img src="https://i.pravatar.cc/150?u=harsh" alt="Harsh P." class="testimonials__avatar">
+                            <div class="testimonials__meta">
+                                <h4 class="testimonials__name">Harsh P.</h4>
+                                <p class="testimonials__role">Product Designer</p>
+                            </div>
+                        </footer>
+                    </article>
+
+                    <article class="testimonials__card swiper-slide">
+                        <div class="testimonials__rating">
+                            <span class="testimonials__star">★</span>
+                            <span class="testimonials__score">4.9</span>
+                        </div>
+                        <p class="testimonials__text">
+                            Pagedone has made it possible for me to stay on top of my portfolio and make informed
+                            decisions quickly and easily.
+                        </p>
+                        <footer class="testimonials__user">
+                            <img src="https://i.pravatar.cc/150?u=jane" alt="Jane D." class="testimonials__avatar">
+                            <div class="testimonials__meta">
+                                <h4 class="testimonials__name">Jane D.</h4>
+                                <p class="testimonials__role">CEO</p>
+                            </div>
+                        </footer>
+                    </article>
+
+                    <article class="testimonials__card swiper-slide">
+                        <div class="testimonials__rating">
+                            <span class="testimonials__star">★</span>
+                            <span class="testimonials__score">4.9</span>
+                        </div>
+                        <p class="testimonials__text">
+                            Thanks to pagedone, I feel more informed and confident about my investment decisions than
+                            ever before.
+                        </p>
+                        <footer class="testimonials__user">
+                            <img src="https://i.pravatar.cc/150?u=harsh" alt="Harsh P." class="testimonials__avatar">
+                            <div class="testimonials__meta">
+                                <h4 class="testimonials__name">Harsh P.</h4>
+                                <p class="testimonials__role">Product Designer</p>
+                            </div>
+                        </footer>
+                    </article>
+
+                    <article class="testimonials__card swiper-slide">
+                        <div class="testimonials__rating">
+                            <span class="testimonials__star">★</span>
+                            <span class="testimonials__score">4.9</span>
+                        </div>
+                        <p class="testimonials__text">
+                            Thanks to pagedone, I feel more informed and confident about my investment decisions than
+                            ever before.
+                        </p>
+                        <footer class="testimonials__user">
+                            <img src="https://i.pravatar.cc/150?u=harsh2" alt="Harsh P." class="testimonials__avatar">
+                            <div class="testimonials__meta">
+                                <h4 class="testimonials__name">Harsh P.</h4>
+                                <p class="testimonials__role">Product Designer</p>
+                            </div>
+                        </footer>
+                    </article>
+
+                    <article class="testimonials__card swiper-slide">
+                        <div class="testimonials__rating">
+                            <span class="testimonials__star">★</span>
+                            <span class="testimonials__score">4.9</span>
+                        </div>
+                        <p class="testimonials__text">
+                            Thanks to pagedone, I feel more informed and confident about my investment decisions than
+                            ever before.
+                        </p>
+                        <footer class="testimonials__user">
+                            <img src="https://i.pravatar.cc/150?u=harsh" alt="Harsh P." class="testimonials__avatar">
+                            <div class="testimonials__meta">
+                                <h4 class="testimonials__name">Harsh P.</h4>
+                                <p class="testimonials__role">Product Designer</p>
+                            </div>
+                        </footer>
+                    </article>
+
+
+                </div>
+            </div>
+
+            <div class="testimonials__pagination">
+
+                <span class="testimonials__dot testimonials__dot--active"></span>
+
+                <span class="testimonials__dot"></span>
+
+                <span class="testimonials__dot"></span>
+
+                <span class="testimonials__dot"></span>
+
+                <span class="testimonials__dot"></span>
+
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+    <!--============================================= ceo-message Section -->
+    <section class="ceo-message">
+        <div class="ceo-message__container">
+
+            <div class="ceo-message__visual">
+                <div class="ceo-message__image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80"
+                        alt="Eng. Amr Sultan" class="ceo-message__img">
+                </div>
+            </div>
+
+            <div class="ceo-message__content">
+                <header class="ceo-message__header">
+                    <h2 class="ceo-message__title">OUR CEO MESSAGE</h2>
+                </header>
+
+                <div class="ceo-message__body">
+                    <p>OUR SUCCESS IS ROOTED IN A LEGACY OF EVOLVING KNOWLEDGE AND LASTING PARTNERSHIPS. GENERATIONS OF
+                        CLIENTS HAVE SHAPED OUR JOURNEY AND CONTINUE TO DRIVE US FORWARD.</p>
+
+                    <p>WITH DEEP INSIGHTS, WE'VE DELIVERED DOZENS OF DEVELOPMENTS ACROSS EGYPT, COMMITTED TO MAKING
+                        ASPIRATIONS ATTAINABLE BY CREATING COMMUNITIES WHERE EVERY HOMEOWNER FEELS VALUED.</p>
+
+                    <p>WE AIM TO BUILD NOT JUST EXCEPTIONAL DEVELOPMENTS, BUT FULLY INTEGRATED COMMUNITIES —
+                        MASTERPIECES OF ARCHITECTURE THAT REFLECT 21ST-CENTURY ASPIRATIONS AND INSPIRE FUTURE
+                        GENERATIONS TO LIVE, CONNECT, AND THRIVE.</p>
+                </div>
+
+                <footer class="ceo-message__signature">
+                    <h4 class="ceo-message__name">ENG. AMR SULTAN</h4>
+                    <p class="ceo-message__role">FOUNDER & CEO</p>
+                </footer>
+            </div>
+
+        </div>
+    </section>
+
+    <!--============================================= Features Section -->
+    <section class="features">
+        <div class="features__container">
+            <header class="features__header">
+                <h2 class="features__title">Every feature designed for the user</h2>
+                <p class="features__subtitle">
+                    At every step of our process, we prioritize the user, ensuring that our products and
+                    services are designed with their needs in mind.
+                </p>
+            </header>
+
+            <div class="features__grid">
+                <div class="features__item">
+                    <div class="features__icon-wrapper">
+                        <svg class="features__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                            <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="features__item-title">Result</h3>
+                    <p class="features__item-text">Accurate results are our top priority, ensuring you always have
+                        reliable information at your fingertips.</p>
+                </div>
+
+                <div class="features__item">
+                    <div class="features__icon-wrapper">
+                        <svg class="features__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="features__item-title">Quality</h3>
+                    <p class="features__item-text">We are committed to providing high-quality products and services that
+                        exceed your expectations.</p>
+                </div>
+
+                <div class="features__item">
+                    <div class="features__icon-wrapper">
+                        <svg class="features__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M21 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3m18 0v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8m18 0-9 6-9-6">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="features__item-title">Product</h3>
+                    <p class="features__item-text">Experience the difference of our feature-rich product that offers
+                        everything you requires and many more.</p>
+                </div>
+
+                <div class="features__item">
+                    <div class="features__icon-wrapper">
+                        <svg class="features__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M18 20V10M12 20V4M6 20v-6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="features__item-title">Sales</h3>
+                    <p class="features__item-text">Experience the difference of our personalized sales approach, where
+                        you are always our top priority.</p>
+                </div>
+
+                <div class="features__item">
+                    <div class="features__icon-wrapper">
+                        <svg class="features__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </div>
+                    <h3 class="features__item-title">Onboarding</h3>
+                    <p class="features__item-text">Our onboarding process is designed to be simple and intuitive, so you
+                        can start using our platform right away.</p>
+                </div>
+
+                <div class="features__item">
+                    <div class="features__icon-wrapper">
+                        <svg class="features__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="features__item-title">Support</h3>
+                    <p class="features__item-text">Our commitment to exceptional support ensures that you receive the
+                        assistance you need, whenever you need it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--============================================= Team Section -->
+    <section class="team">
+        <div class="team__container">
+
+            <div class="team__header">
+                <h2 class="team__title">Brains behind our success team</h2>
+                <p class="team__subtitle">These people work on making our product best.</p>
+
+                <div class="team__navigation">
+                    <button class="team__nav-btn team__nav-btn--prev">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button class="team__nav-btn team__nav-btn--next">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="team__slider swiper">
+                <div class="swiper-wrapper">
+                    <article class="swiper-slide team__card">
+                        <div class="team__image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
+                                alt="Michael Cannon" class="team__img">
+                        </div>
+                        <h3 class="team__name">Michael Cannon</h3>
+                        <p class="team__role">Sales Lead</p>
+                    </article>
+
+                    <article class="swiper-slide team__card">
+                        <div class="team__image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80"
+                                alt="David Richardson" class="team__img">
+                        </div>
+                        <h3 class="team__name">David Richardson</h3>
+                        <p class="team__role">Technical Architect</p>
+                    </article>
+
+                    <article class="swiper-slide team__card">
+                        <div class="team__image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80"
+                                alt="James Wilson" class="team__img">
+                        </div>
+                        <h3 class="team__name">James Wilson</h3>
+                        <p class="team__role">Head of Marketing</p>
+                    </article>
+
+                    <article class="swiper-slide team__card">
+                        <div class="team__image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80"
+                                alt="Robert Chen" class="team__img">
+                        </div>
+                        <h3 class="team__name">Robert Chen</h3>
+                        <p class="team__role">Senior Developer</p>
+                    </article>
+
+                    <article class="swiper-slide team__card">
+                        <div class="team__image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80"
+                                alt="Marcus Thorne" class="team__img">
+                        </div>
+                        <h3 class="team__name">Marcus Thorne</h3>
+                        <p class="team__role">Project Manager</p>
+                    </article>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!--================================================= Footer Section -->
+   <!--================================================= Footer Section -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__content">
+                <!-- Brand Section -->
+                <div class="footer__brand">
+                    <a href="/" class="footer__logo--img">
+                        <img src="media/Logos/CHR_V1.png" alt="CHR Developments" class="footer__logo--img">
+                    </a>
+                    <!-- <h2 class="footer__logo">CHR DEVELOPMENTS</h2> -->
+                    <p class="footer__tagline">
+                        Crafting landmark properties that redefine luxury and utility.
+                        Excellence in every detail, integrity in every interaction.
+                    </p>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="footer__section">
+                    <h3 class="footer__heading">CONTACT</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <a href="mailto:info@chr-dev.com" class="footer__link">info@chr-dev.com</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="tel:+2021234567" class="footer__link">+20 2 1234 5678</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__link">Book a Viewing</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Section -->
+                <div class="footer__section">
+                    <h3 class="footer__heading">SOCIAL</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__link">Instagram</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__link">LinkedIn</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__link">Twitter / X</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    © 2026 CHR Developments. All Rights Reserved.
+                </p>
+                <div class="footer__legal">
+                    <a href="#" class="footer__legal-link">Privacy Policy</a>
+                    <a href="#" class="footer__legal-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
+    <script src="js/theme_toggle.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const swiper = new Swiper('.testimonials__slider', {
+                slidesPerView: 1,
+                spaceBetween: 24,
+                centeredSlides: true,
+                loop: true,
+                loopedSlides: 4,
+                loopPreventsSliding: false,
+                autoplay: {
+                    delay: 1500, // 3 seconds between slides
+                    disableOnInteraction: false, // Continue autoplay after user drag/click
+                    pauseOnMouseEnter: true, // Pause when user hovers mouse over slider
+                },
+                pagination: {
+                    el: '.testimonials__pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    // Mobile (your $breakpoint-mobile)
+                    480: {
+                        slidesPerView: 1.2,
+                    },
+                    // Tablet (your $breakpoint-tablet)
+                    768: {
+                        slidesPerView: 2,
+                        centeredSlides: false,
+                    },
+                    // Desktop (your $breakpoint-desktop)
+                    1024: {
+                        slidesPerView: 3,
+                        centeredSlides: true,
+                    }
+                }
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const teamSwiper = new Swiper('.team__slider', {
+                slidesPerView: 1.2,
+                spaceBetween: 24,
+                loop: true,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.team__nav-btn--next',
+                    prevEl: '.team__nav-btn--prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2
+                    },
+                    1024: {
+                        slidesPerView: 2.2
+                    },
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

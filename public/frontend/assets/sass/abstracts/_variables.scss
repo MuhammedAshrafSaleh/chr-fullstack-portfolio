@@ -1,0 +1,127 @@
+// Color Variables
+// var(--color-primary): #C5A059;
+
+// var(--color-background-dark): #0a1628;
+// var(--color-background-card): #1a2332;
+
+// var(--color-text-white): #FFFFFF;
+// var(--color-text-light): #E5E7EB;
+// var(--color-text-gray): #8b95a8;
+// var(--color-text-gray-dark): #6b7b94;
+// var(--color-text-muted): #9CA3AF;
+
+
+// var(--color-border-light): rgba(255, 255, 255, 0.1);
+// var(--color-border-primary):rgba(197, 160, 89, 0.3);
+// var(--color-border-divider): #1a2942;
+
+// Gradient Colors
+// var(--gradient-gold): linear-gradient(to right, transparent, var(--color-primary), transparent);
+// var(--gradient-scrollbar): linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary) 100%);
+// var(--gradient-scroll-progress): linear-gradient(90deg, #ffd700, #ff6b6b);
+
+// Font Family
+// var(--font-family-base): -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large: 1200px;
+
+// ============================================
+// DARK THEME (Adjusted)
+// ============================================
+$dark-theme: (
+  // Primary Colors
+  color-primary: #C5A059,
+
+  // Background Colors
+  color-background-dark: #0a1628,
+  color-background-card: #1a2332,
+
+  // Text Colors
+  color-text-white: #FFFFFF,
+  color-text-light: #E5E7EB,
+  color-text-gray: #8b95a8,
+  color-text-gray-dark: #6b7b94,
+  color-text-muted: #9CA3AF,
+
+  // Border Colors
+  color-border-light: rgba(255, 255, 255, 0.1),
+  color-border-primary:rgba(197, 160, 89, 0.3),
+  color-border-divider: #1a2942,
+
+  // Overlay Colors
+  color-overlay-light: rgba(255, 255, 255, 0.01),
+
+  // Gradients
+  gradient-gold: linear-gradient(to right, transparent, #C5A059, transparent),
+  gradient-scrollbar: linear-gradient(180deg, #C5A059 0%, #C5A059 100%),
+  gradient-scroll-progress: linear-gradient(90deg, #ffd700, #ff6b6b)
+);
+
+// ============================================
+// LIGHT THEME
+// ============================================
+$light-theme: (
+  // Primary Colors
+  color-primary: #B8953D,
+
+  // Background Colors
+  color-background-dark: #FFFFFF, 
+  color-background-card: #F3F4F6,
+
+  // Text Colors
+  color-text-white: #111827,
+  color-text-light: #1F2937,
+  color-text-gray: #6B7280,
+  color-text-gray-dark: #4B5563,
+  color-text-muted: #6B7280,
+
+  // Border Colors
+  color-border-light: rgba(0, 0, 0, 0.08),
+  color-border-primary: rgba(184, 149, 61, 0.15),
+  color-border-divider: #E5E7EB,
+
+  // Overlay Colors
+  color-overlay-light: rgba(0, 0, 0, 0.01),
+
+  // Gradients
+  gradient-gold: linear-gradient(to right, transparent, #B8953D, transparent),
+  gradient-scrollbar: linear-gradient(180deg, #B8953D 0%, #B8953D 100%),
+  gradient-scroll-progress: linear-gradient(90deg, #F59E0B, #EF4444)
+);
+
+// ============================================
+// THEME MIXIN
+// ============================================
+@mixin apply-theme($theme) {
+  @each $property, $value in $theme {
+    --#{$property}: #{$value};
+  }
+}
+
+// ============================================
+// THEME APPLICATION
+// ============================================
+:root {
+  @include apply-theme($dark-theme);
+  
+  // Font Family
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  
+  // Breakpoints
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-large: 1200px;
+}
+
+[data-theme="light"] {
+  @include apply-theme($light-theme);
+}
+
+[data-theme="dark"] {
+  @include apply-theme($dark-theme);
+}

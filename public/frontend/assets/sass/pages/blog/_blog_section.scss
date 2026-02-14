@@ -1,0 +1,101 @@
+// Variables from your prompt
+
+@import '../../abstracts/variables';
+
+.blog-section {
+  padding: 80px 20px;
+  background-color: var(--color-background-dark);
+  font-family: var(--font-family-base);
+
+  &__title {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: 3rem;
+    color: var(--color-text-white);
+    font-weight: 700;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 24px;
+    max-width: var(--breakpoint-large);
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+
+    @media (min-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.blog-card {
+  // background-color: var(--color-background-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-primary); 
+  }
+
+  &__image-wrapper {
+    width: 100%;
+    padding: 12px; // Creates the inset frame look
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+  }
+
+  &__content {
+    padding: 10px 24px 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-white);
+    font-weight: 600;
+    flex-grow: 1;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--color-border-light);
+    padding-top: 16px;
+  }
+
+  &__author {
+    color: var(--color-text-gray);
+  }
+
+  &__date {
+    color: var(--color-primary); // Using your gold color for the date
+    font-weight: 600;
+  }
+}
+
+.blog_button {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}

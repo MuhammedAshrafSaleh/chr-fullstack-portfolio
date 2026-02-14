@@ -1,0 +1,256 @@
+@import "../../abstracts/variables";
+
+.construction {
+    background-color: var(--color-background-dark); // #111 or similar
+    padding: 100px 0;
+
+
+
+    &__container {
+        max-width: var(--breakpoint-large);
+        margin: 0 auto;
+        padding: 0 5%;
+    }
+
+    &__header {
+        margin-bottom: 60px;
+        text-align: left;
+    }
+
+    &__label {
+        color: var(--color-primary); // #c5a059 Gold
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        font-size: 14px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    &__title {
+        color: var(--color-text-white);
+        font-size: clamp(32px, 5vw, 48px);
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    &__subtitle {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.1rem;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(3, 1fr); // 3 per row
+        }
+    }
+
+    &__video-wrapper {
+        position: relative;
+        aspect-ratio: 16/9;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        background: #000;
+        margin-bottom: 15px;
+
+        &:hover {
+            .construction__thumbnail {
+                transform: scale(1.05);
+                opacity: 0.7;
+            }
+
+            .construction__play-btn {
+                background: var(--color-primary);
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+
+            .construction__tooltip {
+                opacity: 1;
+                transform: translate(-50%, -10px); // Subtle lift effect on hover
+            }
+        }
+
+    }
+
+    &__tooltip {
+        position: absolute;
+        top: 20px; // Positions it at the top of the card
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 6px 14px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        white-space: nowrap;
+        pointer-events: none; // Prevents the tooltip from interfering with clicks
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 10;
+        border: 1px solid rgba(197, 160, 89, 0.3); // Subtle gold border to match style
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid rgba(0, 0, 0, 0.8);
+        }
+    }
+
+    &__thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+        opacity: 0.8;
+    }
+
+    &__play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        z-index: 2;
+
+        i {
+            margin-left: 4px; // Optical centering for play icon
+        }
+    }
+
+    &__project-name {
+        color: var(--color-text-white);
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+
+    &__video-wrapper {
+        position: relative;
+        aspect-ratio: 16/9;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        background: #000;
+        margin-bottom: 15px;
+
+        &:hover {
+            .construction__thumbnail {
+                transform: scale(1.05);
+                opacity: 0.5; // Slightly dimmer on hover
+            }
+
+            .construction__play-btn {
+                background: var(--color-primary);
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+    }
+
+    &__thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+        opacity: 0.8;
+        display: block; // Prevents bottom whitespace
+    }
+
+    &__play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        z-index: 2;
+        pointer-events: none; // Allows click to pass through to wrapper
+    }
+
+    &__project-name {
+        color: var(--color-text-white);
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+}
+
+// --- Video Modal Styles ---
+.video-modal {
+    display: none; // Hidden by default
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+
+    &.active {
+        display: flex;
+    }
+
+    &__content {
+        width: 90%;
+        max-width: 1200px;
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    &__close {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        color: #fff;
+        font-size: 50px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+}
