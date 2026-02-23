@@ -59,8 +59,8 @@
     <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js" defer></script>
     <script src="{{ asset('frontend/assets/js/theme_toggle.js') }}" defer></script>
     <script src="{{ asset('frontend/assets/js/main.js') }}" defer></script>
-    <script src="{{ asset('frontend/assets/js/featured_projects.js') }}" defer></script>
-    <script src="{{ asset('frontend/assets/js/counter_animation.js') }}" defer></script>
+    {{-- <script src="{{ asset('frontend/assets/js/featured_projects.js') }}" defer></script>
+    <script src="{{ asset('frontend/assets/js/counter_animation.js') }}" defer></script> --}}
 
     @yield('scripts')
 

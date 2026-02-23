@@ -1,28 +1,4 @@
-// // New Cairo Coordinates
-// const newCairoCoords = [30.0074, 31.4913];
 
-// // Initialize Map
-// const map = L.map('map', {
-//     zoomControl: false // Disable default buttons to use our BEM buttons
-// }).setView(newCairoCoords, 13);
-
-// // Add OpenStreetMap Tiles
-// L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     maxZoom: 18,
-// }).addTo(map);
-
-// // Add a marker at the center
-// const marker = L.marker(newCairoCoords).addTo(map);
-// marker.bindPopup("<b>New Cairo</b><br>Egypt").openPopup();
-
-// // Connect Custom BEM Buttons
-// document.querySelector('.map-card__btn--zoom-in').addEventListener('click', () => {
-//     map.zoomIn();
-// });
-
-// document.querySelector('.map-card__btn--zoom-out').addEventListener('click', () => {
-//     map.zoomOut();
-// });
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Fix Leaflet Marker Icon 404s
     delete L.Icon.Default.prototype._getIconUrl;

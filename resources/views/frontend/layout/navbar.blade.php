@@ -65,7 +65,8 @@
             </li>
             <li class="menu-overlay__item">
                 <span class="menu-overlay__index">06</span>
-                <a href="prevoius_projects.html" class="menu-overlay__link">Previous Projects</a>
+                <a href="{{ route('frontend.previous_projects') }}" class="menu-overlay__link">Previous
+                    Projects</a>
             </li>
         </ul>
     </div>
