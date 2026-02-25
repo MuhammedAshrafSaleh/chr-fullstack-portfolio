@@ -5,82 +5,12 @@
         .footer {
             display: none;
         }
+
+        .project-item__container--reverse {
+            flex-direction: row-reverse;
+        }
     </style>
 @endsection
-
-{{-- @section('content')
-<!--================================================= prev projects -->
-<div class="project-showcase">
-    <!-- <header class="project-intro">
-                        <h1 class="project-intro__title">Previous Projects</h1>
-                        <p class="project-intro__subtitle">A curated showcase of our architectural legacy, featuring landmarks that
-                            redefine luxury and innovation in every detail.</p>
-                    </header> -->
-    <nav class="project-nav">
-        <ul class="project-nav__list">
-            <li class="project-nav__item"><a href="#project-1" class="project-nav__link project-nav__link--active"
-                    title="The Obsidian Tower"></a></li>
-            <li class="project-nav__item"><a href="#project-2" class="project-nav__link" title="Palm Riviera"></a>
-            </li>
-            <li class="project-nav__item"><a href="#project-3" class="project-nav__link" title="The Grand Marquee"></a>
-            </li>
-            <li class="project-nav__item"><a href="#project-4" class="project-nav__link"
-                    title="Skyline Business Park"></a></li>
-            <li class="project-nav__item"><a href="#project-5" class="project-nav__link" title="Azure Bay"></a></li>
-            <li class="project-nav__item"><a href="#project-6" class="project-nav__link" title="Amber Gardens"></a>
-            </li>
-            <li class="project-nav__item"><a href="#project-7" class="project-nav__link" title="The Corporate Axis"></a>
-            </li>
-            <li class="project-nav__item"><a href="#project-8" class="project-nav__link" title="Harbor Walk"></a>
-            </li>
-        </ul>
-    </nav>
-
-    <section class="project-item" id="project-1">
-        <div class="project-item__container">
-            <div class="project-item__visual">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
-                    alt="Obsidian Tower" class="project-item__img">
-            </div>
-            <div class="project-item__content">
-                <span class="project-item__label">Commercial Hub</span>
-                <h2 class="project-item__title">The Obsidian Tower</h2>
-                <p class="project-item__description">A 45-story smart commercial tower in Sheikh Zayed featuring
-                    state-of-the-art office spaces and luxury retail outlets.</p>
-                <div class="project__footer">
-                    <ul class="project-item__specs">
-                        <li><strong>Location:</strong> Sheikh Zayed City</li>
-                        <li><strong>Area:</strong> 25,000 SQM</li>
-                        <li><strong>Delivery:</strong> Completed 2024</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="project-item" id="project-2">
-        <div class="project-item__container project-item__container--reverse">
-            <div class="project-item__visual">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
-                    alt="Palm Riviera" class="project-item__img">
-            </div>
-            <div class="project-item__content">
-                <span class="project-item__label">Coastal Luxury</span>
-                <h2 class="project-item__title">Palm Riviera</h2>
-                <p class="project-item__description">Boutique waterfront villas on the North Coast with private
-                    lagoons and eco-conscious architectural design.</p>
-                <div class="project__footer">
-                    <ul class="project-item__specs">
-                        <li><strong>Location:</strong> Hacienda, North Coast</li>
-                        <li><strong>Units:</strong> 42 Private Villas</li>
-                        <li><strong>Status:</strong> Sold Out</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-@endsection --}}
 
 @section('content')
     <div class="project-showcase">
@@ -102,8 +32,7 @@
         {{-- Projects --}}
         @foreach ($projects as $index => $project)
             <section class="project-item" id="project-{{ $project->id }}">
-                <div class="project-item__container {{ $index % 2 !== 0 ? 'project-item__container--reverse' : '' }}">
-
+                <div class="project-item__container {{ $loop->index % 2 !== 0 ? 'project-item__container--reverse' : '' }}">
                     {{-- Image --}}
                     <div class="project-item__visual">
                         @if ($project->image)

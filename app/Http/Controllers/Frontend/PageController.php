@@ -3,14 +3,51 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
+use App\Models\CurrentProject;
 use App\Models\PreviousProject;
 
 class PageController extends Controller
 {
+    public function home()
+    {
+        $blogs = Blog::whereNotNull('published_at')
+            ->latest('published_at')
+            ->take(3)
+            ->get();
+
+        return view('frontend.home.home', compact('blogs'));
+    }
+
     public function previousProjects()
     {
         $projects = PreviousProject::latest()->get();
 
         return view('frontend.previous_projects.previous_projects', compact('projects'));
+    }
+
+    public function currentProjects()
+    {
+        $currentProjects = CurrentProject::with('project')->latest()->get();
+
+        return view('frontend.current_projects.current_projects', compact('currentProjects'));
+    }
+
+    // Blog Listing
+    public function blog()
+    {
+        $blogs = Blog::whereNotNull('published_at')
+            ->latest('published_at')
+            ->get();
+
+        return view('frontend.blog.blogs', compact('blogs'));
+    }
+
+    public function blogSingle($id)
+    {
+        $blog = Blog::whereNotNull('published_at')
+            ->findOrFail($id);
+
+        return view('frontend.blog.blog', compact('blog'));
     }
 }

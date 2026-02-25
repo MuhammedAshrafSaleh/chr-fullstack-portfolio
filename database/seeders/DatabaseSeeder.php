@@ -3,9 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\User;
-use App\Models\PreviousProject;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,7 +21,8 @@ class DatabaseSeeder extends Seeder
         // ]);
         // User::factory(1)->create();
         $this->call([
-            PreviousProjectSeeder::class,
+            ProjectSeeder::class,        // الأول
+            CurrentProjectSeeder::class, // التاني
         ]);
     }
 }

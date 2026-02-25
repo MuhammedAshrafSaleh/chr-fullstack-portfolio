@@ -53,7 +53,7 @@
             </li>
             <li class="menu-overlay__item">
                 <span class="menu-overlay__index">03</span>
-                <a href="blogs.html" class="menu-overlay__link">Blog</a>
+                <a href="{{ route('frontend.blogs') }}" class="menu-overlay__link">Blog</a>
             </li>
             <li class="menu-overlay__item">
                 <span class="menu-overlay__index">04</span>

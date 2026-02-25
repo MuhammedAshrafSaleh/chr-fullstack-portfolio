@@ -13,8 +13,10 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- CSS Libraries -->
+    {{--
+    <link rel="stylesheet" href="{{ asset('assets/css/plugins/selectric.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/summernote-bs4.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/plugins/selectric.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/bootstrap-tagsinput.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/bootstrap-timepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/daterangepicker.css') }}">
@@ -23,6 +25,8 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
+    @stack('css')
+
 </head>
 
 <body>
@@ -34,7 +38,7 @@
             @yield('content')
 
             @include('admin.layouts.footer')
-           
+
         </div>
     </div>
 
@@ -42,34 +46,20 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="{{ asset('assets/js/stisla.js') }}"></script>
 
-    <!-- JS Libraies -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.css"
-        integrity="sha512-ngQ4IGzHQ3s/Hh8kMyG4FC74wzitukRMIcTOoKT3EyzFZCILOPF0twiXOQn75eDINUfKBYmzYn2AA8DkAk8veQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="{{ asset('assets/js/plugins/jquery.selectric.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/jquery.selectric.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/jquery.selectric.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/jquery.selectric.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/jquery.selectric.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/jquery.selectric.min.js') }}"></script>
-
+    <script src="{{ asset('assets/js/plugins/summernote-bs4.js') }}"></script>
 
     <!-- Template JS File -->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
-    <script src="{{ asset('assets/js/scripts.js') }}"></script>
 
-    <!-- Page Specific JS File -->
-    <script src="{{ asset('assets/js/page/features-post-create.js') }}"></script>
-    <!-- Page Specific JS File -->
-    <script src="{{ asset('assets/js/page/features-post-create.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

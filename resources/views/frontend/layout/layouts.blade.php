@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
 
 <head>
     <meta charset="UTF-8">
@@ -31,13 +31,14 @@
     <link rel="manifest" href="{{ asset('frontend/assets/media/favicon_io/site.webmanifest') }}">
 
     <!-- Font Awesome - Load with defer to not block rendering -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </noscript>
 
-    @yield('css')
+    @stack('css')
 </head>
 
 
@@ -59,10 +60,11 @@
     <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js" defer></script>
     <script src="{{ asset('frontend/assets/js/theme_toggle.js') }}" defer></script>
     <script src="{{ asset('frontend/assets/js/main.js') }}" defer></script>
-    {{-- <script src="{{ asset('frontend/assets/js/featured_projects.js') }}" defer></script>
+    {{--
+    <script src="{{ asset('frontend/assets/js/featured_projects.js') }}" defer></script>
     <script src="{{ asset('frontend/assets/js/counter_animation.js') }}" defer></script> --}}
 
-    @yield('scripts')
+    @stack('scripts')
 
 </body>
 

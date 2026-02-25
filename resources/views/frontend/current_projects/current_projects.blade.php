@@ -1,21 +1,21 @@
 @extends('frontend.layout.layouts')
 
 @section('css')
-<style>
-    .footer {
-        display: none;
-    }
-</style>
+    <style>
+        .footer {
+            display: none;
+        }
+    </style>
 @endsection
 
 @section('content')
     <!--================================================= projects -->
     <div class="project-showcase">
         <!-- <header class="project-intro">
-                <h1 class="project-intro__title">Current Projects</h1>
-                <p class="project-intro__subtitle">A curated showcase of our architectural legacy, featuring landmarks that
-                    redefine luxury and innovation in every detail.</p>
-            </header> -->
+                        <h1 class="project-intro__title">Current Projects</h1>
+                        <p class="project-intro__subtitle">A curated showcase of our architectural legacy, featuring landmarks that
+                            redefine luxury and innovation in every detail.</p>
+                    </header> -->
 
         <nav class="project-nav">
             <ul class="project-nav__list">
