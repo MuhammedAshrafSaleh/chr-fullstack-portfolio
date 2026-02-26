@@ -21,8 +21,13 @@ class DatabaseSeeder extends Seeder
         // ]);
         // User::factory(1)->create();
         $this->call([
-            ProjectSeeder::class,        // الأول
-            CurrentProjectSeeder::class, // التاني
+            ProjectSeeder::class,
+            CurrentProjectSeeder::class,
+            ChrAboutSeeder::class,
+            AboutCeoSeeder::class,
+            TestimonialSeeder::class,
+            TeamSeeder::class,
+            AboutHeadingSeeder::class,
         ]);
     }
 }

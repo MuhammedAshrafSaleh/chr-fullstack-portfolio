@@ -1,5 +1,7 @@
 @extends('frontend.layout.layouts')
-
+@push('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+@endpush
 @section('content')
     @include('frontend.about.sections.chr_about')
     @include('frontend.about.sections.states')
@@ -7,10 +9,11 @@
     @include('frontend.about.sections.ceo_message')
     @include('frontend.about.sections.features')
     @include('frontend.about.sections.team')
-    
+
 @endsection
 
-@section('scripts')
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const swiper = new Swiper('.testimonials__slider', {
@@ -73,4 +76,4 @@
             });
         });
     </script>
-@endsection
+@endpush

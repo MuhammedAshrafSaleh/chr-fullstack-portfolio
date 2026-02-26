@@ -760,6 +760,6 @@
                 $('#createBlogModal').modal('show');
             @endif
 
-                                                        });
+                                                            });
     </script>
 @endpush

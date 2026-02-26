@@ -61,6 +61,33 @@
             </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>About</span></a>
+                <ul class="dropdown-menu" style="display: none;">
+                    <li>
+                        <a class="nav-link" href="{{ route('admin.chr_about.edit') }}">1. CHR About</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('admin.about_numbers.index') }}">2. About Numbers</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('admin.testimonials.index') }}">3. Testimonials</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('admin.about_ceo.edit') }}">4. About CEO</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('admin.features.index') }}">5. Features</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('admin.team.index') }}">6. Team</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('admin.about_headings.edit') }}">7. About Headings</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Contact Us Page</span></a>
                 <ul class="dropdown-menu" style="display: none;">
                     <li><a class="nav-link" href="{{ route('admin.coordinates.edit') }}">1. Map</a></li>
@@ -90,6 +117,7 @@
                     </li>
                 </ul>
             </li>
+
             {{-- <li>
                 <a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a>
             </li> --}}

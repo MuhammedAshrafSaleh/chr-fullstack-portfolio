@@ -45,7 +45,8 @@
         <ul class="menu-overlay__list">
             <li class="menu-overlay__item">
                 <span class="menu-overlay__index">01</span>
-                <a href="about.html" class="menu-overlay__link menu-overlay__link--active">About</a>
+                <a href="{{ route('frontend.about.index') }}"
+                    class="menu-overlay__link menu-overlay__link--active">About</a>
             </li>
             <li class="menu-overlay__item">
                 <span class="menu-overlay__index">02</span>

@@ -1,12 +1,20 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutCeoController;
+use App\Http\Controllers\Admin\AboutHeadingController;
+use App\Http\Controllers\Admin\AboutNumberController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\ChrAboutController;
 use App\Http\Controllers\Admin\CoordinateController;
 use App\Http\Controllers\Admin\CurrentProjectController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\Home\HeroController;
 use App\Http\Controllers\Admin\PreviousProjectController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\ContactUsController;
 use App\Http\Controllers\Frontend\PageController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +45,7 @@ Route::get('/lang/{locale}', function ($locale) {
 // ── Frontend ────────────────────────────────────────────
 Route::group(['as' => 'frontend.'], function () {
     Route::get('/', [PageController::class, 'home'])->name('home');
+    Route::get('/about', [AboutController::class, 'index'])->name('about.index');
     Route::get('/previous_projects', [PageController::class, 'previousProjects'])->name('previous_projects');
     Route::get('/contact_us', [ContactUsController::class, 'index'])->name('contact_us');
     Route::get('/current_projects', [PageController::class, 'currentProjects'])->name('current_projects');
@@ -56,9 +65,20 @@ require __DIR__.'/auth.php';
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('hero', HeroController::class);
+    Route::resource('about_numbers', AboutNumberController::class);
+    Route::resource('testimonials', TestimonialController::class);
     Route::resource('previous_projects', PreviousProjectController::class);
     Route::resource('current_projects', CurrentProjectController::class);
+    Route::resource('features', FeatureController::class);
+    Route::resource('team', TeamController::class);
     Route::resource('/blogs', BlogController::class);
     Route::get('coordinates/edit', [CoordinateController::class, 'edit'])->name('coordinates.edit');
     Route::put('coordinates/update', [CoordinateController::class, 'update'])->name('coordinates.update');
+    Route::get('chr_about/edit', [ChrAboutController::class, 'edit'])->name('chr_about.edit');
+    Route::put('chr_about/update', [ChrAboutController::class, 'update'])->name('chr_about.update');
+    Route::get('about_ceo/edit', [AboutCeoController::class, 'edit'])->name('about_ceo.edit');
+    Route::put('about_ceo/update', [AboutCeoController::class, 'update'])->name('about_ceo.update');
+    Route::get('about_headings/edit', [AboutHeadingController::class, 'edit'])->name('about_headings.edit');
+    Route::put('about_headings/update', [AboutHeadingController::class, 'update'])->name('about_headings.update');
+
 });
