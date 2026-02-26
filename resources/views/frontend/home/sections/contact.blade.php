@@ -146,13 +146,20 @@
         <div class="contact__form-wrapper">
             <h2 class="contact__title">{{ __('app.request_a_call') }}</h2>
 
-            <form class="contact-form" id="contactForm">
+            {{-- Success / Error messages (hidden by default, shown via JS) --}}
+            <div id="formSuccess" style="display:none; color: green; margin-bottom: 12px;"></div>
+            <div id="formError" style="display:none; color: red;   margin-bottom: 12px;"></div>
+
+            <form class="contact-form" id="contactForm" action="{{ route('frontend.clients-requests.store') }}"
+                method="POST">
+
+                @csrf
 
                 <!-- Row 1: Name & Email -->
                 <div class="contact-form__row">
                     <div class="form-group">
                         <label for="fullName" class="form-group__label">{{ __('app.full_name') }}</label>
-                        <input type="text" id="fullName" name="fullName" class="form-group__input"
+                        <input type="text" id="fullName" name="full_name" class="form-group__input"
                             placeholder="{{ __('app.full_name_placeholder') }}" required>
                     </div>
 
@@ -188,7 +195,7 @@
                 <!-- Date Field -->
                 <div class="form-group">
                     <label for="date" class="form-group__label">{{ __('app.preferred_date') }}</label>
-                    <input type="date" id="date" name="date" class="form-group__input" required>
+                    <input type="date" id="date" name="preferred_date" class="form-group__input" required>
                 </div>
 
                 <!-- Role Field -->
@@ -196,105 +203,132 @@
                     <label for="role" class="form-group__label">{{ __('app.your_role') }}</label>
                     <select id="role" name="role" class="form-group__select" required>
                         <option value="" disabled selected>{{ __('app.role_placeholder') }}</option>
-                        <option value="ceo">CEO</option>
-                        <option value="project-manager">Project Manager</option>
-                        <option value="senior-engineer">Senior Engineer</option>
-                        <option value="engineer">Engineer</option>
-                        <option value="investor">Investor</option>
-                        <option value="other">Other</option>
+                        <option value="CEO">CEO</option>
+                        <option value="Manager">Project Manager</option>
+                        <option value="Developer">Senior Engineer</option>
+                        <option value="Designer">Engineer</option>
+                        <option value="Other">Investor</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
 
                 <!-- Time Field -->
                 <div class="form-group">
                     <label for="time" class="form-group__label">{{ __('app.preferred_time') }}</label>
-                    <input type="time" id="time" name="time" class="form-group__input" required>
+                    <input type="time" id="time" name="preferred_time" class="form-group__input" required>
                 </div>
 
                 <!-- Submit Button -->
-                <button type="submit" class="project-info__cta">
+                <button type="submit" class="project-info__cta" id="submitBtn">
                     <span class="project-info__cta-icon">+</span>
                     <span class="project-info__cta-text">{{ __('app.submit') }}</span>
                 </button>
 
             </form>
         </div>
-        {{-- <div class="contact__form-wrapper">
-            <h2 class="contact__title">REQUEST A CALL</h2>
-
-            <form class="contact-form" id="contactForm">
-
-                <!-- Row 1: Name & Email -->
-                <div class="contact-form__row">
-                    <div class="form-group">
-                        <label for="fullName" class="form-group__label">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" class="form-group__input"
-                            placeholder="Enter your name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" class="form-group__label">Email</label>
-                        <input type="email" id="email" name="email" class="form-group__input"
-                            placeholder="Your work email" required>
-                    </div>
-                </div>
-
-                <!-- Row 2: Telephone & Company -->
-                <div class="contact-form__row">
-                    <div class="form-group">
-                        <label for="telephone" class="form-group__label">Telephone</label>
-                        <input type="tel" id="telephone" name="telephone" class="form-group__input"
-                            placeholder="Your direct number" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="company" class="form-group__label">Company</label>
-                        <input type="text" id="company" name="company" class="form-group__input"
-                            placeholder="Your company name">
-                    </div>
-                </div>
-
-                <!-- Row 3: Subject -->
-                <div class="form-group">
-                    <label for="subject" class="form-group__label">Subject</label>
-                    <input type="text" id="subject" name="subject" class="form-group__input"
-                        placeholder="Message subject" required>
-                </div>
-
-                <!-- Date Field -->
-                <div class="form-group">
-                    <label for="date" class="form-group__label">Preferred Date</label>
-                    <input type="date" id="date" name="date" class="form-group__input" required>
-                </div>
-
-                <!-- Role Field -->
-                <div class="form-group">
-                    <label for="role" class="form-group__label">Your Role</label>
-                    <select id="role" name="role" class="form-group__select" required>
-                        <option value="" disabled selected>Select your role</option>
-                        <option value="ceo">CEO</option>
-                        <option value="project-manager">Project Manager</option>
-                        <option value="senior-engineer">Senior Engineer</option>
-                        <option value="engineer">Engineer</option>
-                        <option value="investor">Investor</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <!-- Time Field -->
-                <div class="form-group">
-                    <label for="time" class="form-group__label">Preferred Time</label>
-                    <input type="time" id="time" name="time" class="form-group__input" required>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="project-info__cta">
-                    <span class="project-info__cta-icon">+</span>
-                    <span class="project-info__cta-text">Submit</span>
-                </button>
-
-            </form>
-        </div> --}}
 
     </div>
 </section>
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const errorBox = document.getElementById('formError');
+
+            errorBox.style.display = 'none';
+            submitBtn.disabled = true;
+
+            fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                    'Accept': 'application/json',
+                },
+                body: new FormData(form),
+            })
+                .then(response => response.json().then(data => ({ status: response.status, data })))
+                .then(({ status, data }) => {
+                    if (status === 200 || status === 201) {
+                        form.reset();
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: '{{ __('app.form_success_title') }}',
+                            text: data.message ?? '{{ __('app.form_success') }}',
+                            confirmButtonText: 'OK',
+                        });
+
+                    } else {
+                        if (data.errors) {
+                            const messages = Object.values(data.errors).flat().join(' | ');
+                            errorBox.textContent = messages;
+                        } else {
+                            errorBox.textContent = data.message ?? '{{ __('app.form_error') }}';
+                        }
+                        errorBox.style.display = 'block';
+                    }
+                })
+                .catch(() => {
+                    errorBox.textContent = '{{ __('app.form_error') }}';
+                    errorBox.style.display = 'block';
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                });
+        });
+    </script>
+    {{--
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const successBox = document.getElementById('formSuccess');
+            const errorBox = document.getElementById('formError');
+
+            // Reset state
+            successBox.style.display = 'none';
+            errorBox.style.display = 'none';
+            submitBtn.disabled = true;
+
+            fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                    'Accept': 'application/json',
+                },
+                body: new FormData(form),
+            })
+                .then(response => response.json().then(data => ({ status: response.status, data })))
+                .then(({ status, data }) => {
+                    if (status === 200 || status === 201) {
+                        form.reset();
+                        successBox.textContent = data.message ?? '{{ __('app.form_success') }}';
+                        successBox.style.display = 'block';
+                    } else {
+                        // Laravel validation errors come as { errors: { field: [...] } }
+                        if (data.errors) {
+                            const messages = Object.values(data.errors).flat().join(' | ');
+                            errorBox.textContent = messages;
+                        } else {
+                            errorBox.textContent = data.message ?? '{{ __('app.form_error') }}';
+                        }
+                        errorBox.style.display = 'block';
+                    }
+                })
+                .catch(() => {
+                    errorBox.textContent = '{{ __('app.form_error') }}';
+                    errorBox.style.display = 'block';
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                });
+        });
+    </script> --}}
+@endpush

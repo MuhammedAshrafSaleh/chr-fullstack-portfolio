@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             HeroSeeder::class,
             ContactLocationsSeeder::class,
             CurrentProjectSeeder::class,
+            ClientRequestSeeder::class,
         ]);
     }
 }

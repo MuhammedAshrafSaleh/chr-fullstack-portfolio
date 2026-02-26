@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\About\FeatureController;
 use App\Http\Controllers\Admin\About\TeamController;
 use App\Http\Controllers\Admin\About\TestimonialController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\ContactUs\ClientRequestController;
 use App\Http\Controllers\Admin\ContactUs\ContactLocationsController;
 use App\Http\Controllers\Admin\ContactUs\CoordinateController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -50,6 +51,7 @@ Route::group(['as' => 'frontend.'], function () {
     Route::get('/about', [AboutController::class, 'index'])->name('about.index');
     Route::get('/previous_projects', [PageController::class, 'previousProjects'])->name('previous_projects');
     Route::get('/contact_us', [ContactUsController::class, 'index'])->name('contact_us');
+    Route::post('/clients-requests', [ContactUsController::class, 'store'])->name('clients-requests.store')->middleware('throttle:5,1');
     Route::get('/current_projects', [PageController::class, 'currentProjects'])->name('current_projects');
     Route::get('/blogs', [PageController::class, 'blog'])->name('blogs');
     Route::get('/blog/{id}', [PageController::class, 'blogSingle'])->name('blog.single');
@@ -71,6 +73,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('previous_projects', PreviousProjectController::class);
     Route::resource('current_projects', CurrentProjectController::class);
     Route::resource('features', FeatureController::class);
+    Route::resource('clients_requests', ClientRequestController::class);
     Route::resource('team', TeamController::class);
     Route::resource('/blogs', BlogController::class);
     Route::get('coordinates/edit', [CoordinateController::class, 'edit'])->name('coordinates.edit');

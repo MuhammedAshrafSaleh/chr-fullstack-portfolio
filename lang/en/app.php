@@ -19,4 +19,9 @@ return [
     'role_placeholder' => 'Select your role',
     'preferred_time' => 'Preferred Time',
     'submit' => 'SUBMIT',
+
+    // 'form_success' => 'Your request has been submitted successfully. We will contact you soon.',
+    'form_error' => 'Something went wrong. Please try again.',
+    'form_success_title' => 'Request Sent!',       // ar: 'تم الإرسال!'
+    'form_success' => 'We will contact you shortly.',  // ar: 'سنتواصل معك قريباً.
 ];

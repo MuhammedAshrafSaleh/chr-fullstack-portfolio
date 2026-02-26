@@ -20,4 +20,8 @@ return [
     'role_placeholder' => 'اختر وظيفتك',
     'preferred_time' => 'الوقت المفضل',
     'submit' => 'إرسال',
+
+    'form_success' => 'تم إرسال طلبك بنجاح. سنتواصل معك قريباً.',
+    'form_error' => 'حدث خطأ ما. يرجى المحاولة مرة أخرى.',
+    'form_success_title' => 'تم الإرسال',
 ];
