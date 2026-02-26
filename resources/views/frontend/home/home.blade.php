@@ -21,7 +21,8 @@
     @include('frontend.home.sections.contact')
 @endsection
 
-@section('scripts')
-    <script src="{{ asset('frontend/assets/js/featured_projects.js') }}" defer></script>
+@push('scripts')
+    {{--
+    <script src="{{ asset('frontend/assets/js/featured_projects.js') }}" defer></script> --}}
     <script src="{{ asset('frontend/assets/js/counter_animation.js') }}" defer></script>
-@endsection
+@endpush

@@ -8,21 +8,11 @@ use Spatie\Translatable\HasTranslations;
 
 class Hero extends Model
 {
-    use HasTranslations;
-    use HasFactory;
-    protected $fillable = [
-        'title', 
-        'subtitle', 
-        'button_name', 
-        'button_url', 
-        'video_url', 
-        'status'
-    ];
+    use HasFactory,HasTranslations;
 
-    public $translatable = ['title', 'subtitle', 'button_name'];
+    protected $table = 'hero';
 
-    // Ensure JSON fields are handled correctly by Laravel's underlying layer
-    protected $casts = [
-        'status' => 'boolean',
-    ];
+    public $translatable = ['title', 'description'];
+
+    protected $fillable = ['title', 'description', 'video'];
 }

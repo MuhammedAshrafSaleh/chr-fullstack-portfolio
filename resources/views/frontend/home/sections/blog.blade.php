@@ -32,7 +32,7 @@
             <a href="{{ route('frontend.blogs') }}" style="text-decoration: none;">
                 <button class="project-info__cta">
                     <span class="project-info__cta-icon">+</span>
-                    <span class="project-info__cta-text">More Blogs</span>
+                    <span class="project-info__cta-text">{{ __('app.more_blogs') }}</span>
                 </button>
             </a>
         </div>

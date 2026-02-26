@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutHome;
 use App\Models\Blog;
+use App\Models\ContactLocations;
 use App\Models\CurrentProject;
+use App\Models\Hero;
 use App\Models\PreviousProject;
 
 class PageController extends Controller
@@ -15,8 +18,12 @@ class PageController extends Controller
             ->latest('published_at')
             ->take(3)
             ->get();
+        $aboutHome = AboutHome::firstOrFail();
+        $hero = Hero::first();
+        $contactLocations = ContactLocations::firstOrFail();
+        $currentProjects = CurrentProject::latest()->get();
 
-        return view('frontend.home.home', compact('blogs'));
+        return view('frontend.home.home', compact('blogs', 'aboutHome', 'hero', 'contactLocations', 'currentProjects'));
     }
 
     public function previousProjects()
@@ -28,7 +35,7 @@ class PageController extends Controller
 
     public function currentProjects()
     {
-        $currentProjects = CurrentProject::with('project')->latest()->get();
+        $currentProjects = CurrentProject::latest()->get();
 
         return view('frontend.current_projects.current_projects', compact('currentProjects'));
     }

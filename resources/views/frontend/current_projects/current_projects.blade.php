@@ -1,269 +1,88 @@
 @extends('frontend.layout.layouts')
 
-@section('css')
+@push('css')
     <style>
         .footer {
             display: none;
         }
     </style>
-@endsection
+@endpush
 
 @section('content')
     <!--================================================= projects -->
     <div class="project-showcase">
-        <!-- <header class="project-intro">
-                        <h1 class="project-intro__title">Current Projects</h1>
-                        <p class="project-intro__subtitle">A curated showcase of our architectural legacy, featuring landmarks that
-                            redefine luxury and innovation in every detail.</p>
-                    </header> -->
-
         <nav class="project-nav">
             <ul class="project-nav__list">
-                <li class="project-nav__item"><a href="#project-1" class="project-nav__link project-nav__link--active"
-                        title="The Obsidian Tower"></a></li>
-                <li class="project-nav__item"><a href="#project-2" class="project-nav__link" title="Palm Riviera"></a>
-                </li>
-                <li class="project-nav__item"><a href="#project-3" class="project-nav__link" title="The Grand Marquee"></a>
-                </li>
-                <li class="project-nav__item"><a href="#project-4" class="project-nav__link"
-                        title="Skyline Business Park"></a></li>
-                <li class="project-nav__item"><a href="#project-5" class="project-nav__link" title="Azure Bay"></a></li>
-                <li class="project-nav__item"><a href="#project-6" class="project-nav__link" title="Amber Gardens"></a>
-                </li>
-                <li class="project-nav__item"><a href="#project-7" class="project-nav__link" title="The Corporate Axis"></a>
-                </li>
-                <li class="project-nav__item"><a href="#project-8" class="project-nav__link" title="Harbor Walk"></a>
-                </li>
+                @foreach ($currentProjects as $project)
+                    <li class="project-nav__item">
+                        <a href="#project-{{ $project->id }}"
+                            class="project-nav__link {{ $loop->first ? 'project-nav__link--active' : '' }}"
+                            title="{{ $project->getTranslation('title', app()->getLocale()) }}">
+                        </a>
+                    </li>
+                @endforeach
             </ul>
         </nav>
+        @foreach ($currentProjects as $project)
+            <section class="project-item" id="project-{{ $project->id }}">
+                <div class="project-item__container {{ $loop->even ? 'project-item__container--reverse' : '' }}">
 
-        <section class="project-item" id="project-1">
-            <div class="project-item__container">
-
-                <div class="project-item__visual">
-                    <a href="project_details.html" style="text-decoration: none;">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
-                            alt="Obsidian Tower" class="project-item__img">
-                        <span class="tooltip">See fullproject</span>
-                    </a>
-                </div>
-
-                <div class="project-item__content">
-                    <span class="project-item__label">Commercial Hub</span>
-                    <h2 class="project-item__title">The Obsidian Tower</h2>
-                    <p class="project-item__description">A 45-story smart commercial tower in Sheikh Zayed featuring
-                        state-of-the-art office spaces and luxury retail outlets.</p>
-                    <div class="project__footer">
-                        <ul class="project-item__specs">
-                            <li><strong>Location:</strong> Sheikh Zayed City</li>
-                            <li><strong>Area:</strong> 25,000 SQM</li>
-                            <li><strong>Delivery:</strong> Completed 2024</li>
-                        </ul>
-                        <a href="project_details.html" style="text-decoration: none;">
-                            <button class="project-info__cta">
-                                <span class="project-info__cta-icon">+</span>
-                                <span class="project-info__cta-text">View Project</span>
-                            </button>
-                        </a>
+                    <div class="project-item__visual">
+                        {{-- <a href="{{ route('current_projects.show', $project->id) }}" style="text-decoration: none;"> --}}
+                            @if ($project->image)
+                                <img src="{{ asset('storage/' . $project->image) }}"
+                                    alt="{{ $project->getTranslation('title', app()->getLocale()) }}" class="project-item__img">
+                            @else
+                                <img src="{{ asset('images/placeholder.jpg') }}"
+                                    alt="{{ $project->getTranslation('title', app()->getLocale()) }}" class="project-item__img">
+                            @endif
+                            <span class="tooltip">See full project</span>
+                            {{-- </a> --}}
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="project-item" id="project-2">
-            <div class="project-item__container project-item__container--reverse">
-                <div class="project-item__visual">
-                    <a href="project_details.html" style="text-decoration: none;">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
-                            alt="Palm Riviera" class="project-item__img">
-                        <span class="tooltip">See full
-                            project</span>
-                    </a>
-
-                </div>
-                <div class="project-item__content">
-                    <span class="project-item__label">Coastal Luxury</span>
-                    <h2 class="project-item__title">Palm Riviera</h2>
-                    <p class="project-item__description">Boutique waterfront villas on the North Coast with private
-                        lagoons and eco-conscious architectural design.</p>
-                    <div class="project__footer">
-                        <ul class="project-item__specs">
-                            <li><strong>Location:</strong> Hacienda, North Coast</li>
-                            <li><strong>Units:</strong> 42 Private Villas</li>
-                            <li><strong>Status:</strong> Sold Out</li>
-                        </ul>
-                        <a href="project_details.html" style="text-decoration: none;">
-                            <button class="project-info__cta">
-                                <span class="project-info__cta-icon">+</span>
-                                <span class="project-info__cta-text">View Project</span>
-                            </button>
-                        </a>
+                    <div class="project-item__content">
+                        <span class="project-item__label">
+                            {{ $project->getTranslation('subtitle', app()->getLocale()) }}
+                        </span>
+                        <h2 class="project-item__title">
+                            {{ $project->getTranslation('title', app()->getLocale()) }}
+                        </h2>
+                        <p class="project-item__description">
+                            {{ $project->getTranslation('description', app()->getLocale()) }}
+                        </p>
+                        <div class="project__footer">
+                            <ul class="project-item__specs">
+                                <li>
+                                    <strong>{{ app()->getLocale() === 'ar' ? 'الموقع' : 'Location' }}:</strong>
+                                    {{ $project->getTranslation('location', app()->getLocale()) }}
+                                </li>
+                                <li>
+                                    <strong>{{ app()->getLocale() === 'ar' ? 'المساحة' : 'Area' }}:</strong>
+                                    {{ $project->getTranslation('size', app()->getLocale()) }}
+                                </li>
+                                <li>
+                                    <strong>{{ app()->getLocale() === 'ar' ? 'الحالة' : 'Status' }}:</strong>
+                                    {{ $project->getTranslation('status', app()->getLocale()) }}
+                                </li>
+                            </ul>
+                            {{-- <a href="{{ route('current_projects.show', $project->id) }}" style="text-decoration: none;">
+                                <button class="project-info__cta">
+                                    <span class="project-info__cta-icon">+</span>
+                                    <span class="project-info__cta-text">
+                                        {{ app()->getLocale() === 'ar' ? 'عرض المشروع' : 'View Project' }}
+                                    </span>
+                                </button>
+                            </a> --}}
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="project-item" id="project-4">
-            <div class="project-item__container project-item__container--reverse">
-                <div class="project-item__visual">
-                    <a href="project_details.html" style="text-decoration: none;">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
-                            alt="Skyline Business Park" class="project-item__img">
-                        <span class="tooltip">See full
-                            project</span></a>
                 </div>
-                <div class="project-item__content">
-                    <span class="project-item__label">Corporate Hub</span>
-                    <h2 class="project-item__title">Skyline Business Park</h2>
-                    <p class="project-item__description">LEED-certified sustainable office spaces designed for
-                        international firms and high-tech headquarters.</p>
-                    <div class="project__footer">
-                        <ul class="project-item__specs">
-                            <li><strong>Location:</strong> New Administrative Capital</li>
-                            <li><strong>Size:</strong> 25,000 SQM</li>
-                            <li><strong>Status:</strong> Handing Over</li>
-                        </ul>
-                        <a href="project_details.html" style="text-decoration: none;">
-                            <button class="project-info__cta">
-                                <span class="project-info__cta-icon">+</span>
-                                <span class="project-info__cta-text">View Project</span>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-item" id="project-5">
-            <div class="project-item__container">
-                <div class="project-item__visual">
-                    <a href="project_details.html" style="text-decoration: none;">
-                        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=80"
-                            alt="Azure Bay" class="project-item__img">
-                        <span class="tooltip">See full
-                            project</span>
-                    </a>
-                </div>
-                <div class="project-item__content">
-                    <span class="project-item__label">Waterfront Living</span>
-                    <h2 class="project-item__title">Azure Bay</h2>
-                    <p class="project-item__description">Luxury high-rise apartments offering 360° Mediterranean views
-                        and integrated smart-home technology.</p>
-                    <div class="project__footer">
-                        <ul class="project-item__specs">
-                            <li><strong>Location:</strong> New El Alamein</li>
-                            <li><strong>Floor:</strong> 42 Residential Floors</li>
-                            <li><strong>Completion:</strong> Q4 2026</li>
-                        </ul>
-                        <a href="project_details.html" style="text-decoration: none;">
-                            <button class="project-info__cta">
-                                <span class="project-info__cta-icon">+</span>
-                                <span class="project-info__cta-text">View Project</span>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-item" id="project-6">
-            <div class="project-item__container project-item__container--reverse">
-                <div class="project-item__visual">
-                    <a href="project_details.html" style="text-decoration: none;">
-                        <img src="https://images.unsplash.com/photo-1590608897129-79da98d15969?auto=format&fit=crop&w=1200&q=80"
-                            alt="Amber Gardens" class="project-item__img">
-                        <span class="tooltip">See full
-                            project</span>
-                    </a>
-                </div>
-                <div class="project-item__content">
-                    <span class="project-item__label">Family Community</span>
-                    <h2 class="project-item__title">Amber Gardens</h2>
-                    <p class="project-item__description">A family-centric gated community featuring 70% greenery,
-                        pedestrian-only walkways, and a central social club.</p>
-                    <div class="project__footer">
-                        <ul class="project-item__specs">
-                            <li><strong>Location:</strong> 6th of October City</li>
-                            <li><strong>Area:</strong> 45 Acres</li>
-                            <li><strong>Status:</strong> Under Construction</li>
-                        </ul>
-                        <a href="project_details.html" style="text-decoration: none;">
-                            <button class="project-info__cta">
-                                <span class="project-info__cta-icon">+</span>
-                                <span class="project-info__cta-text">View Project</span>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-        </section>
-
-        <section class="project-item" id="project-7">
-            <div class="project-item__container">
-                <div class="project-item__visual">
-                    <a href="project_details.html" style="text-decoration: none;">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
-                            alt="The Corporate Axis" class="project-item__img">
-                        <span class="tooltip">See full
-                            project</span>
-                    </a>
-                </div>
-                <div class="project-item__content">
-                    <span class="project-item__label">Modern Workspace</span>
-                    <h2 class="project-item__title">The Corporate Axis</h2>
-                    <p class="project-item__description">Prime office developments integrated with world-class wellness
-                        facilities and professional business lounges.</p>
-                    <div class="project__footer">
-                        <ul class="project-item__specs">
-                            <li><strong>Location:</strong> Golden Square, New Cairo</li>
-                            <li><strong>Design:</strong> Award-winning Architecture</li>
-                            <li><strong>Occupancy:</strong> 85% Leased</li>
-                        </ul>
-                        <a href="project_details.html" style="text-decoration: none;">
-                            <button class="project-info__cta">
-                                <span class="project-info__cta-icon">+</span>
-                                <span class="project-info__cta-text">View Project</span>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-item" id="project-8">
-            <div class="project-item__container project-item__container--reverse">
-                <div class="project-item__visual">
-                    <a href="project_details.html" style="text-decoration: none;">
-                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80"
-                            alt="The Obsidian Tower" class="project-item__img">
-                        <span class="tooltip">See full
-                            project</span>
-                    </a>
-                </div>
-                <div class="project-item__content">
-                    <span class="project-item__label">Retail & Heritage</span>
-                    <h2 class="project-item__title">Harbor Walk</h2>
-                    <p class="project-item__description">A premium retail promenade and heritage apartments blending
-                        historical charm with modern luxury.</p>
-                    <div class="project__footer">
-                        <ul class="project-item__specs">
-                            <li><strong>Location:</strong> Corniche, Alexandria</li>
-                            <li><strong>Units:</strong> 85 Boutique Units</li>
-                            <li><strong>Launch:</strong> Spring 2026</li>
-                        </ul>
-                        <a href="project_details.html" style="text-decoration: none;">
-                            <button class="project-info__cta">
-                                <span class="project-info__cta-icon">+</span>
-                                <span class="project-info__cta-text">View Project</span>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        @endforeach
     </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
     <script>
         const container = document.querySelector('.project-showcase');
         const sections = document.querySelectorAll('.project-item');
@@ -345,4 +164,4 @@
             });
         });
     </script>
-@endsection
+@endpush

@@ -1,19 +1,21 @@
 <?php
 
-use App\Http\Controllers\Admin\AboutCeoController;
-use App\Http\Controllers\Admin\AboutHeadingController;
-use App\Http\Controllers\Admin\AboutNumberController;
+use App\Http\Controllers\Admin\About\AboutCeoController;
+use App\Http\Controllers\Admin\About\AboutHeadingController;
+use App\Http\Controllers\Admin\About\AboutNumberController;
+use App\Http\Controllers\Admin\About\ChrAboutController;
+use App\Http\Controllers\Admin\About\FeatureController;
+use App\Http\Controllers\Admin\About\TeamController;
+use App\Http\Controllers\Admin\About\TestimonialController;
 use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\ChrAboutController;
-use App\Http\Controllers\Admin\CoordinateController;
-use App\Http\Controllers\Admin\CurrentProjectController;
+use App\Http\Controllers\Admin\ContactUs\ContactLocationsController;
+use App\Http\Controllers\Admin\ContactUs\CoordinateController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\Home\AboutHomeController;
 use App\Http\Controllers\Admin\Home\HeroController;
 use App\Http\Controllers\Admin\PreviousProjectController;
 use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\TeamController;
-use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\Projects\CurrentProjectController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\ContactUsController;
 use App\Http\Controllers\Frontend\PageController;
@@ -64,7 +66,6 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::resource('hero', HeroController::class);
     Route::resource('about_numbers', AboutNumberController::class);
     Route::resource('testimonials', TestimonialController::class);
     Route::resource('previous_projects', PreviousProjectController::class);
@@ -80,5 +81,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::put('about_ceo/update', [AboutCeoController::class, 'update'])->name('about_ceo.update');
     Route::get('about_headings/edit', [AboutHeadingController::class, 'edit'])->name('about_headings.edit');
     Route::put('about_headings/update', [AboutHeadingController::class, 'update'])->name('about_headings.update');
-
+    Route::get('about_home/edit', [AboutHomeController::class, 'edit'])->name('about_home.edit');
+    Route::put('about_home/update', [AboutHomeController::class, 'update'])->name('about_home.update');
+    Route::get('hero/edit', [HeroController::class, 'edit'])->name('hero.edit');
+    Route::put('hero/update', [HeroController::class, 'update'])->name('hero.update');
+    Route::get('contact_locations/edit', [ContactLocationsController::class, 'edit'])
+        ->name('contact_locations.edit');
+    Route::put('contact_locations/update', [ContactLocationsController::class, 'update'])
+        ->name('contact_locations.update');
 });

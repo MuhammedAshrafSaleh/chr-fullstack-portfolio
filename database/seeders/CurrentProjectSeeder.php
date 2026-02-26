@@ -12,6 +12,6 @@ class CurrentProjectSeeder extends Seeder
      */
     public function run(): void
     {
-        CurrentProject::factory()->count(5)->create();
+        CurrentProject::factory()->count(6)->create();
     }
 }

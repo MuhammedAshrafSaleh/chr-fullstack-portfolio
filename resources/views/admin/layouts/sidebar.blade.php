@@ -55,8 +55,8 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Home</span></a>
                 <ul class="dropdown-menu" style="display: none;">
-                    <li><a class="nav-link" href="{{ route('admin.hero.index') }}">1. Hero Section</a></li>
-
+                    <li><a class="nav-link" href="{{ route('admin.hero.edit') }}">1. Hero Section</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.about_home.edit') }}">2. About Home Section</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
@@ -91,6 +91,8 @@
                     <span>Contact Us Page</span></a>
                 <ul class="dropdown-menu" style="display: none;">
                     <li><a class="nav-link" href="{{ route('admin.coordinates.edit') }}">1. Map</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.contact_locations.edit') }}">2. Contact Locations</a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item dropdown">

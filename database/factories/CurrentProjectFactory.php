@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Project;
+use App\Models\CurrentProject;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,35 +15,36 @@ class CurrentProjectFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = CurrentProject::class;
+
     public function definition(): array
     {
         return [
             'title' => [
-                'en' => $this->faker->sentence(3),
-                'ar' => 'مشروع '.$this->faker->word(),
+                'en' => fake()->sentence(3),
+                'ar' => 'مشروع: '.fake()->word(),
             ],
             'subtitle' => [
-                'en' => $this->faker->sentence(5),
-                'ar' => 'عنوان فرعي '.$this->faker->word(),
+                'en' => fake()->sentence(2),
+                'ar' => 'وصف: '.fake()->word(),
             ],
             'description' => [
-                'en' => $this->faker->paragraph(3),
-                'ar' => 'وصف المشروع: '.$this->faker->paragraph(2),
+                'en' => fake()->paragraph(),
+                'ar' => 'تفاصيل: '.fake()->paragraph(),
             ],
             'location' => [
-                'en' => $this->faker->city().', '.$this->faker->country(),
-                'ar' => 'مدينة '.$this->faker->city(),
+                'en' => fake()->city().', Egypt',
+                'ar' => fake()->city().'، مصر',
             ],
             'size' => [
-                'en' => $this->faker->numberBetween(100, 5000).' sqm',
-                'ar' => $this->faker->numberBetween(100, 5000).' متر مربع',
+                'en' => fake()->numberBetween(10, 500).',000 sqm',
+                'ar' => fake()->numberBetween(10, 500).',000 متر مربع',
             ],
             'status' => [
-                'en' => $this->faker->randomElement(['In Progress', 'Under Review', 'Planning']),
-                'ar' => $this->faker->randomElement(['قيد التنفيذ', 'قيد المراجعة', 'مرحلة التخطيط']),
+                'en' => fake()->randomElement(['Under Construction', 'Completed', 'Coming Soon']),
+                'ar' => fake()->randomElement(['تحت الإنشاء', 'مكتمل', 'قريباً']),
             ],
-            'image' => 'default-project.jpg',
-            'project_id' => Project::inRandomOrder()->first()->id,
+            'image' => null,
         ];
     }
 }
