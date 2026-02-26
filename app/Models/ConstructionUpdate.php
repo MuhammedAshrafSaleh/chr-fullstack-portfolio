@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class ProjectDetail extends Model
+class ConstructionUpdate extends Model
 {
     use HasFactory, HasTranslations;
 
     public $translatable = ['title', 'subtitle'];
 
-    protected $fillable = ['project_id', 'title', 'subtitle'];
+    protected $fillable = ['title', 'video', 'subtitle'];
 
-    public function project()
+    public function projects()
     {
-        return $this->belongsTo(Project::class);
+        return $this->hasOne(ConstructionUpdateProject::class);
     }
 }

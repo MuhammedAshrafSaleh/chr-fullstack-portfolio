@@ -99,6 +99,26 @@
             </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Construction Updates</span></a>
+                <ul class="dropdown-menu" style="display: none;">
+                    <li><a class="nav-link" href="{{ route('admin.construction_updates.index') }}">Construction
+                            Updates</a>
+                    </li>
+                    <li><a class="nav-link" href="{{ route('admin.construction-update-project.index') }}">Construction
+                            Update Projects</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Projects</span></a>
+                <ul class="dropdown-menu" style="display: none;">
+                    <li><a class="nav-link" href="{{ route('admin.projects.index') }}">Projects</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Previous Projects</span></a>
                 <ul class="dropdown-menu" style="display: none;">
                     <li><a class="nav-link" href="{{ route('admin.previous_projects.index') }}">Previous Projects</a>

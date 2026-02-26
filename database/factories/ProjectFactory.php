@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\CurrentProject;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,15 +16,22 @@ class ProjectFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = Project::class;
+
     public function definition(): array
     {
         return [
+            'current_project_id' => CurrentProject::inRandomOrder()->first()?->id ?? 1,
             'title' => [
-                'en' => $this->faker->sentence(3),
-                'ar' => 'مشروع '.$this->faker->word(),
+                'en' => fake()->sentence(3),
+                'ar' => 'مشروع: '.fake()->word(),
             ],
-            'longitude' => $this->faker->longitude(),
-            'latitude' => $this->faker->latitude(),
+            'subtitle' => [
+                'en' => fake()->sentence(6),
+                'ar' => 'وصف: '.fake()->sentence(4),
+            ],
+            'longitude' => fake()->longitude(),
+            'latitude' => fake()->latitude(),
         ];
     }
 }

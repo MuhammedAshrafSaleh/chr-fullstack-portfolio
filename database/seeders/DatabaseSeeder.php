@@ -32,6 +32,8 @@ class DatabaseSeeder extends Seeder
             ContactLocationsSeeder::class,
             CurrentProjectSeeder::class,
             ClientRequestSeeder::class,
+            ConstructionUpdateSeeder::class,
+            ConstructionUpdateProjectSeeder::class,
         ]);
     }
 }

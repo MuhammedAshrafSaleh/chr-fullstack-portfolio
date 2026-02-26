@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\AboutHome;
 use App\Models\Blog;
+use App\Models\ConstructionUpdate;
+use App\Models\ConstructionUpdateProject;
 use App\Models\ContactLocations;
 use App\Models\CurrentProject;
 use App\Models\Hero;
@@ -56,5 +58,31 @@ class PageController extends Controller
             ->findOrFail($id);
 
         return view('frontend.blog.blog', compact('blog'));
+    }
+
+    public function constructionUpdates()
+    {
+        $constructionUpdates = ConstructionUpdate::with('projects')->latest()->get();
+
+        return view('frontend.construction_updates.construction_updates', compact('constructionUpdates'));
+    }
+
+    public function show($id)
+    {
+        $constructionUpdate = ConstructionUpdate::findOrFail($id);
+
+        $projects = ConstructionUpdateProject::where('construction_update_id', $id)
+            ->latest()
+            ->get();
+
+        return view('frontend.construction_updates.construction_updates_project', compact('constructionUpdate', 'projects'));
+    }
+
+    public function constructionUpdatesShow($id)
+    {
+        $constructionUpdate = ConstructionUpdate::findOrFail($id);
+        $projects = ConstructionUpdateProject::where('construction_update_id', $id)->get();
+
+        return view('frontend.construction_updates.construction_updates_project', compact('constructionUpdate', 'projects'));
     }
 }

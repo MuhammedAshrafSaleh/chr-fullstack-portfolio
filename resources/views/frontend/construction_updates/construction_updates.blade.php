@@ -9,13 +9,14 @@
                 <h2 class="construction__title">Construction Updates</h2>
                 <p class="construction__subtitle">Check the latest updates for our projects.</p>
             </header>
-
-            <div class="construction__grid">
+            {{-- <div class="construction__grid">
+                @foreach ($constructionUpdates as $update)
                 <div class="construction__card">
-                    <a href="construction_updates_project.html" class="construction__link" style="text-decoration: none;">
-                        <div class="construction__video-wrapper" data-video-src="media/cu (1).mp4">
+                    <a href="{{ route('construction_updates', $update->id) }}" class="construction__link"
+                        style="text-decoration: none;">
+                        <div class="construction__video-wrapper" data-video-src="{{ asset('storage/' . $update->video) }}">
                             <video autoplay muted loop playsinline class="construction__thumbnail">
-                                <source src="media/cu (1).mp4" type="video/mp4">
+                                <source src="{{ asset('storage/' . $update->video) }}" type="video/mp4">
                             </video>
                             <span class="construction__tooltip">See full project</span>
                             <div class="construction__play-btn">
@@ -23,39 +24,33 @@
                             </div>
                         </div>
 
-                        <h3 class="construction__project-name">The Corporate Axis</h3>
-                    </a>
-                </div>
+                        <h3 class="construction__project-name">{{ $update->getTranslation('title', app()->getLocale()) }}
+                        </h3>
 
-                <div class="construction__card">
-                    <a href="construction_updates_project.html" class="construction__link" style="text-decoration: none;">
-                        <div class="construction__video-wrapper" data-video-src="media/cu (2).mp4"">
-                            <video autoplay muted loop playsinline class=" construction__thumbnail">
-                                <source src="media/cu (2).mp4"" type=" video/mp4">
-                            </video>
-                            <span class="construction__tooltip">See full project</span>
-                            <div class="construction__play-btn">
-                                <i class="fas fa-expand"></i>
-                            </div>
-                        </div>
-                        <h3 class="construction__project-name">New Cairo Complex</h3>
                     </a>
                 </div>
+                @endforeach
+            </div> --}}
+            <div class="construction__grid">
+                @foreach ($constructionUpdates as $update)
+                    <div class="construction__card">
+                        <a href="{{ $update->projects ? route('frontend.construction-updates', $update->id) : '#' }}"
+                            class="construction__link" style="text-decoration: none;">
 
-                <div class="construction__card">
-                    <a href="construction_updates_project.html" class="construction__link" style="text-decoration: none;">
-                        <div class="construction__video-wrapper" data-video-src="media/cu (3).mp4"">
-                            <video autoplay muted loop playsinline class=" construction__thumbnail">
-                                <source src="media/cu (3).mp4"" type=" video/mp4">
-                            </video>
-                            <span class="construction__tooltip">See full project</span>
-                            <div class="construction__play-btn">
-                                <i class="fas fa-expand"></i>
+                            <div class="construction__video-wrapper" data-video-src="{{ asset('storage/' . $update->video) }}">
+                                <video autoplay muted loop playsinline class="construction__thumbnail">
+                                    <source src="{{ asset('storage/' . $update->video) }}" type="video/mp4">
+                                </video>
+                                <span class="construction__tooltip">See full project</span>
+                                <div class="construction__play-btn">
+                                    <i class="fas fa-expand"></i>
+                                </div>
                             </div>
-                        </div>
-                        <h3 class="construction__project-name">Euphoria Heights</h3>
-                    </a>
-                </div>
+                            <h3 class="construction__project-name">{{ $update->getTranslation('title', app()->getLocale()) }}
+                            </h3>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
 

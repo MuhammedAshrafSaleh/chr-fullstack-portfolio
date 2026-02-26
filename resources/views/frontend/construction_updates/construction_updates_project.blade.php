@@ -16,6 +16,43 @@
             <div class="updates__right">
                 <div class="updates__timeline-line"></div>
 
+                @foreach ($projects as $project)
+                    <article class="updates__item">
+                        <div class="updates__marker">
+                            <div class="updates__circle"></div>
+                        </div>
+                        <div class="updates__content">
+                            <time class="updates__date">{{ $project->getTranslation('head', app()->getLocale()) }}</time>
+                            <p class="updates__subtext">{{ $project->getTranslation('subhead', app()->getLocale()) }}</p>
+
+                            @if ($project->media)
+                                @php $ext = pathinfo($project->media, PATHINFO_EXTENSION); @endphp
+
+                                @if (in_array($ext, ['mp4', 'mov', 'avi']))
+                                    <div class="construction__video-wrapper" data-video-src="{{ asset('storage/' . $project->media) }}">
+                                        <video autoplay muted loop playsinline class="construction__thumbnail">
+                                            <source src="{{ asset('storage/' . $project->media) }}" type="video/mp4">
+                                        </video>
+                                        <div class="construction__play-btn">
+                                            <i class="fas fa-expand"></i>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="updates__media-wrapper">
+                                        <img src="{{ asset('storage/' . $project->media) }}"
+                                            alt="{{ $project->getTranslation('head', app()->getLocale()) }}" class="updates__image">
+                                    </div>
+                                @endif
+                            @endif
+                        </div>
+                    </article>
+                @endforeach
+
+            </div>
+
+            {{-- <div class="updates__right">
+                <div class="updates__timeline-line"></div>
+
                 <article class="updates__item">
                     <div class="updates__marker">
                         <div class="updates__circle"></div>
@@ -24,8 +61,9 @@
                         <time class="updates__date">February 2026</time>
                         <p class="updates__subtext">Foundation and basement structural work completed.</p>
                         <div class="construction__video-wrapper" data-video-src="media/cu (2).mp4"">
-                            <video autoplay muted loop playsinline class=" construction__thumbnail">
-                                <source src="media/cu (2).mp4"" type=" video/mp4">
+                                                    <video autoplay muted loop playsinline class="
+                            construction__thumbnail">
+                            <source src="media/cu (2).mp4"" type=" video/mp4">
                             </video>
                             <div class="construction__play-btn">
                                 <i class="fas fa-expand"></i>
@@ -56,8 +94,9 @@
                         <time class="updates__date">February 2026</time>
                         <p class="updates__subtext">Foundation and basement structural work completed.</p>
                         <div class="construction__video-wrapper" data-video-src="media/cu (3).mp4"">
-                            <video autoplay muted loop playsinline class=" construction__thumbnail">
-                                <source src="media/cu (3).mp4"" type=" video/mp4">
+                                                    <video autoplay muted loop playsinline class="
+                            construction__thumbnail">
+                            <source src="media/cu (3).mp4"" type=" video/mp4">
                             </video>
                             <div class="construction__play-btn">
                                 <i class="fas fa-expand"></i>
@@ -65,7 +104,7 @@
                         </div>
                     </div>
                 </article>
-            </div>
+            </div> --}}
         </div>
         <div class="video-modal" id="videoModal">
             <span class="video-modal__close">&times;</span>

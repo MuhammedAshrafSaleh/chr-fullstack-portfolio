@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\About\FeatureController;
 use App\Http\Controllers\Admin\About\TeamController;
 use App\Http\Controllers\Admin\About\TestimonialController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\ConstructionUpdates\ConstructionUpdateController;
+use App\Http\Controllers\Admin\ConstructionUpdates\ConstructionUpdateProjectController;
 use App\Http\Controllers\Admin\ContactUs\ClientRequestController;
 use App\Http\Controllers\Admin\ContactUs\ContactLocationsController;
 use App\Http\Controllers\Admin\ContactUs\CoordinateController;
@@ -17,6 +19,7 @@ use App\Http\Controllers\Admin\Home\HeroController;
 use App\Http\Controllers\Admin\PreviousProjectController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\Projects\CurrentProjectController;
+use App\Http\Controllers\Admin\Projects\ProjectController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\ContactUsController;
 use App\Http\Controllers\Frontend\PageController;
@@ -49,6 +52,8 @@ Route::get('/lang/{locale}', function ($locale) {
 Route::group(['as' => 'frontend.'], function () {
     Route::get('/', [PageController::class, 'home'])->name('home');
     Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+    Route::get('/construction_updates', [PageController::class, 'constructionUpdates'])->name('construction_updates');
+    Route::get('/construction-updates/{id}', [PageController::class, 'constructionUpdatesShow'])->name('construction-updates');
     Route::get('/previous_projects', [PageController::class, 'previousProjects'])->name('previous_projects');
     Route::get('/contact_us', [ContactUsController::class, 'index'])->name('contact_us');
     Route::post('/clients-requests', [ContactUsController::class, 'store'])->name('clients-requests.store')->middleware('throttle:5,1');
@@ -72,8 +77,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('testimonials', TestimonialController::class);
     Route::resource('previous_projects', PreviousProjectController::class);
     Route::resource('current_projects', CurrentProjectController::class);
+    Route::resource('construction-update-project', ConstructionUpdateProjectController::class);
     Route::resource('features', FeatureController::class);
     Route::resource('clients_requests', ClientRequestController::class);
+    Route::resource('projects', ProjectController::class);
+    Route::resource('construction_updates', ConstructionUpdateController::class);
     Route::resource('team', TeamController::class);
     Route::resource('/blogs', BlogController::class);
     Route::get('coordinates/edit', [CoordinateController::class, 'edit'])->name('coordinates.edit');
