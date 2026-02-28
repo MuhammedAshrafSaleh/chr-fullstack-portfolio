@@ -124,3 +124,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::put('contact_locations/update', [ContactLocationsController::class, 'update'])
         ->name('contact_locations.update');
 });
+
+Route::get('/fix-storage', function () {
+    Artisan::call('storage:link');
+    return 'Storage linked successfully!';
+});
