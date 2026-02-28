@@ -1,0 +1,28 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Nav>
+ */
+class NavFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+  public function definition(): array
+    {
+        return [
+            'title' => [
+                'en' => fake()->word(),
+                'ar' => 'رابط: ' . fake()->word(),
+            ],
+            'link' => '/' . fake()->slug(1),
+            'icon' => 'fas fa-link',
+        ];
+    }
+}

@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\Projects\ProjectHeadingController;
 use App\Http\Controllers\Admin\Projects\ProjectImageController;
 use App\Http\Controllers\Admin\Projects\ProjectPlanController;
 use App\Http\Controllers\Admin\Projects\ProjectServiceController;
+use App\Http\Controllers\Admin\WebsiteLinks\NavController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\ContactUsController;
 use App\Http\Controllers\Frontend\PageController;
@@ -90,6 +91,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('project_images', ProjectImageController::class);
     Route::resource('project_plans', ProjectPlanController::class);
     Route::resource('project_details', ProjectDetailController::class);
+    Route::resource('nav', NavController::class);
     Route::get('project_headings/edit', [ProjectHeadingController::class, 'edit'])->name('project_headings.edit');
     Route::put('project_headings/update', [ProjectHeadingController::class, 'update'])->name('project_headings.update');
     Route::resource('construction_updates', ConstructionUpdateController::class);

@@ -11,7 +11,7 @@ use App\Models\ContactLocations;
 use App\Models\CurrentProject;
 use App\Models\Hero;
 use App\Models\PreviousProject;
-
+use App\Models\Nav;
 class PageController extends Controller
 {
     public function home()
@@ -24,8 +24,9 @@ class PageController extends Controller
         $hero = Hero::first();
         $contactLocations = ContactLocations::firstOrFail();
         $currentProjects = CurrentProject::latest()->get();
+        $navItems = Nav::all();
 
-        return view('frontend.home.home', compact('blogs', 'aboutHome', 'hero', 'contactLocations', 'currentProjects'));
+        return view('frontend.home.home', compact('blogs', 'aboutHome', 'hero', 'contactLocations', 'currentProjects', 'navItems'));
     }
 
     public function previousProjects()

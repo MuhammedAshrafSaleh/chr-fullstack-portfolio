@@ -38,7 +38,8 @@ class DatabaseSeeder extends Seeder
             ProjectDetailSeeder::class,
             ProjectImageSeeder::class,
             ProjectPlanSeeder::class,
-              ProjectHeadingSeeder::class,
+            ProjectHeadingSeeder::class,
+            NavSeeder::class,
         ]);
     }
 }

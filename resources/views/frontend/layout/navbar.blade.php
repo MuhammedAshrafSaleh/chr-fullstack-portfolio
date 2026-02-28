@@ -12,22 +12,13 @@
         </div>
 
         <ul class="navbar__links">
-            <li class="navbar__item">
-                <span class="navbar__item-num">01</span>
-                <a href="about.html" class="navbar__link">About</a>
-            </li>
-            <li class="navbar__item">
-                <span class="navbar__item-num">02</span>
-                <a href="current_projects.html" class="navbar__link">Projects</a>
-            </li>
-            <li class="navbar__item">
-                <span class="navbar__item-num">03</span>
-                <a href="blogs.html" class="navbar__link">Blog</a>
-            </li>
-            <li class="navbar__item">
-                <span class="navbar__item-num">04</span>
-                <a href="contact_us.html" class="navbar__link">Contact us</a>
-            </li>
+            @foreach ($navItems as $index => $item)
+                <li class="navbar__item">
+                    <span class="navbar__item-num">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
+                    <a href="{{ $item->link }}"
+                        class="navbar__link">{{ $item->getTranslation('title', app()->getLocale()) }}</a>
+                </li>
+            @endforeach
         </ul>
 
         <div class="navbar__right">
@@ -43,6 +34,15 @@
 
     <div class="menu-overlay__content">
         <ul class="menu-overlay__list">
+            @foreach ($navItems as $index => $item)
+                <li class="menu-overlay__item">
+                    <span class="menu-overlay__index">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
+                    <a href="{{ $item->link }}"
+                        class="menu-overlay__link">{{ $item->getTranslation('title', app()->getLocale()) }}</a>
+                </li>
+            @endforeach
+        </ul>
+        {{-- <ul class="menu-overlay__list">
             <li class="menu-overlay__item">
                 <span class="menu-overlay__index">01</span>
                 <a href="{{ route('frontend.about.index') }}"
@@ -69,6 +69,6 @@
                 <a href="{{ route('frontend.previous_projects') }}" class="menu-overlay__link">Previous
                     Projects</a>
             </li>
-        </ul>
+        </ul> --}}
     </div>
 </div>
