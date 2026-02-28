@@ -40,6 +40,10 @@ class DatabaseSeeder extends Seeder
             ProjectPlanSeeder::class,
             ProjectHeadingSeeder::class,
             NavSeeder::class,
+            FooterSectionSeeder::class,
+            ContactSeeder::class,
+            SocialMediaSeeder::class,
+              FixedLinkSeeder::class,
         ]);
     }
 }

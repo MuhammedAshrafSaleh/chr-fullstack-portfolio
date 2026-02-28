@@ -165,7 +165,19 @@
                     <span>Website Links</span></a>
                 <ul class="dropdown-menu" style="display: none;">
                     <li>
-                        <a class="nav-link" href="{{ route('admin.nav.index') }}">Nav</a>
+                        <a class="nav-link" href="{{ route('admin.nav.index') }}">1. Nav</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('admin.footer_section.edit') }}">2. Footer</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('admin.contacts.index') }}">3. Contacts</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('admin.social_media.index') }}">4. Social Media Links</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('admin.fixed_links.edit') }}">5. Fixed Links</a>
                     </li>
                 </ul>
             </li>
