@@ -19,8 +19,10 @@
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <a href="route('logout')" onclick="event.preventDefault();
-                                        this.closest('form').submit();" class="dropdown-item has-icon text-danger">
+                    <a href="route('logout')"
+                        onclick="event.preventDefault();
+                                        this.closest('form').submit();"
+                        class="dropdown-item has-icon text-danger">
                         <i class="fas fa-sign-out-alt"></i> Logout
                     </a>
                 </form>
@@ -113,12 +115,25 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Projects</span></a>
                 <ul class="dropdown-menu" style="display: none;">
-                    <li><a class="nav-link" href="{{ route('admin.projects.index') }}">Projects</a>
+                    <li><a class="nav-link" href="{{ route('admin.projects.index') }}">1. Projects</a></li>
+
+                    <li><a class="nav-link" href="{{ route('admin.project_headings.edit') }}">2. Project
+                            Headings
+                        </a>
+                    </li>
+                    <li><a class="nav-link" href="{{ route('admin.project_details.index') }}">3. Project Details</a>
+                    </li>
+                    <li><a class="nav-link" href="{{ route('admin.project_images.index') }}">4. Project images</a>
+                    </li>
+                    <li><a class="nav-link" href="{{ route('admin.project_services.index') }}">5. Project Servces</a>
+                    </li>
+                    <li><a class="nav-link" href="{{ route('admin.project_plans.index') }}">6. Project Plans</a>
                     </li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                        class="fas fa-columns"></i>
                     <span>Previous Projects</span></a>
                 <ul class="dropdown-menu" style="display: none;">
                     <li><a class="nav-link" href="{{ route('admin.previous_projects.index') }}">Previous Projects</a>
@@ -126,7 +141,8 @@
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                        class="fas fa-columns"></i>
                     <span>Current Projects</span></a>
                 <ul class="dropdown-menu" style="display: none;">
                     <li><a class="nav-link" href="{{ route('admin.current_projects.index') }}">Current Projects</a>
@@ -134,7 +150,8 @@
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                        class="fas fa-columns"></i>
                     <span>Blogs</span></a>
                 <ul class="dropdown-menu" style="display: none;">
                     <li><a class="nav-link" href="{{ route('admin.blogs.index') }}">Blogs</a>

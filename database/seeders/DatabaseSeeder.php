@@ -34,6 +34,11 @@ class DatabaseSeeder extends Seeder
             ClientRequestSeeder::class,
             ConstructionUpdateSeeder::class,
             ConstructionUpdateProjectSeeder::class,
+            ProjectServiceSeeder::class,
+            ProjectDetailSeeder::class,
+            ProjectImageSeeder::class,
+            ProjectPlanSeeder::class,
+              ProjectHeadingSeeder::class,
         ]);
     }
 }
