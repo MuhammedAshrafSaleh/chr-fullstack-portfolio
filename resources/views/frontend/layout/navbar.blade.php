@@ -5,8 +5,8 @@
                 <span class="navbar__toggle-line"></span>
                 <span class="navbar__toggle-line"></span>
             </button>
-            <a href="/" class="navbar__logo">
-                <img src="{{ asset('frontend/assets/media/Logos/CHR_V1.png') }}" alt="CHR Developments"
+            <a href="{{ $fixedLinks->logo_link }}" class="navbar__logo">
+                <img src="{{ asset('storage/' . $fixedLinks->logo_image) }}" alt="CHR Developments"
                     class="navbar__logo-img" height="100" loading="eager">
             </a>
         </div>
@@ -22,10 +22,16 @@
         </ul>
 
         <div class="navbar__right">
-            <a href="tel:15722" class="navbar__phone">
-                <span class="navbar__phone-icon">📞</span> 15722
+            <a href="{{ $contactLocations->phone }}" class="navbar__phone">
+                <span class="navbar__phone-icon">📞</span> {{ $contactLocations->phone }}
             </a>
         </div>
+        {{-- <div class="navbar__right">
+            <a href="{{ $fixedLink->hotline_link }}" class="navbar__phone">
+                <img src="{{ asset('storage/' . $fixedLink->hotline_image) }}" alt="Hotline"
+                    style="width: 20px; height: 20px; object-fit: contain;"> {{ $fixedLink->hotline_link }}
+            </a>
+        </div> --}}
     </div>
 </nav>
 
@@ -42,33 +48,5 @@
                 </li>
             @endforeach
         </ul>
-        {{-- <ul class="menu-overlay__list">
-            <li class="menu-overlay__item">
-                <span class="menu-overlay__index">01</span>
-                <a href="{{ route('frontend.about.index') }}"
-                    class="menu-overlay__link menu-overlay__link--active">About</a>
-            </li>
-            <li class="menu-overlay__item">
-                <span class="menu-overlay__index">02</span>
-                <a href="current_projects.html" class="menu-overlay__link">Projects</a>
-            </li>
-            <li class="menu-overlay__item">
-                <span class="menu-overlay__index">03</span>
-                <a href="{{ route('frontend.blogs') }}" class="menu-overlay__link">Blog</a>
-            </li>
-            <li class="menu-overlay__item">
-                <span class="menu-overlay__index">04</span>
-                <a href="contact_us.html" class="menu-overlay__link">Contact us</a>
-            </li>
-            <li class="menu-overlay__item">
-                <span class="menu-overlay__index">05</span>
-                <a href="construction_updates.html" class="menu-overlay__link">Construction Update</a>
-            </li>
-            <li class="menu-overlay__item">
-                <span class="menu-overlay__index">06</span>
-                <a href="{{ route('frontend.previous_projects') }}" class="menu-overlay__link">Previous
-                    Projects</a>
-            </li>
-        </ul> --}}
     </div>
 </div>

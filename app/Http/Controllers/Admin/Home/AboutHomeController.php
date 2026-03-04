@@ -67,7 +67,6 @@ class AboutHomeController extends Controller
             'feature_five',
         ]);
 
-        // Handle image_right upload
         if ($request->hasFile('image_right')) {
             if ($aboutHome->image_right) {
                 Storage::disk('public')->delete($aboutHome->image_right);
@@ -75,7 +74,6 @@ class AboutHomeController extends Controller
             $data['image_right'] = $request->file('image_right')->store('about_home', 'public');
         }
 
-        // Handle image_left upload
         if ($request->hasFile('image_left')) {
             if ($aboutHome->image_left) {
                 Storage::disk('public')->delete($aboutHome->image_left);

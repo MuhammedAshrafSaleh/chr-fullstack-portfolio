@@ -9,9 +9,11 @@ use App\Models\ConstructionUpdate;
 use App\Models\ConstructionUpdateProject;
 use App\Models\ContactLocations;
 use App\Models\CurrentProject;
+use App\Models\FooterSection;
 use App\Models\Hero;
-use App\Models\PreviousProject;
 use App\Models\Nav;
+use App\Models\PreviousProject;
+
 class PageController extends Controller
 {
     public function home()
@@ -42,7 +44,7 @@ class PageController extends Controller
 
         return view('frontend.current_projects.current_projects', compact('currentProjects'));
     }
-
+    
     // Blog Listing
     public function blog()
     {

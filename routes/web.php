@@ -47,9 +47,6 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home.home');
-});
 
 Route::get('/lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'ar'])) {
@@ -126,7 +123,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         ->name('contact_locations.update');
 });
 
-Route::get('/fix-storage', function () {
-    Artisan::call('storage:link');
-    return 'Storage linked successfully!';
-});
+// Route::get('/fix-storage', function () {
+//     Artisan::call('storage:link');
+//     return 'Storage linked successfully!';
+// });

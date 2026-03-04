@@ -130,7 +130,7 @@
                         </div>
 
                         {{-- ===================== HOTLINE ===================== --}}
-                        <h6 class="text-muted text-uppercase font-weight-bold mt-4 mb-3 border-bottom pb-2">
+                        {{-- <h6 class="text-muted text-uppercase font-weight-bold mt-4 mb-3 border-bottom pb-2">
                             {{ __('Hotline') }}
                         </h6>
 
@@ -146,18 +146,18 @@
                                          style="margin-top:8px; border-radius:6px;">
                                 @endif
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="form-group row mb-4">
+                        {{-- <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
-                                {{ __('Hotline Link') }}
+                                {{ __('Hotline Number') }}
                             </label>
                             <div class="col-sm-12 col-md-7">
                                 <input type="text" name="hotline_link" class="form-control"
                                        placeholder="e.g. tel:+201234567890"
                                        value="{{ old('hotline_link', $fixedLink->hotline_link) }}">
                             </div>
-                        </div>
+                        </div> --}}
 
                         {{-- ===================== SUBMIT ===================== --}}
                         <div class="form-group row mb-0">

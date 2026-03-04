@@ -27,14 +27,13 @@ class FixedLinkController extends Controller
             'location_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'location_link' => 'required|string|max:255',
             'hotline_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'hotline_link' => 'required|string|max:255',
+            'hotline_link' => 'nullable|string|max:255',
         ]);
 
         $data = [
             'logo_link' => $request->logo_link,
             'whatsapp_link' => $request->whatsapp_link,
             'location_link' => $request->location_link,
-            'hotline_link' => $request->hotline_link,
         ];
 
         $imageFields = ['logo_image', 'whatsapp_image', 'location_image', 'hotline_image'];
