@@ -11,9 +11,13 @@ class ProjectService extends Model
 {
     use HasFactory, HasTranslations;
 
-    public array $translatable = ['title', 'subtitle'];
+    public $translatable = ['title'];
 
-    protected $fillable = ['project_id', 'image', 'title', 'subtitle'];
+    protected $fillable = [
+        'project_id',
+        'icon',
+        'title',
+    ];
 
     public function project(): BelongsTo
     {

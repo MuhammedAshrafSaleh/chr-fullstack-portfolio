@@ -23,7 +23,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'current_project_id' => 'required|exists:current_projects,id',
+            'current_project_id' => 'required|exists:current_projects,id|unique:projects,current_project_id',
             'title.en' => 'required|string|max:255',
             'title.ar' => 'required|string|max:255',
             'subtitle.en' => 'required|string|max:255',
@@ -50,7 +50,7 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         $request->validate([
-            'current_project_id' => 'required|exists:current_projects,id',
+            'current_project_id' => 'required|exists:current_projects,id|unique:projects,current_project_id,'.$project->id,
             'title.en' => 'required|string|max:255',
             'title.ar' => 'required|string|max:255',
             'subtitle.en' => 'required|string|max:255',

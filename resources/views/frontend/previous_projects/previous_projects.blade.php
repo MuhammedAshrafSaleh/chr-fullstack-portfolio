@@ -1,6 +1,6 @@
 @extends('frontend.layout.layouts')
 
-@section('css')
+@push('css')
     <style>
         .footer {
             display: none;
@@ -10,7 +10,7 @@
             flex-direction: row-reverse;
         }
     </style>
-@endsection
+@endpush
 
 @section('content')
     <div class="project-showcase">
@@ -86,7 +86,7 @@
     </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
     <script>
         const container = document.querySelector('.project-showcase');
         const sections = document.querySelectorAll('.project-item');
@@ -168,4 +168,4 @@
             });
         });
     </script>
-@endsection
+@endpush

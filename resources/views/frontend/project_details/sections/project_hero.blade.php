@@ -5,7 +5,30 @@
                 alt="New Cairo Project Overview">
             <div class="project-hero__overlay"></div>
         </div>
+        <div class="project-hero__container">
+            <nav class="project-hero__breadcrumbs">
+                <a href="{{ route('frontend.home') }}" class="project-hero__crumb">
+                    <i class="fas fa-home"></i> {{ __('app.breadcrumb_home') }}
+                </a>
+                <span class="project-hero__separator">/</span>
+                <a href="{{ route('frontend.current_projects') }}" class="project-hero__crumb">
+                    {{ __('app.breadcrumb_projects') }}
+                </a>
+                <span class="project-hero__separator">/</span>
+                <span class="project-hero__crumb project-hero__crumb--active">
+                    {{ $project->getTranslation('title', app()->getLocale()) }}
+                </span>
+            </nav>
 
+            <h1 class="project-hero__title">
+                {{ $project->getTranslation('title', app()->getLocale()) }}
+            </h1>
+
+            <div class="project-hero__scroll">
+                <div class="project-hero__scroll-dot"></div>
+            </div>
+        </div>
+        {{-- 
         <div class="project-hero__container">
             <nav class="project-hero__breadcrumbs">
                 <a href="index.html" class="project-hero__crumb">
@@ -22,5 +45,6 @@
             <div class="project-hero__scroll">
                 <div class="project-hero__scroll-dot"></div>
             </div>
-        </div>
+        </div> 
+        --}}
     </section>

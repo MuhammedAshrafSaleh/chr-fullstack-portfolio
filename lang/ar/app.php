@@ -24,4 +24,17 @@ return [
     'form_success' => 'تم إرسال طلبك بنجاح. سنتواصل معك قريباً.',
     'form_error' => 'حدث خطأ ما. يرجى المحاولة مرة أخرى.',
     'form_success_title' => 'تم الإرسال',
+
+    // --- Construction Updates ---
+    'construction_label' => 'تقدم المشروع',
+    'construction_title' => 'تحديثات البناء',
+    'construction_subtitle' => 'تابع أحدث التحديثات لمشاريعنا.',
+    // --- Footer ---
+    'footer_social' => 'التواصل الاجتماعي',
+    'footer_contact' => 'تواصل معنا',
+    // --- Breadcrumbs ---
+    'breadcrumb_home' => 'الرئيسية',
+    'breadcrumb_projects' => 'المشاريع',
+    // --- Construction Updates ---
+    'construction_tooltip' => 'عرض المشروع كاملاً',
 ];

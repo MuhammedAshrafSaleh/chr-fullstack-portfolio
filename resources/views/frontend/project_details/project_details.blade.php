@@ -1,5 +1,9 @@
 @extends('frontend.layout.layouts')
-
+@push('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+@endpush
 @section('content')
     @include('frontend.project_details.sections.project_hero')
     @include('frontend.project_details.sections.project_details')
@@ -12,7 +16,7 @@
     <script src="js/map.js" defer></script>
 @endsection
 
-@section('scripts')
+@push('scripts')
     <script type="module">
         // Import PhotoSwipe as a module
         import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe-lightbox.esm.min.js';
@@ -49,4 +53,4 @@
 
         lightbox.init();
     </script>
-@endsection
+@endpush

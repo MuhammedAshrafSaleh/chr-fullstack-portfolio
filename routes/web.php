@@ -25,16 +25,16 @@ use App\Http\Controllers\Admin\Projects\ProjectHeadingController;
 use App\Http\Controllers\Admin\Projects\ProjectImageController;
 use App\Http\Controllers\Admin\Projects\ProjectPlanController;
 use App\Http\Controllers\Admin\Projects\ProjectServiceController;
+use App\Http\Controllers\Admin\WebsiteLinks\ContactController;
+use App\Http\Controllers\Admin\WebsiteLinks\FixedLinkController;
 use App\Http\Controllers\Admin\WebsiteLinks\FooterSectionController;
 use App\Http\Controllers\Admin\WebsiteLinks\NavController;
-use App\Http\Controllers\Admin\WebsiteLinks\ContactController;
-use App\Http\Controllers\Admin\WebsiteLinks\SocialMediaController;  
-use App\Http\Controllers\Admin\WebsiteLinks\FixedLinkController;  
+use App\Http\Controllers\Admin\WebsiteLinks\SocialMediaController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\ContactUsController;
 use App\Http\Controllers\Frontend\PageController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +46,6 @@ use Illuminate\Support\Facades\Artisan;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 
 Route::get('/lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'ar'])) {
@@ -65,6 +64,7 @@ Route::group(['as' => 'frontend.'], function () {
     Route::get('/previous_projects', [PageController::class, 'previousProjects'])->name('previous_projects');
     Route::get('/contact_us', [ContactUsController::class, 'index'])->name('contact_us');
     Route::post('/clients-requests', [ContactUsController::class, 'store'])->name('clients-requests.store')->middleware('throttle:5,1');
+    Route::get('/current_projects/{id}', [PageController::class, 'currentProjectShow'])->name('current_projects.show');
     Route::get('/current_projects', [PageController::class, 'currentProjects'])->name('current_projects');
     Route::get('/blogs', [PageController::class, 'blog'])->name('blogs');
     Route::get('/blog/{id}', [PageController::class, 'blogSingle'])->name('blog.single');
@@ -96,8 +96,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('nav', NavController::class);
     Route::resource('social_media', SocialMediaController::class);
     Route::resource('contacts', ContactController::class);
-    Route::get('fixed_links/edit',    [FixedLinkController::class, 'edit'])->name('fixed_links.edit');
-    Route::put('fixed_links/update',  [FixedLinkController::class, 'update'])->name('fixed_links.update');
+    Route::get('fixed_links/edit', [FixedLinkController::class, 'edit'])->name('fixed_links.edit');
+    Route::put('fixed_links/update', [FixedLinkController::class, 'update'])->name('fixed_links.update');
     Route::get('project_headings/edit', [ProjectHeadingController::class, 'edit'])->name('project_headings.edit');
     Route::put('project_headings/update', [ProjectHeadingController::class, 'update'])->name('project_headings.update');
     Route::get('footer_section/edit', [FooterSectionController::class, 'edit'])->name('footer_section.edit');

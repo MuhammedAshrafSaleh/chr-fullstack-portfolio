@@ -1,7 +1,7 @@
 @extends('frontend.layout.layouts')
 
 @section('content')
-    <section class="updates">
+    {{-- <section class="updates">
         <div class="updates__container">
             <div class="updates__left">
                 <header class="updates__header">
@@ -105,7 +105,75 @@
                     </div>
                 </article>
             </div> --}}
+    {{-- </div> --}}
+    {{-- <div class="video-modal" id="videoModal">
+            <span class="video-modal__close">&times;</span>
+            <video controls autoplay class="video-modal__content" id="modalVideo"></video>
         </div>
+    </section>  --}}
+
+    <section class="updates">
+        <div class="updates__container">
+
+            <div class="updates__left">
+                <header class="updates__header">
+                    <span class="updates__label" data-aos="fade-right" data-aos-duration="700" data-aos-offset="150"
+                        data-aos-delay="0">
+                        Progress Tracking
+                    </span>
+                    <h2 class="updates__title" data-aos="fade-right" data-aos-duration="700" data-aos-offset="150"
+                        data-aos-delay="150">
+                        New Cairo <br>Updates
+                    </h2>
+                    <p class="updates__description" data-aos="fade-right" data-aos-duration="700" data-aos-offset="150"
+                        data-aos-delay="150">
+                        Follow the real-time evolution of our architectural landmarks in New Cairo.
+                    </p>
+                </header>
+            </div>
+
+            <div class="updates__right">
+                <div class="updates__timeline-line"></div>
+
+                @foreach ($projects as $project)
+                    <article class="updates__item" data-aos="fade-left" data-aos-duration="700" data-aos-offset="150"
+                        data-aos-delay="{{ $loop->index * 150 }}">
+                        <div class="updates__marker">
+                            <div class="updates__circle"></div>
+                        </div>
+                        <div class="updates__content">
+                            <time class="updates__date">{{ $project->getTranslation('head', app()->getLocale()) }}</time>
+                            <p class="updates__subtext">{{ $project->getTranslation('subhead', app()->getLocale()) }}</p>
+
+                            @if ($project->media)
+                                @php $ext = pathinfo($project->media, PATHINFO_EXTENSION); @endphp
+
+                                @if (in_array($ext, ['mp4', 'mov', 'avi']))
+                                    <div class="construction__video-wrapper"
+                                        data-video-src="{{ asset('storage/' . $project->media) }}">
+                                        <video autoplay muted loop playsinline class="construction__thumbnail">
+                                            <source src="{{ asset('storage/' . $project->media) }}" type="video/mp4">
+                                        </video>
+                                        <div class="construction__play-btn">
+                                            <i class="fas fa-expand"></i>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="updates__media-wrapper">
+                                        <img src="{{ asset('storage/' . $project->media) }}"
+                                            alt="{{ $project->getTranslation('head', app()->getLocale()) }}"
+                                            class="updates__image">
+                                    </div>
+                                @endif
+                            @endif
+                        </div>
+                    </article>
+                @endforeach
+
+            </div>
+
+        </div>
+
         <div class="video-modal" id="videoModal">
             <span class="video-modal__close">&times;</span>
             <video controls autoplay class="video-modal__content" id="modalVideo"></video>

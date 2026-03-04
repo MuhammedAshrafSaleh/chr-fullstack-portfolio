@@ -24,4 +24,19 @@ return [
     'form_error' => 'Something went wrong. Please try again.',
     'form_success_title' => 'Request Sent!',       // ar: 'تم الإرسال!'
     'form_success' => 'We will contact you shortly.',  // ar: 'سنتواصل معك قريباً.
+
+    // --- Construction Updates ---
+    'construction_label' => 'Project Progress',
+    'construction_title' => 'Construction Updates',
+    'construction_subtitle' => 'Check the latest updates for our projects.',
+    // --- Footer ---
+    'footer_social' => 'SOCIAL',
+    'footer_contact' => 'CONTACT',
+
+    // --- Breadcrumbs ---
+    'breadcrumb_home' => 'Home',
+    'breadcrumb_projects' => 'Projects',
+
+    // --- Construction Updates ---
+    'construction_tooltip' => 'See full project',
 ];

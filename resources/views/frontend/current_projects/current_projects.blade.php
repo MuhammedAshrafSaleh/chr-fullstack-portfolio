@@ -28,16 +28,19 @@
                 <div class="project-item__container {{ $loop->even ? 'project-item__container--reverse' : '' }}">
 
                     <div class="project-item__visual">
-                        {{-- <a href="{{ route('current_projects.show', $project->id) }}" style="text-decoration: none;"> --}}
+                        <a
+                            href="{{ $project->project ? route('frontend.current_projects.show', $project->project->id) : '#' }}">
                             @if ($project->image)
                                 <img src="{{ asset('storage/' . $project->image) }}"
-                                    alt="{{ $project->getTranslation('title', app()->getLocale()) }}" class="project-item__img">
+                                    alt="{{ $project->getTranslation('title', app()->getLocale()) }}"
+                                    class="project-item__img">
                             @else
                                 <img src="{{ asset('images/placeholder.jpg') }}"
-                                    alt="{{ $project->getTranslation('title', app()->getLocale()) }}" class="project-item__img">
+                                    alt="{{ $project->getTranslation('title', app()->getLocale()) }}"
+                                    class="project-item__img">
                             @endif
                             <span class="tooltip">See full project</span>
-                            {{-- </a> --}}
+                        </a>
                     </div>
 
                     <div class="project-item__content">
@@ -65,14 +68,17 @@
                                     {{ $project->getTranslation('status', app()->getLocale()) }}
                                 </li>
                             </ul>
-                            {{-- <a href="{{ route('current_projects.show', $project->id) }}" style="text-decoration: none;">
-                                <button class="project-info__cta">
-                                    <span class="project-info__cta-icon">+</span>
-                                    <span class="project-info__cta-text">
-                                        {{ app()->getLocale() === 'ar' ? 'عرض المشروع' : 'View Project' }}
-                                    </span>
-                                </button>
-                            </a> --}}
+                            @if ($project->project)
+                                <a href="{{ route('frontend.current_projects.show', $project->project->id) }}"
+                                    style="text-decoration: none;">
+                                    <button class="project-info__cta">
+                                        <span class="project-info__cta-icon">+</span>
+                                        <span class="project-info__cta-text">
+                                            {{ app()->getLocale() === 'ar' ? 'عرض المشروع' : 'View Project' }}
+                                        </span>
+                                    </button>
+                                </a>
+                            @endif
                         </div>
                     </div>
 

@@ -4,7 +4,14 @@
     CHR Development - Crafting Landmark Properties
 @endsection
 
+@push('css')
+    {{-- <script>
+        document.documentElement.style.visibility = 'hidden';
+    </script> --}}
+@endpush
+
 @section('content')
+    {{-- <span class="loader"></span> --}}
     <!--================================================= Hero Section -->
     @include('frontend.home.sections.hero')
 
@@ -22,7 +29,6 @@
 @endsection
 
 @push('scripts')
-    {{--
-    <script src="{{ asset('frontend/assets/js/featured_projects.js') }}" defer></script> --}}
+    <script src="{{ asset('frontend/assets/js/featured_projects.js') }}" defer></script>
     <script src="{{ asset('frontend/assets/js/counter_animation.js') }}" defer></script>
 @endpush

@@ -28,11 +28,10 @@
     @include('frontend.home.sections.contact')
 @endsection
 
-@section('scripts')
+@push('scripts')
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // جلب البيانات من PHP مع وضع قيم افتراضية في حال كان الجدول فارغاً
             const dbLat = @json($coordinate->lat ?? 30.0074);
             const dbLng = @json($coordinate->lang ?? 31.4913);
             const coords = [dbLat, dbLng];
@@ -81,4 +80,4 @@
             }
         });
     </script>
-@endsection
+@endpush

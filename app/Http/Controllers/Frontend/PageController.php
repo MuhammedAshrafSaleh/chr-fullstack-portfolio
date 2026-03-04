@@ -9,10 +9,11 @@ use App\Models\ConstructionUpdate;
 use App\Models\ConstructionUpdateProject;
 use App\Models\ContactLocations;
 use App\Models\CurrentProject;
-use App\Models\FooterSection;
 use App\Models\Hero;
 use App\Models\Nav;
 use App\Models\PreviousProject;
+use App\Models\ProjectHeading;
+use App\Models\Project;
 
 class PageController extends Controller
 {
@@ -40,11 +41,19 @@ class PageController extends Controller
 
     public function currentProjects()
     {
-        $currentProjects = CurrentProject::latest()->get();
+        $currentProjects = CurrentProject::with('project')->latest()->get();
 
         return view('frontend.current_projects.current_projects', compact('currentProjects'));
     }
-    
+
+    public function currentProjectShow($id)
+    {
+        $project = Project::with(['details', 'images', 'plans', 'services'])->findOrFail($id);
+        $heading = ProjectHeading::first();
+
+        return view('frontend.project_details.project_details', compact('project', 'heading'));
+    }
+
     // Blog Listing
     public function blog()
     {

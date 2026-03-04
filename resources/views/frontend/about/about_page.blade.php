@@ -9,7 +9,6 @@
     @include('frontend.about.sections.ceo_message')
     @include('frontend.about.sections.features')
     @include('frontend.about.sections.team')
-
 @endsection
 
 @push('scripts')

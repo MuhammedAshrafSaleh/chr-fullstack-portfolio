@@ -13,4 +13,9 @@ class CurrentProject extends Model
     public $translatable = ['title', 'subtitle', 'description', 'location', 'size', 'status'];
 
     protected $fillable = ['title', 'subtitle', 'description', 'location', 'size', 'status', 'image'];
+
+    public function project()
+    {
+        return $this->hasOne(Project::class, 'current_project_id');
+    }
 }

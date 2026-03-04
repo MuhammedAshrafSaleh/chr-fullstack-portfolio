@@ -1,81 +1,6 @@
-{{-- @extends('frontend.layout.layouts')
-
-@section('content')
-<article class="blog-post">
-
-    <header class="blog-post__header">
-        <div class="container container--narrow">
-            <h1 class="blog-post__title">The Future of Fintech: A Deep Dive into Electronic Ecosystems</h1>
-            <div class="blog-post__meta">
-                <span>Published 2026</span> • <span>12 Min Read</span>
-            </div>
-        </div>
-    </header>
-
-    <div class="container container--narrow">
-        <div class="blog-post__hero-wrapper">
-            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1200"
-                alt="Electronic Payments Concept" class="blog-post__hero-image">
-        </div>
-
-        <div class="blog-post__content">
-            <p class="blog-post__paragraph blog-post__paragraph--dropcap">
-                The evolution of financial technology has reached a critical tipping point. In the early days of the
-                digital revolution, fintech was often viewed as a secondary layer—a convenient addition to
-                traditional banking structures. However, as we move further into 2026, the script has flipped
-                entirely.
-            </p>
-
-            <p class="blog-post__paragraph">
-                Electronic payments have transitioned from being a mere alternative to cash into the very foundation
-                of global commerce. This shift is driven by the rapid decentralization of credit and the rise of
-                autonomous payment gateways. We are seeing a world where transaction friction is approaching zero.
-            </p>
-
-            <h2 class="blog-post__subtitle">The Infrastructure of Invisible Finance</h2>
-
-            <p class="blog-post__paragraph">
-                Behind every "swipe" or "tap" lies a complex web of APIs and cloud-native databases. The modern
-                consumer rarely considers the millisecond-fast handshake between the merchant's terminal and the
-                global payment network. Yet, this invisible infrastructure is what allows for the scalability of
-                EdTech and other digital-first industries.
-            </p>
-
-            <p class="blog-post__paragraph">
-                One must also consider the environmental impact of such systems. As data centers expand to house
-                these growing financial ledgers, the industry is pivoting toward "Green Fintech." This involves
-                optimizing algorithms to reduce the computational energy required for transaction verification.
-            </p>
-
-            <blockquote class="blog-post__quote">
-                "Innovation in fintech is not just about moving money faster; it's about making the movement of
-                value accessible to everyone, everywhere."
-            </blockquote>
-
-            <p class="blog-post__paragraph">
-                Furthermore, the integration of student loan management into these apps has proven revolutionary. By
-                automating micro-payments and leveraging rounding-up features, students are now paying off debt 15%
-                faster than they were a decade ago. It is a testament to how design-led engineering can solve
-                real-world problems.
-            </p>
-
-
-            <p class="blog-post__paragraph">
-                Behind every "swipe" or "tap" lies a complex web of APIs and cloud-native databases. The modern
-                consumer rarely considers the millisecond-fast handshake between the merchant's terminal and the
-                global payment network. Yet, this invisible infrastructure is what allows for the scalability of
-                EdTech and other digital-first industries.
-            </p>
-
-        </div>
-    </div>
-</article>
-@endsection --}}
-
-
 @extends('frontend.layout.layouts')
 
-@section('content')
+{{-- @section('content')
     <article class="blog-post">
 
         <header class="blog-post__header">
@@ -104,8 +29,39 @@
         </div>
 
     </article>
-@endsection
+@endsection --}}
+@section('content')
+    <article class="blog-post">
 
+        <header class="blog-post__header">
+            <div class="container container--narrow">
+                <h1 class="blog-post__title" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300" data-aos-delay="0">
+                    {{ $blog->getTranslation('title', app()->getLocale()) }}
+                </h1>
+                <div class="blog-post__meta" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300"
+                    data-aos-delay="150">
+                    <span>Published {{ $blog->published_at->format('Y') }}</span>
+                    @if ($blog->getTranslation('author_name', app()->getLocale()))
+                        • <span>By {{ $blog->getTranslation('author_name', app()->getLocale()) }}</span>
+                    @endif
+                </div>
+            </div>
+        </header>
+
+        <div class="container container--narrow">
+            <div class="blog-post__hero-wrapper" data-aos="zoom-in" data-aos-duration="700" data-aos-offset="300"
+                data-aos-delay="300">
+                <img src="{{ $blog->image ? asset('storage/' . $blog->image) : 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1200' }}"
+                    alt="{{ $blog->getTranslation('title', app()->getLocale()) }}" class="blog-post__hero-image">
+            </div>
+
+            <div class="blog-post__content">
+                {!! $blog->getTranslation('content', app()->getLocale()) !!}
+            </div>
+        </div>
+
+    </article>
+@endsection
 @push('css')
     <style>
         .blog-post__content p {
@@ -117,13 +73,13 @@
         }
 
         /* .blog-post__content p:first-child::first-letter {
-                    float: left;
-                    font-size: 4.5rem;
-                    line-height: 1;
-                    font-weight: bold;
-                    margin-right: 12px;
-                    color: var(--color-primary);
-                } */
+                                                        float: left;
+                                                        font-size: 4.5rem;
+                                                        line-height: 1;
+                                                        font-weight: bold;
+                                                        margin-right: 12px;
+                                                        color: var(--color-primary);
+                                                    } */
 
         .blog-post__content h2 {
             font-size: 2rem;
@@ -173,5 +129,62 @@
             color: var(--color-primary);
             text-decoration: underline;
         }
+
+        .blog-post__content p,
+        .blog-post__content h1,
+        .blog-post__content h2,
+        .blog-post__content h3,
+        .blog-post__content h4,
+        .blog-post__content h5,
+        .blog-post__content h6,
+        .blog-post__content img,
+        .blog-post__content ul,
+        .blog-post__content ol,
+        .blog-post__content blockquote,
+        .blog-post__content table {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .blog-post__content .in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 @endpush
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll(`
+            .blog-post__content p,
+            .blog-post__content h1,
+            .blog-post__content h2,
+            .blog-post__content h3,
+            .blog-post__content h4,
+            .blog-post__content h5,
+            .blog-post__content h6,
+            .blog-post__content img,
+            .blog-post__content ul,
+            .blog-post__content ol,
+            .blog-post__content blockquote,
+            .blog-post__content table
+        `);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    } else {
+                        entry.target.classList.remove('in-view'); // replay on scroll back
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+    </script>
+@endpush    

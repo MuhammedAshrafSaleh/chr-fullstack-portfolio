@@ -1,84 +1,62 @@
-    <!--================================================= Project Details -->
+    {{-- <!--================================================= Project Details -->
     <section class="project-details">
         <div class="project-details__container">
             <aside class="project-details__info">
                 <span class="project-details__label">Project Specification</span>
                 <h2 class="project-details__title">Technical Overview</h2>
-
                 <div class="project-details__table">
-                    <div class="project-details__row">
-                        <span>First Year</span>
-                        <span>Licenses & Land Settlement</span>
+                    @foreach ($project->details as $detail)
+                        <div class="project-details__row">
+                            <span>{{ $detail->getTranslation('title', app()->getLocale()) }}</span>
+                            <span>{{ $detail->getTranslation('subtitle', app()->getLocale()) }}</span>
+                        </div>
+                    @endforeach
+                </div>
+            </aside>
+            <div class="project-details__gallery">
+                @foreach ($project->images as $image)
+                    <div class="project-details__image-wrapper">
+                        <img src="{{ asset('storage/' . $image->image) }}"
+                            alt="{{ $image->getTranslation('title', app()->getLocale()) }}">
                     </div>
-                    <div class="project-details__row">
-                        <span>Second Year</span>
-                        <span>Concrete Structure Completion</span>
-                    </div>
-                    <div class="project-details__row">
-                        <span>Third & Fourth Year</span>
-                        <span>Finishing & Operations</span>
-                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section> --}}
 
-                    <div class="project-details__row">
-                        <span>Project Use</span>
-                        <span>Clinics, Hospitals, Pharmacies & Commercial</span>
-                    </div>
-                    <div class="project-details__row">
-                        <span>Building Height</span>
-                        <span>20 Meters (G+4 Floors)</span>
-                    </div>
-                    <div class="project-details__row">
-                        <span>Basement Levels</span>
-                        <span>2 to 3 Underground Levels</span>
-                    </div>
-                    <div class="project-details__row">
-                        <span>Total Land Area</span>
-                        <span>6,500 SQM</span>
-                    </div>
-                    <div class="project-details__row">
-                        <span>Building Area</span>
-                        <span>50,000 SQM</span>
-                    </div>
-                    <div class="project-details__row">
-                        <span>Plaza Space</span>
-                        <span>3,900 SQM</span>
-                    </div>
-                    <div class="project-details__row">
-                        <span>Medical Unit Area</span>
-                        <span>From 27m to 1,000m</span>
-                    </div>
-                    <div class="project-details__row">
-                        <span>Commercial Unit Area</span>
-                        <span>From 27m to 2,000m</span>
-                    </div>
+    <!--================================================= Project Details -->
+    <section class="project-details">
+        <div class="project-details__container">
+
+            <aside class="project-details__info">
+                <span class="project-details__label" data-aos="fade-right" data-aos-duration="700" data-aos-offset="300"
+                    data-aos-delay="0">
+                    {{ $heading?->getTranslation('details_heading', app()->getLocale()) }}
+                </span>
+                <h2 class="project-details__title" data-aos="fade-right" data-aos-duration="700" data-aos-offset="300"
+                    data-aos-delay="150">
+                    {{ $heading?->getTranslation('details_subheading', app()->getLocale()) }}
+                </h2>
+                <div class="project-details__table">
+                    @foreach ($project->details as $detail)
+                        <div class="project-details__row" data-aos="fade-right" data-aos-duration="700"
+                            data-aos-delay="{{ 200 + $loop->index * 100 }}">
+                            <span>{{ $detail->getTranslation('title', app()->getLocale()) }}</span>
+                            <span>{{ $detail->getTranslation('subtitle', app()->getLocale()) }}</span>
+                        </div>
+                    @endforeach
                 </div>
             </aside>
 
             <div class="project-details__gallery">
-                <div class="project-details__image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
-                        alt="Main Building Perspective">
-                </div>
-                <div class="project-details__image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
-                        alt="Plaza and Retail Entrance">
-                </div>
-                <div class="project-details__image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
-                        alt="Aerial Construction View">
-                </div>
-                <div class="project-details__image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80"
-                        alt="Modern Medical Interior">
-                </div>
-                <div class="project-details__image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
-                        alt="Main Building Perspective">
-                </div>
-                <div class="project-details__image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80"
-                        alt="Architectural Detail">
-                </div>
+                @foreach ($project->images as $image)
+                    <div class="project-details__image-wrapper" data-aos="zoom-in" data-aos-duration="700"
+                        data-aos-offset="100" data-aos-delay="{{ $loop->index * 150 }}">
+                        <img src="{{ asset('storage/' . $image->image) }}"
+                            alt="{{ $image->getTranslation('title', app()->getLocale()) }}">
+                    </div>
+                @endforeach
             </div>
+
         </div>
     </section>
