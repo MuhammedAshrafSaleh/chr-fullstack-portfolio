@@ -19,7 +19,7 @@
                 $direction = $directions[($chunkIndex + 2) % 2];
             @endphp
 
-            <div class="services__slider">
+            <div class="services__slider" dir="ltr">
                 <div class="services__track services__track--{{ $direction }}">
 
                     {{-- First pass --}}
@@ -41,8 +41,10 @@
                 </div>
             </div>
         @endforeach
+    </section>
 
-        {{-- <div class="services__slider">
+
+    {{-- <div class="services__slider">
             <div class="services__track services__track--left">
                 <div class="services__card"><i class="fas fa-clinic-medical services__icon"></i>
                     <h3 class="services__name">Fully Finished Serviced Clinics</h3>
@@ -158,4 +160,3 @@
                 </div>
             </div>
         </div> --}}
-    </section>

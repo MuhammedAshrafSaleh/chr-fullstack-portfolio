@@ -170,6 +170,8 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.cursor-dot
+
 /* Theme Toggle Button */
 .theme-toggle {
     position: fixed;
@@ -704,6 +706,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.hero .project-info__cta-icon {
+    background-color: white;
+    color: black;
+
+}
+
+.hero .project-info__cta {
+    border: 2px solid white;
+    border-radius: 0.5rem;
+    color: white;
 }
 
 .hero__video {
@@ -3055,6 +3069,13 @@ body {
     flex: 0 0 350px;
 }
 
+@media (max-width: 768px) {
+    .team__header {
+        flex: 0 0 0;
+        /* أو flex: 1 1 auto; */
+    }
+}
+
 .team__title {
     color: var(--color-text-white);
     font-size: 42px;
@@ -3588,6 +3609,7 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+    display: block;
 }
 
 .project-item:hover .project-item__img {
@@ -4255,7 +4277,7 @@ body {
 }
 
 .construction__subtitle {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-text-light);
     font-size: 1.1rem;
 }
 
@@ -4570,6 +4592,7 @@ body {
     font-weight: 700;
     font-size: 1.2rem;
     display: block;
+    transform: translateY(-12px);
 }
 
 .updates__subtext {
