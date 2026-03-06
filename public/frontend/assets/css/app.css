@@ -68,28 +68,6 @@
     --gradient-scroll-progress: linear-gradient(90deg, #ffd700, #ff6b6b);
 }
 
-[lang="ar"] body,
-[lang="ar"] p,
-[lang="ar"] h1,
-[lang="ar"] h2,
-[lang="ar"] h3,
-[lang="ar"] h4,
-[lang="ar"] h5,
-[lang="ar"] h6,
-[lang="ar"] span,
-[lang="ar"] a,
-[lang="ar"] li,
-[lang="ar"] input,
-[lang="ar"] button,
-[lang="ar"] textarea {
-    font-family: "Cairo", sans-serif !important;
-}
-
-[lang="ar"] body {
-    direction: rtl !important;
-    text-align: right !important;
-}
-
 /* Global Styles */
 * {
     margin: 0;
@@ -99,11 +77,18 @@
     scrollbar-color: var(--color-primary) var(--color-background-dark);
 }
 
+
 body {
     font-family: var(--font-family-base);
     background: var(--color-background-dark);
     cursor: none !important;
     font-display: swap;
+}
+
+html,
+body {
+    /* overflow-x: hidden; */
+    /* max-width: 100%; */
 }
 
 /* Custom Scrollbar - Webkit */
@@ -355,6 +340,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     width: 100%;
     height: 90px;
     background-color: rgba(10, 22, 40, 0.8);
@@ -363,10 +349,11 @@ body {
     display: flex;
     align-items: center;
     z-index: 1000;
+    box-sizing: border-box;
 }
 
 .navbar__container {
-    width: 95%;
+    width: 90%;
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
@@ -702,11 +689,18 @@ body {
 
 
 /* ============================================ Hero Block ========================================*/
+.page-wrapper {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+
 .hero {
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    max-width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -724,6 +718,7 @@ body {
     z-index: 0;
     clip-path: circle(0% at 50% 50%);
     animation: circleZoomIn 5s ease-out forwards;
+    overflow: hidden;
 }
 
 .hero__overlay {
@@ -3567,7 +3562,7 @@ body {
 
 .project-item__visual {
     position: relative;
-    flex: 1.2;
+    flex: 1;
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
@@ -4635,7 +4630,8 @@ body {
 }
 
 /* --- Side Actions --- */
-/* [lang="ar"] .side-actions {
+
+[lang="ar"] .side-actions {
     right: auto;
     left: 20px;
 }
@@ -4650,10 +4646,21 @@ body {
 }
 
 /* --- Theme Toggle --- */
-[lang="ar"] .theme-toggle {
+/* [lang="ar"] .theme-toggle {
     right: auto;
     left: 2rem;
 }
+/* @media (max-width: 768px) {
+    [lang="ar"] .side-actions {
+        left: 8px;
+        right: auto;
+    }
+
+    [lang="ar"] .side-actions__social-group:hover .side-actions__sub-menu,
+    [lang="ar"] .side-actions__social-group.active .side-actions__sub-menu {
+        transform: translateX(48px);
+    }
+} */
 
 /* --- About Section --- */
 [lang="ar"] .about__label {
@@ -4804,6 +4811,28 @@ body {
 [lang="ar"] .scroll-progress {
     left: auto;
     right: 0;
+}
+
+[lang="ar"] body,
+[lang="ar"] p,
+[lang="ar"] h1,
+[lang="ar"] h2,
+[lang="ar"] h3,
+[lang="ar"] h4,
+[lang="ar"] h5,
+[lang="ar"] h6,
+[lang="ar"] span,
+[lang="ar"] a,
+[lang="ar"] li,
+[lang="ar"] input,
+[lang="ar"] button,
+[lang="ar"] textarea {
+    font-family: "Cairo", sans-serif !important;
+}
+
+[lang="ar"] body {
+    direction: rtl !important;
+    text-align: right !important;
 }
 
 /*--- Loader */

@@ -31,36 +31,39 @@
     </article>
 @endsection --}}
 @section('content')
-    <article class="blog-post">
+    <div class="page-wrapper">
+        <article class="blog-post">
 
-        <header class="blog-post__header">
+            <header class="blog-post__header">
+                <div class="container container--narrow">
+                    <h1 class="blog-post__title" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100"
+                        data-aos-delay="0">
+                        {{ $blog->getTranslation('title', app()->getLocale()) }}
+                    </h1>
+                    <div class="blog-post__meta" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100"
+                        data-aos-delay="150">
+                        <span>Published {{ $blog->published_at->format('Y') }}</span>
+                        @if ($blog->getTranslation('author_name', app()->getLocale()))
+                            • <span>By {{ $blog->getTranslation('author_name', app()->getLocale()) }}</span>
+                        @endif
+                    </div>
+                </div>
+            </header>
+
             <div class="container container--narrow">
-                <h1 class="blog-post__title" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300" data-aos-delay="0">
-                    {{ $blog->getTranslation('title', app()->getLocale()) }}
-                </h1>
-                <div class="blog-post__meta" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300"
-                    data-aos-delay="150">
-                    <span>Published {{ $blog->published_at->format('Y') }}</span>
-                    @if ($blog->getTranslation('author_name', app()->getLocale()))
-                        • <span>By {{ $blog->getTranslation('author_name', app()->getLocale()) }}</span>
-                    @endif
+                <div class="blog-post__hero-wrapper" data-aos="zoom-in" data-aos-duration="700" data-aos-offset="100"
+                    data-aos-delay="300">
+                    <img src="{{ $blog->image ? asset('storage/' . $blog->image) : 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1200' }}"
+                        alt="{{ $blog->getTranslation('title', app()->getLocale()) }}" class="blog-post__hero-image">
+                </div>
+
+                <div class="blog-post__content">
+                    {!! $blog->getTranslation('content', app()->getLocale()) !!}
                 </div>
             </div>
-        </header>
 
-        <div class="container container--narrow">
-            <div class="blog-post__hero-wrapper" data-aos="zoom-in" data-aos-duration="700" data-aos-offset="300"
-                data-aos-delay="300">
-                <img src="{{ $blog->image ? asset('storage/' . $blog->image) : 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1200' }}"
-                    alt="{{ $blog->getTranslation('title', app()->getLocale()) }}" class="blog-post__hero-image">
-            </div>
-
-            <div class="blog-post__content">
-                {!! $blog->getTranslation('content', app()->getLocale()) !!}
-            </div>
-        </div>
-
-    </article>
+        </article>
+    </div>
 @endsection
 @push('css')
     <style>
@@ -73,13 +76,13 @@
         }
 
         /* .blog-post__content p:first-child::first-letter {
-                                                        float: left;
-                                                        font-size: 4.5rem;
-                                                        line-height: 1;
-                                                        font-weight: bold;
-                                                        margin-right: 12px;
-                                                        color: var(--color-primary);
-                                                    } */
+                                                                float: left;
+                                                                font-size: 4.5rem;
+                                                                line-height: 1;
+                                                                font-weight: bold;
+                                                                margin-right: 12px;
+                                                                color: var(--color-primary);
+                                                            } */
 
         .blog-post__content h2 {
             font-size: 2rem;
@@ -119,6 +122,7 @@
 
         .blog-post__content li {
             margin-bottom: 0.5rem;
+            margin-right: 1rem;
         }
 
         .blog-post__content strong {
@@ -187,4 +191,4 @@
         });
     </script>
     </script>
-@endpush    
+@endpush

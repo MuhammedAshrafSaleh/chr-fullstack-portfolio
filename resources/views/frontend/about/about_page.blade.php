@@ -3,12 +3,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 @endpush
 @section('content')
-    @include('frontend.about.sections.chr_about')
-    @include('frontend.about.sections.states')
-    @include('frontend.about.sections.testimonials')
-    @include('frontend.about.sections.ceo_message')
-    @include('frontend.about.sections.features')
-    @include('frontend.about.sections.team')
+    <div class="page-wrapper">
+        @include('frontend.about.sections.chr_about')
+        @include('frontend.about.sections.states')
+        @include('frontend.about.sections.testimonials')
+        @include('frontend.about.sections.ceo_message')
+        @include('frontend.about.sections.features')
+        @include('frontend.about.sections.team')
+    </div>
 @endsection
 
 @push('scripts')

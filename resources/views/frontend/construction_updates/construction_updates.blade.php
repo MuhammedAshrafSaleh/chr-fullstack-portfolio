@@ -77,15 +77,15 @@
     <section class="construction">
         <div class="construction__container">
             <header class="construction__header">
-                <span class="construction__label" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300"
+                <span class="construction__label" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100"
                     data-aos-delay="0">
                     {{ __('app.construction_label') }}
                 </span>
-                <h2 class="construction__title" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300"
+                <h2 class="construction__title" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100"
                     data-aos-delay="150">
                     {{ __('app.construction_title') }}
                 </h2>
-                <p class="construction__subtitle" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300"
+                <p class="construction__subtitle" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100"
                     data-aos-delay="300">
                     {{ __('app.construction_subtitle') }}
                 </p>
@@ -93,7 +93,7 @@
 
             <div class="construction__grid">
                 @foreach ($constructionUpdates as $update)
-                    <div class="construction__card" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300"
+                    <div class="construction__card" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100"
                         data-aos-delay="{{ $loop->index * 150 }}">
                         <a href="{{ $update->projects ? route('frontend.construction-updates', $update->id) : '#' }}"
                             class="construction__link" style="text-decoration: none;">

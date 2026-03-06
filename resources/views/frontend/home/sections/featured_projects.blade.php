@@ -65,7 +65,7 @@
                             <div class="project-info__location"
                                 data-aos="fade-right"
                                 data-aos-duration="700"
-                                data-aos-offset="300"
+                                data-aos-offset="100"
                                 data-aos-delay="0">
                                 <svg class="project-info__icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -80,7 +80,7 @@
                             <h2 class="project-info__title"
                                 data-aos="fade-right"
                                 data-aos-duration="700"
-                                data-aos-offset="300"
+                                data-aos-offset="100"
                                 data-aos-delay="150">
                                 {{ strtoupper($project->getTranslation('title', app()->getLocale())) }}
                             </h2>
@@ -88,7 +88,7 @@
                             <p class="project-info__description"
                                 data-aos="fade-right"
                                 data-aos-duration="700"
-                                data-aos-offset="300"
+                                data-aos-offset="100"
                                 data-aos-delay="300">
                                 {{ $project->getTranslation('description', app()->getLocale()) }}
                             </p>
@@ -110,7 +110,7 @@
                     <div class="project-slide__image"
                         data-aos="zoom-in"
                         data-aos-duration="700"
-                        data-aos-offset="300"
+                        data-aos-offset="100"
                         data-aos-delay="150">
                         @if ($project->image)
                             <img src="{{ asset('storage/' . $project->image) }}"

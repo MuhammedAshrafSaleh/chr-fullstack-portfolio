@@ -38,7 +38,7 @@
 <section class="ceo-message">
     <div class="ceo-message__container">
 
-        <div class="ceo-message__visual" data-aos="fade-right" data-aos-duration="700" data-aos-offset="300"
+        <div class="ceo-message__visual" data-aos="fade-right" data-aos-duration="700" data-aos-offset="100"
             data-aos-delay="0">
             <div class="ceo-message__image-wrapper">
                 <img src="{{ $aboutCeo->image ? asset('storage/' . $aboutCeo->image) : asset('assets/images/placeholder-ceo.jpg') }}"
@@ -47,12 +47,12 @@
         </div>
 
         <div class="ceo-message__content">
-            <header class="ceo-message__header" data-aos="fade-left" data-aos-duration="700" data-aos-offset="300"
+            <header class="ceo-message__header" data-aos="fade-left" data-aos-duration="700" data-aos-offset="100"
                 data-aos-delay="0">
                 <h2 class="ceo-message__title">{{ $aboutCeo->title }}</h2>
             </header>
 
-            <div class="ceo-message__body" data-aos="fade-left" data-aos-duration="700" data-aos-offset="300"
+            <div class="ceo-message__body" data-aos="fade-left" data-aos-duration="700" data-aos-offset="100"
                 data-aos-delay="150">
                 <p>{{ $aboutCeo->paragraph_one }}</p>
 

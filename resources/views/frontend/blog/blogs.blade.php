@@ -45,7 +45,7 @@
             <h2 class="blog-section__title"
                 data-aos="fade-up"
                 data-aos-duration="700"
-                data-aos-offset="300"
+                data-aos-offset="100"
                 data-aos-delay="0">
                 Lastes Blogs
             </h2>
@@ -56,7 +56,7 @@
                         style="text-decoration: none;"
                         data-aos="fade-up"
                         data-aos-duration="700"
-                        data-aos-offset="300"
+                        data-aos-offset="100"
                         data-aos-delay="{{ $loop->index * 150 }}">
                         <article class="blog-card">
                             <div class="blog-card__image-wrapper">

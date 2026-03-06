@@ -29,18 +29,18 @@
         <div class="plans__container">
 
             <header class="plans__header">
-                <span class="plans__label" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300"
+                <span class="plans__label" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100"
                     data-aos-delay="0">
                     {{ $heading?->getTranslation('plans_heading', app()->getLocale()) }}
                 </span>
-                <h2 class="plans__title" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300"
+                <h2 class="plans__title" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100"
                     data-aos-delay="150">
                     {{ $heading?->getTranslation('plans_subheading', app()->getLocale()) }}
                 </h2>
             </header>
 
             {{-- Swiper cards are NOT animated with AOS — Swiper controls visibility, not scroll --}}
-            <div class="swiper plans__slider" data-aos="zoom-in data-aos-duration="700" data-aos-offset="300"
+            <div class="swiper plans__slider" data-aos="zoom-in data-aos-duration="700" data-aos-offset="100"
                 data-aos-delay="300" id="plans-gallery">
                 <div class="swiper-wrapper">
                     @foreach ($project->plans as $plan)

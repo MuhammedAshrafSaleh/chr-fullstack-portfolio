@@ -11,21 +11,23 @@
 @endpush
 
 @section('content')
-    {{-- <span class="loader"></span> --}}
-    <!--================================================= Hero Section -->
-    @include('frontend.home.sections.hero')
+    {{-- <span class="loader"></span> .page-wrapper --}}
+    <div class="page-wrapper">
+        <!--================================================= Hero Section -->
+        @include('frontend.home.sections.hero')
 
-    <!--================================================= About Section -->
-    @include('frontend.home.sections.about')
-
+        <!--================================================= About Section -->
+        @include('frontend.home.sections.about')
+    </div>
     <!--=================================================  Featured Projects Section -->
     @include('frontend.home.sections.featured_projects')
+    <div class="page-wrapper">
+        <!--================================================= Blog Section -->
+        @include('frontend.home.sections.blog')
 
-    <!--================================================= Blog Section -->
-    @include('frontend.home.sections.blog')
-
-    <!--================================================= Contact Section -->
-    @include('frontend.home.sections.contact')
+        <!--================================================= Contact Section -->
+        @include('frontend.home.sections.contact')
+    </div>
 @endsection
 
 @push('scripts')

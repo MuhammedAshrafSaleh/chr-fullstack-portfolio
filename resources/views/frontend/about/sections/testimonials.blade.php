@@ -51,18 +51,18 @@
     <div class="testimonials__container">
 
         <header class="testimonials__header">
-            <span class="testimonials__subtitle" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300"
+            <span class="testimonials__subtitle" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100"
                 data-aos-delay="0">
                 {{ $aboutHeading->testimonials_subtitle }}
             </span>
-            <h2 class="testimonials__title" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300"
+            <h2 class="testimonials__title" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100"
                 data-aos-delay="150">
                 {{ $aboutHeading->testimonials_title }}
             </h2>
         </header>
 
         {{-- Swiper cards are NOT animated with AOS — Swiper controls visibility, not scroll --}}
-        <div class="testimonials__slider swiper" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300"
+        <div class="testimonials__slider swiper" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100"
             data-aos-delay="300">
             <div class="swiper-wrapper">
                 @foreach ($testimonials as $testimonial)

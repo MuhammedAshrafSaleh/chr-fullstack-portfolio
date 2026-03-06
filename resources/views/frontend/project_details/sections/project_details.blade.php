@@ -29,11 +29,11 @@
         <div class="project-details__container">
 
             <aside class="project-details__info">
-                <span class="project-details__label" data-aos="fade-right" data-aos-duration="700" data-aos-offset="300"
+                <span class="project-details__label" data-aos="fade-right" data-aos-duration="700" data-aos-offset="100"
                     data-aos-delay="0">
                     {{ $heading?->getTranslation('details_heading', app()->getLocale()) }}
                 </span>
-                <h2 class="project-details__title" data-aos="fade-right" data-aos-duration="700" data-aos-offset="300"
+                <h2 class="project-details__title" data-aos="fade-right" data-aos-duration="700" data-aos-offset="100"
                     data-aos-delay="150">
                     {{ $heading?->getTranslation('details_subheading', app()->getLocale()) }}
                 </h2>

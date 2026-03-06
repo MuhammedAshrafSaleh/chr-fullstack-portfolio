@@ -5,8 +5,10 @@
 @endpush
 
 @section('content')
-    @include('frontend.contact.contact_us_map')
-    @include('frontend.home.sections.contact')
+    <div class="page-wrapper">
+        @include('frontend.contact.contact_us_map')
+        @include('frontend.home.sections.contact')
+    </div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 @endsection
 @push('scripts')

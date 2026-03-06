@@ -1,14 +1,14 @@
 <section class="blog-section">
     <div class="container">
 
-        <h2 class="blog-section__title" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300" data-aos-delay="0">
+        <h2 class="blog-section__title" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100" data-aos-delay="0">
             From The Blog
         </h2>
 
         <div class="blog-section__grid">
             @foreach ($blogs as $blog)
                 <a href="{{ route('frontend.blog.single', $blog->id) }}" class="blog-card-link"
-                    style="text-decoration: none;" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300"
+                    style="text-decoration: none;" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100"
                     data-aos-delay="{{ $loop->index * 150 }}">
                     <article class="blog-card">
                         <div class="blog-card__image-wrapper">
@@ -31,7 +31,7 @@
             @endforeach
         </div>
 
-        <div class="blog_button" data-aos="fade-up" data-aos-duration="700" data-aos-offset="300" data-aos-delay="300">
+        <div class="blog_button" data-aos="fade-up" data-aos-duration="700" data-aos-offset="100" data-aos-delay="300">
             <a href="{{ route('frontend.blogs') }}" style="text-decoration: none;">
                 <button class="project-info__cta">
                     <span class="project-info__cta-icon">+</span>

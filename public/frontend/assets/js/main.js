@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
         cursor.style.opacity = '1';
         cursorDot.style.opacity = '1';
     });
+    
 });
 
 const menuToggle = document.getElementById('menuToggle');
@@ -121,4 +122,10 @@ menuToggle.addEventListener('click', () => {
 menuClose.addEventListener('click', () => {
     menuOverlay.classList.remove('menu-overlay--active');
     document.body.style.overflow = 'auto'; // Restore scrolling
+});
+
+document.querySelectorAll('*').forEach(el => {
+    if (el.offsetWidth > document.documentElement.offsetWidth) {
+        console.log(el, el.offsetWidth);
+    }
 });
