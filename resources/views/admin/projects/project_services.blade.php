@@ -2,11 +2,9 @@
 
 @push('styles')
     {{-- FontAwesome 5 Free --}}
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     {{-- DataTables Bootstrap 4 --}}
-    <link rel="stylesheet"
-          href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
 @endpush
 
 <div class="main-content">
@@ -49,10 +47,8 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4>All Project Services</h4>
-                    <button type="button"
-                            class="btn btn-primary"
-                            data-toggle="modal"
-                            data-target="#createProjectServiceModal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#createProjectServiceModal">
                         <i class="fas fa-plus mr-1"></i> Add New
                     </button>
                 </div>
@@ -76,24 +72,20 @@
                                         <td>{{ $item->project?->getTranslation('title', app()->getLocale()) }}</td>
                                         <td>
                                             <i class="{{ $item->icon }}"
-                                               style="font-size: 1.4rem; margin-right: 6px;"></i>
+                                                style="font-size: 1.4rem; margin-right: 6px;"></i>
                                             <small class="text-muted">{{ $item->icon }}</small>
                                         </td>
                                         <td>{{ $item->getTranslation('title', app()->getLocale()) }}</td>
                                         <td>
                                             <div class="text-nowrap">
                                                 {{-- Edit --}}
-                                                <button type="button"
-                                                        class="btn btn-sm btn-warning"
-                                                        data-toggle="modal"
-                                                        data-target="#editModal{{ $item->id }}">
+                                                <button type="button" class="btn btn-sm btn-warning"
+                                                    data-toggle="modal" data-target="#editModal{{ $item->id }}">
                                                     <i class="fas fa-edit"></i> Edit
                                                 </button>
                                                 {{-- Delete --}}
-                                                <button type="button"
-                                                        class="btn btn-sm btn-danger"
-                                                        data-toggle="modal"
-                                                        data-target="#deleteModal{{ $item->id }}">
+                                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                                    data-target="#deleteModal{{ $item->id }}">
                                                     <i class="fas fa-trash"></i> Delete
                                                 </button>
                                             </div>
@@ -110,15 +102,13 @@
     </section>
 </div>{{-- /.main-content --}}
 
-
 {{-- ══════════════════════════════════════════════════════════
      CREATE MODAL
 ══════════════════════════════════════════════════════════ --}}
 <div class="modal fade" id="createProjectServiceModal" tabindex="-1" role="dialog"
-     aria-labelledby="createProjectServiceModalLabel" aria-hidden="true">
+    aria-labelledby="createProjectServiceModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content"
-             style="max-height: 90vh; display: flex; flex-direction: column;">
+        <div class="modal-content" style="max-height: 90vh; display: flex; flex-direction: column;">
 
             <div class="modal-header" style="flex-shrink: 0;">
                 <h5 class="modal-title" id="createProjectServiceModalLabel">
@@ -129,9 +119,8 @@
                 </button>
             </div>
 
-            <form action="{{ route('admin.project_services.store') }}"
-                  method="POST"
-                  style="display: flex; flex-direction: column; flex: 1; overflow: hidden;">
+            <form action="{{ route('admin.project_services.store') }}" method="POST"
+                style="display: flex; flex-direction: column; flex: 1; overflow: hidden;">
                 @csrf
 
                 <div class="modal-body" style="overflow-y: auto; flex: 1;">
@@ -160,20 +149,16 @@
                             Icon
                         </label>
                         <div class="col-sm-12 col-md-7">
-                            <input type="text"
-                                   name="icon"
-                                   id="createIconInput"
-                                   class="form-control"
-                                   placeholder="e.g. fas fa-check"
-                                   value="{{ old('icon') }}">
+                            <input type="text" name="icon" id="createIconInput" class="form-control"
+                                placeholder="e.g. fas fa-check" value="{{ old('icon') }}">
                             <div class="mt-2">
                                 <span class="text-muted" style="font-size: 0.85rem;">Preview:</span>
-                                <i id="createIconPreview"
-                                   class="{{ old('icon', 'fas fa-star') }}"
-                                   style="font-size: 1.6rem; margin-left: 8px; color: #6777ef;"></i>
+                                <i id="createIconPreview" class="{{ old('icon', 'fas fa-star') }}"
+                                    style="font-size: 1.6rem; margin-left: 8px; color: #6777ef;"></i>
                             </div>
                             <small class="text-muted">
-                                Enter any FontAwesome 5 class, e.g. <code>fas fa-rocket</code>
+                                Enter any <a href="https://fontawesome.com/v5/search" target="_blank"
+                                    rel="noopener noreferrer">FontAwesome 5</a> class, e.g. <code>fas fa-rocket</code>
                             </small>
                         </div>
                     </div>
@@ -184,11 +169,8 @@
                             Title <span class="badge badge-success">EN</span>
                         </label>
                         <div class="col-sm-12 col-md-7">
-                            <input type="text"
-                                   name="title[en]"
-                                   class="form-control"
-                                   placeholder="Service title in English"
-                                   value="{{ old('title.en') }}">
+                            <input type="text" name="title[en]" class="form-control"
+                                placeholder="Service title in English" value="{{ old('title.en') }}">
                         </div>
                     </div>
 
@@ -198,12 +180,8 @@
                             Title <span class="badge badge-warning">AR</span>
                         </label>
                         <div class="col-sm-12 col-md-7">
-                            <input type="text"
-                                   name="title[ar]"
-                                   class="form-control"
-                                   placeholder="عنوان الخدمة بالعربية"
-                                   dir="rtl"
-                                   value="{{ old('title.ar') }}">
+                            <input type="text" name="title[ar]" class="form-control"
+                                placeholder="عنوان الخدمة بالعربية" dir="rtl" value="{{ old('title.ar') }}">
                         </div>
                     </div>
 
@@ -228,13 +206,11 @@
      EDIT & DELETE MODALS  (looped, placed OUTSIDE the table)
 ══════════════════════════════════════════════════════════ --}}
 @foreach ($projectServices as $item)
-
     {{-- ── Edit Modal ───────────────────────────────────────── --}}
     <div class="modal fade" id="editModal{{ $item->id }}" tabindex="-1" role="dialog"
-         aria-labelledby="editModalLabel{{ $item->id }}" aria-hidden="true">
+        aria-labelledby="editModalLabel{{ $item->id }}" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content"
-                 style="max-height: 90vh; display: flex; flex-direction: column;">
+            <div class="modal-content" style="max-height: 90vh; display: flex; flex-direction: column;">
 
                 <div class="modal-header" style="flex-shrink: 0;">
                     <h5 class="modal-title" id="editModalLabel{{ $item->id }}">
@@ -245,9 +221,8 @@
                     </button>
                 </div>
 
-                <form action="{{ route('admin.project_services.update', $item->id) }}"
-                      method="POST"
-                      style="display: flex; flex-direction: column; flex: 1; overflow: hidden;">
+                <form action="{{ route('admin.project_services.update', $item->id) }}" method="POST"
+                    style="display: flex; flex-direction: column; flex: 1; overflow: hidden;">
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="id" value="{{ $item->id }}">
@@ -278,20 +253,20 @@
                                 Icon
                             </label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="text"
-                                       name="icon"
-                                       id="editIconInput{{ $item->id }}"
-                                       class="form-control edit-icon-input"
-                                       data-preview="editIconPreview{{ $item->id }}"
-                                       value="{{ old('icon', $item->icon) }}">
+                                <input type="text" name="icon" id="editIconInput{{ $item->id }}"
+                                    class="form-control edit-icon-input"
+                                    data-preview="editIconPreview{{ $item->id }}"
+                                    value="{{ old('icon', $item->icon) }}">
                                 <div class="mt-2">
                                     <span class="text-muted" style="font-size: 0.85rem;">Preview:</span>
                                     <i id="editIconPreview{{ $item->id }}"
-                                       class="{{ old('icon', $item->icon) }}"
-                                       style="font-size: 1.6rem; margin-left: 8px; color: #6777ef;"></i>
+                                        class="{{ old('icon', $item->icon) }}"
+                                        style="font-size: 1.6rem; margin-left: 8px; color: #6777ef;"></i>
                                 </div>
                                 <small class="text-muted">
-                                    Enter any FontAwesome 5 class, e.g. <code>fas fa-rocket</code>
+                                    Enter any <a href="https://fontawesome.com/v5/search" target="_blank"
+                                        rel="noopener noreferrer">FontAwesome 5</a> class, e.g. <code>fas
+                                        fa-rocket</code>
                                 </small>
                             </div>
                         </div>
@@ -302,11 +277,9 @@
                                 Title <span class="badge badge-success">EN</span>
                             </label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="text"
-                                       name="title[en]"
-                                       class="form-control"
-                                       placeholder="Service title in English"
-                                       value="{{ old('title.en', $item->getTranslation('title', 'en')) }}">
+                                <input type="text" name="title[en]" class="form-control"
+                                    placeholder="Service title in English"
+                                    value="{{ old('title.en', $item->getTranslation('title', 'en')) }}">
                             </div>
                         </div>
 
@@ -316,12 +289,9 @@
                                 Title <span class="badge badge-warning">AR</span>
                             </label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="text"
-                                       name="title[ar]"
-                                       class="form-control"
-                                       placeholder="عنوان الخدمة بالعربية"
-                                       dir="rtl"
-                                       value="{{ old('title.ar', $item->getTranslation('title', 'ar')) }}">
+                                <input type="text" name="title[ar]" class="form-control"
+                                    placeholder="عنوان الخدمة بالعربية" dir="rtl"
+                                    value="{{ old('title.ar', $item->getTranslation('title', 'ar')) }}">
                             </div>
                         </div>
 
@@ -340,10 +310,9 @@
             </div>
         </div>
     </div>
-
     {{-- ── Delete Modal ──────────────────────────────────────── --}}
     <div class="modal fade" id="deleteModal{{ $item->id }}" tabindex="-1" role="dialog"
-         aria-labelledby="deleteModalLabel{{ $item->id }}" aria-hidden="true">
+        aria-labelledby="deleteModalLabel{{ $item->id }}" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
 
@@ -367,8 +336,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Cancel
                     </button>
-                    <form action="{{ route('admin.project_services.destroy', $item->id) }}"
-                          method="POST">
+                    <form action="{{ route('admin.project_services.destroy', $item->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">
@@ -380,7 +348,6 @@
             </div>
         </div>
     </div>
-
 @endforeach
 
 
@@ -393,7 +360,7 @@
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
 
             // ── DataTables init ────────────────────────────────────
             $('#projectServicesTable').DataTable({
@@ -410,15 +377,15 @@
             });
 
             // ── Icon live preview — Create modal ───────────────────
-            $('#createIconInput').on('input', function () {
+            $('#createIconInput').on('input', function() {
                 var val = $(this).val().trim();
                 $('#createIconPreview').attr('class', val || 'fas fa-star');
             });
 
             // ── Icon live preview — Edit modals (delegated) ────────
-            $(document).on('input', '.edit-icon-input', function () {
+            $(document).on('input', '.edit-icon-input', function() {
                 var previewId = $(this).data('preview');
-                var val       = $(this).val().trim();
+                var val = $(this).val().trim();
                 $('#' + previewId).attr('class', val || 'fas fa-star');
             });
 
