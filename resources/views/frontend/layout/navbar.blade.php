@@ -14,7 +14,7 @@
         <ul class="navbar__links">
             @foreach ($navItems as $index => $item)
                 <li class="navbar__item">
-                    <span class="navbar__item-num">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
+                    {{-- <span class="navbar__item-num">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span> --}}
                     <a href="{{ $item->link }}"
                         class="navbar__link">{{ $item->getTranslation('title', app()->getLocale()) }}</a>
                 </li>

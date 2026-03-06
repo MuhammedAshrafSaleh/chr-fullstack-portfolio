@@ -6315,7 +6315,7 @@ body {
 }
 
 /* --- Side Actions --- */
-[lang="ar"] .side-actions {
+/* [lang="ar"] .side-actions {
     right: auto;
     left: 20px;
 }
@@ -6333,7 +6333,7 @@ body {
 [lang="ar"] .theme-toggle {
     right: auto;
     left: 2rem;
-}
+} 
 
 /* --- About Section --- */
 [lang="ar"] .about__label {
@@ -6389,7 +6389,7 @@ body {
 }
 
 /* --- Map Card --- */
-[lang="ar"] .map-card__controls {
+/* [lang="ar"] .map-card__controls {
     left: auto;
     right: 30px;
 }
@@ -6397,7 +6397,7 @@ body {
 [lang="ar"] .map-card__directions-btn {
     right: auto;
     left: 30px;
-}
+} */
 
 /* --- Contact / Location Card --- */
 [lang="ar"] .location-card__button:hover {
