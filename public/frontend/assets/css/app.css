@@ -85,11 +85,6 @@ body {
     font-display: swap;
 }
 
-html,
-body {
-    /* overflow-x: hidden; */
-    /* max-width: 100%; */
-}
 
 /* Custom Scrollbar - Webkit */
 ::-webkit-scrollbar {
@@ -3150,6 +3145,37 @@ body {
     color: var(--color-text-muted);
     font-size: 14px;
 }
+
+/* ── NEW: wraps role + linkedin icon in one row ── */
+.team__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+/* ── NEW: linkedin icon link ── */
+.team__linkedin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border-light);
+    color: var(--color-text-muted);
+    font-size: 15px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.team__linkedin:hover {
+    background-color: #0a66c2;
+    border-color: #0a66c2;
+    color: #fff;
+}
+
 
 
 .testimonials {

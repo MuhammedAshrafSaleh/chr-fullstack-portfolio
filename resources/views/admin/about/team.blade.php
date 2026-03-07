@@ -54,6 +54,7 @@
                                         <th>Title</th>
                                         <th>Subtitle</th>
                                         <th>Image</th>
+                                        <th>LinkedIn</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -72,6 +73,15 @@
                                                 @endif
                                             </td>
                                             <td>
+                                                @if ($member->linkedin_link)
+                                                    <a href="{{ $member->linkedin_link }}" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                        <i class="fab fa-linkedin"></i> View
+                                                    </a>
+                                                @else
+                                                    <span class="text-muted">—</span>
+                                                @endif
+                                            </td>
+                                            <td>
                                                 <button class="btn btn-sm btn-warning" data-toggle="modal"
                                                     data-target="#editModal{{ $member->id }}">
                                                     <i class="fas fa-edit"></i> Edit
@@ -84,7 +94,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="5" class="text-center text-muted py-4">No team members found.</td>
+                                            <td colspan="6" class="text-center text-muted py-4">No team members found.</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
@@ -172,6 +182,22 @@
                                         class="form-control @error('subtitle.ar') is-invalid @enderror"
                                         value="{{ old('subtitle.ar') }}" dir="rtl" placeholder="مثال: مطور أول">
                                     @error('subtitle.ar')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            {{-- LinkedIn Link --}}
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                                    <i class="fab fa-linkedin text-primary"></i> LinkedIn
+                                </label>
+                                <div class="col-sm-12 col-md-7">
+                                    <input type="url" name="linkedin_link"
+                                        class="form-control @error('linkedin_link') is-invalid @enderror"
+                                        value="{{ old('linkedin_link') }}"
+                                        placeholder="e.g. https://linkedin.com/in/username">
+                                    @error('linkedin_link')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -277,6 +303,22 @@
                                     </div>
                                 </div>
 
+                                {{-- LinkedIn Link --}}
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                                        <i class="fab fa-linkedin text-primary"></i> LinkedIn
+                                    </label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="url" name="linkedin_link"
+                                            class="form-control @error('linkedin_link') is-invalid @enderror"
+                                            value="{{ old('linkedin_link', $member->linkedin_link) }}"
+                                            placeholder="e.g. https://linkedin.com/in/username">
+                                        @error('linkedin_link')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
                                 {{-- Image --}}
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Image</label>
@@ -336,7 +378,7 @@
 
 @push('scripts')
     <script>
-        { { --Image preview — Create modal-- } }
+        {{-- Image preview — Create modal --}}
         $('#image-upload-create').on('change', function () {
             const file = this.files[0];
             if (file) {
@@ -353,7 +395,7 @@
             }
         });
 
-        { { --Image preview — Edit modals-- } }
+        {{-- Image preview — Edit modals --}}
         @foreach ($team as $member)
             $('#image-upload-edit{{ $member->id }}').on('change', function () {
                 const file = this.files[0];
@@ -375,5 +417,5 @@
         @if ($errors->any() && !old('_method'))
             $('#createTeamModal').modal('show');
         @endif
-        </sc ript>
+    </script>
 @endpush

@@ -5,7 +5,9 @@
 @section('content')
     <div class="page-wrapper">
         @include('frontend.about.sections.chr_about')
-        @include('frontend.about.sections.states')
+    </div>
+    @include('frontend.about.sections.states')
+    <div class="page-wrapper">
         @include('frontend.about.sections.testimonials')
         @include('frontend.about.sections.ceo_message')
         @include('frontend.about.sections.features')

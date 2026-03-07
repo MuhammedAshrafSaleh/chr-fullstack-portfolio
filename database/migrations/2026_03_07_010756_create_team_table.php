@@ -13,6 +13,7 @@ return new class extends Migration
             $table->json('title');
             $table->json('subtitle');
             $table->string('image')->nullable();
+            $table->string('linkedin_link')->nullable();
             $table->timestamps();
         });
     }

@@ -12,5 +12,5 @@ class Team extends Model
 
     public $translatable = ['title', 'subtitle'];
 
-    protected $fillable = ['title', 'subtitle', 'image'];
+    protected $fillable = ['title', 'subtitle', 'image', 'linkedin_link'];
 }

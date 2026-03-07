@@ -19,14 +19,15 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title.en' => 'required|string|max:255',
-            'title.ar' => 'required|string|max:255',
-            'subtitle.en' => 'required|string|max:255',
-            'subtitle.ar' => 'required|string|max:255',
-            'image' => 'nullable|image|max:2048',
+            'title.en'      => 'required|string|max:255',
+            'title.ar'      => 'required|string|max:255',
+            'subtitle.en'   => 'required|string|max:255',
+            'subtitle.ar'   => 'required|string|max:255',
+            'image'         => 'nullable|image|max:2048',
+            'linkedin_link' => 'nullable|url|max:255',
         ]);
 
-        $data = $request->only('title', 'subtitle');
+        $data = $request->only('title', 'subtitle', 'linkedin_link');
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('team', 'public');
@@ -41,14 +42,15 @@ class TeamController extends Controller
     public function update(Request $request, Team $team)
     {
         $request->validate([
-            'title.en' => 'required|string|max:255',
-            'title.ar' => 'required|string|max:255',
-            'subtitle.en' => 'required|string|max:255',
-            'subtitle.ar' => 'required|string|max:255',
-            'image' => 'nullable|image|max:2048',
+            'title.en'      => 'required|string|max:255',
+            'title.ar'      => 'required|string|max:255',
+            'subtitle.en'   => 'required|string|max:255',
+            'subtitle.ar'   => 'required|string|max:255',
+            'image'         => 'nullable|image|max:2048',
+            'linkedin_link' => 'nullable|url|max:255',
         ]);
 
-        $data = $request->only('title', 'subtitle');
+        $data = $request->only('title', 'subtitle', 'linkedin_link');
 
         if ($request->hasFile('image')) {
             if ($team->image) {
