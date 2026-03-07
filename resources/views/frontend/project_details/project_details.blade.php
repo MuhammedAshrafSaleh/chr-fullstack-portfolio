@@ -7,11 +7,14 @@
 @section('content')
     <div class="page-wrapper">
         @include('frontend.project_details.sections.project_hero')
-        @include('frontend.project_details.sections.project_details')
+    </div>
+    @include('frontend.project_details.sections.project_details')
+    <div class="page-wrapper">
         @include('frontend.project_details.sections.services')
         @include('frontend.project_details.sections.plans')
         @include('frontend.project_details.sections.project_location')
     </div>
+
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>

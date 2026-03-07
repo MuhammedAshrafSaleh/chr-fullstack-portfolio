@@ -47,6 +47,7 @@
     <div class="scroll-progress"></div>
     <div class="custom-cursor"></div>
     <div class="cursor-dot"></div>
+    @include('frontend.layout.loader')
 
     @include('frontend.layout.side_actions')
 
@@ -64,6 +65,41 @@
 
     <script>
         AOS.init();
+    </script>
+    <script>
+        (function() {
+            const loader = document.querySelector('.loader');
+            if (!loader) return;
+
+            // Hide body content until loader is done
+            document.body.style.overflow = 'hidden';
+            document.body.classList.add('body--loading');
+
+            const video = document.getElementById('heroVideo');
+
+            const hide = () => {
+                loader.classList.add('loader--hidden');
+                document.body.classList.remove('body--loading');
+                document.body.style.overflow = '';
+            };
+
+            if (video) {
+                // ── Home page: wait for the video to be fully loaded ──
+                if (video.readyState >= 4) {
+                    hide();
+                } else {
+                    video.addEventListener('canplaythrough', hide, {
+                        once: true
+                    });
+
+                    // Fallback: never hang longer than 6s even if video stalls
+                    setTimeout(hide, 6000);
+                }
+            } else {
+                // ── All other pages: hide after 2 seconds ──
+                setTimeout(hide, 2000);
+            }
+        })();
     </script>
     @stack('scripts')
 

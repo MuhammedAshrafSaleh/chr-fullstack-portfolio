@@ -11,7 +11,6 @@
 @endpush
 
 @section('content')
-    {{-- <span class="loader"></span> .page-wrapper --}}
     <div class="page-wrapper">
         <!--================================================= Hero Section -->
         @include('frontend.home.sections.hero')
