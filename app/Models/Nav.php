@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 use Spatie\Translatable\HasTranslations;
 
 class Nav extends Model
@@ -13,5 +12,5 @@ class Nav extends Model
 
     public $translatable = ['title'];
 
-    protected $fillable = ['title', 'link', 'icon'];
+    protected $fillable = ['title', 'link', 'icon', 'order'];
 }

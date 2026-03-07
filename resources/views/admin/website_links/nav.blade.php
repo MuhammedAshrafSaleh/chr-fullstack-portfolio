@@ -45,6 +45,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Order</th>
                                     <th>Title</th>
                                     <th>Link</th>
                                     <th>Icon</th>
@@ -55,6 +56,7 @@
                                 @foreach ($navs as $index => $item)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
+                                        <td>{{ $item->order }}</td>
                                         <td>{{ $item->getTranslation('title', app()->getLocale()) }}</td>
                                         <td>{{ $item->link }}</td>
                                         <td><i class="{{ $item->icon }}"></i> {{ $item->icon }}</td>
@@ -151,6 +153,18 @@
                         </div>
                     </div>
 
+                    {{-- Order --}}
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Order</label>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="number" name="order" class="form-control @error('order') is-invalid @enderror"
+                                value="{{ old('order', 0) }}" min="0" placeholder="e.g. 1">
+                            @error('order')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+
                 </div>
                 <div class="modal-footer bg-whitesmoke br-0" style="flex-shrink: 0;">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -234,6 +248,20 @@
                                     value="{{ old('icon', $item->icon) }}"
                                     placeholder="e.g. fas fa-home">
                                 @error('icon')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- Order --}}
+                        <div class="form-group row mb-4">
+                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Order</label>
+                            <div class="col-sm-12 col-md-7">
+                                <input type="number" name="order"
+                                    class="form-control @error('order') is-invalid @enderror"
+                                    value="{{ old('order', $item->order) }}" min="0"
+                                    placeholder="e.g. 1">
+                                @error('order')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
