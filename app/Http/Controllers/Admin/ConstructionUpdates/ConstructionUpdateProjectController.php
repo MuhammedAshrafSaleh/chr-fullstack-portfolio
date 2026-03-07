@@ -26,7 +26,8 @@ class ConstructionUpdateProjectController extends Controller
             'head.ar' => 'required|string|max:255',
             'subhead.en' => 'required|string|max:255',
             'subhead.ar' => 'required|string|max:255',
-            'media' => 'nullable|file|mimes:jpg,jpeg,png,gif,webp,mp4,mov,avi|max:20480',
+            'media' => 'required|file|mimes:jpg,jpeg,png,gif|max:2048',
+            'youtube_link' => 'nullable|url|max:255',
         ]);
 
         $mediaPath = null;
@@ -39,6 +40,7 @@ class ConstructionUpdateProjectController extends Controller
             'head' => $validated['head'],
             'subhead' => $validated['subhead'],
             'media' => $mediaPath,
+            'youtube_link' => $validated['youtube_link'] ?? null,
         ]);
 
         return redirect()->route('admin.construction-update-project.index')
@@ -54,6 +56,7 @@ class ConstructionUpdateProjectController extends Controller
             'subhead.en' => 'required|string|max:255',
             'subhead.ar' => 'required|string|max:255',
             'media' => 'nullable|file|mimes:jpg,jpeg,png,gif,webp,mp4,mov,avi|max:20480',
+            'youtube_link' => 'nullable|url|max:255',
         ]);
 
         $mediaPath = $constructionUpdateProject->media;
@@ -70,6 +73,7 @@ class ConstructionUpdateProjectController extends Controller
             'head' => $validated['head'],
             'subhead' => $validated['subhead'],
             'media' => $mediaPath,
+            'youtube_link' => $validated['youtube_link'] ?? null,
         ]);
 
         return redirect()->route('admin.construction-update-project.index')

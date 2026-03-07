@@ -39,4 +39,5 @@ return [
 
     // --- Construction Updates ---
     'construction_tooltip' => 'See full project',
+    'progress_tracking' => 'Progress Tracking',
 ];

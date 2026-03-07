@@ -4656,6 +4656,194 @@ body {
     font-weight: 600;
 }
 
+.updates {
+    background-color: var(--color-background-dark);
+    padding: 150px 0;
+    color: #fff;
+}
+
+.updates__container {
+    max-width: var(--breakpoint-large);
+    margin: 0 auto;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+@media (min-width: 1024px) {
+    .updates__container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width: 1024px) {
+    .updates__left {
+        flex: 0 0 35%;
+        position: sticky;
+        top: 120px;
+    }
+}
+
+.updates__label {
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.updates__title {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--color-text-white);
+}
+
+.updates__description {
+    color: var(--color-text-gray);
+}
+
+.updates__right {
+    flex: 1;
+    position: relative;
+    padding-left: 40px;
+}
+
+.updates__timeline-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-border-divider);
+}
+
+.updates__item {
+    position: relative;
+    margin-bottom: 80px;
+}
+
+.updates__item:last-child {
+    margin-bottom: 0;
+}
+
+.updates__marker {
+    position: absolute;
+    left: -40px;
+    top: 0;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.updates__circle {
+    width: 16px;
+    height: 16px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    border: 4px solid var(--color-background-dark);
+    z-index: 2;
+}
+
+.updates__date {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: block;
+    transform: translateY(-12px);
+}
+
+.updates__subtext {
+    font-size: 0.95rem;
+    color: var(--color-text-gray);
+    margin: 5px 0 20px;
+}
+
+.updates__media-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #000;
+}
+
+.updates__media-wrapper img,
+.updates__media-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.updates__media-wrapper:hover img,
+.updates__media-wrapper:hover video {
+    transform: scale(1.05);
+}
+
+.updates__project-name {
+    margin-top: 15px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* ── NEW: YouTube poster play overlay ─────────────────────────────── */
+
+.updates__youtube-poster {
+    cursor: pointer;
+}
+
+/* Dim the poster image slightly so the button stands out */
+.updates__youtube-poster img {
+    transition: transform 0.5s ease, filter 0.3s ease;
+    filter: brightness(0.75);
+}
+
+.updates__youtube-poster:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.55);
+}
+
+/* Full-cover overlay that holds the play button */
+.updates__play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    /* clicks pass through to the wrapper */
+}
+
+/* The circular play button */
+.updates__play-btn {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(255, 0, 0, 0.85);
+    /* YouTube red */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.updates__youtube-poster:hover .updates__play-btn {
+    transform: scale(1.12);
+    background: #ff0000;
+}
+
+.updates__play-btn i {
+    color: #fff;
+    font-size: 28px;
+    line-height: 1;
+}
+
 /*# sourceMappingURL=app.css.map */
 
 

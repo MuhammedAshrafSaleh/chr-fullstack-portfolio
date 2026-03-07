@@ -54,7 +54,7 @@
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>ID</th>
                                         <th>Title</th>
                                         <th>Subtitle</th>
                                         <th>Video</th>
@@ -64,7 +64,7 @@
                                 <tbody>
                                     @forelse ($constructionUpdates as $index => $update)
                                         <tr>
-                                            <td>{{ $constructionUpdates->firstItem() + $index }}</td>
+                                            <td>{{ $update->id }}</td>
                                             <td>{{ $update->getTranslation('title', app()->getLocale()) }}</td>
                                             <td>{{ $update->getTranslation('subtitle', app()->getLocale()) }}</td>
                                             <td>

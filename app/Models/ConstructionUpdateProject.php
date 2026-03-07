@@ -12,7 +12,7 @@ class ConstructionUpdateProject extends Model
 
     public $translatable = ['head', 'subhead'];
 
-    protected $fillable = ['construction_update_id', 'head', 'subhead', 'media'];
+    protected $fillable = ['construction_update_id', 'head', 'subhead', 'media', 'youtube_link'];
 
     public function constructionUpdate()
     {

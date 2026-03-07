@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('construction_update_projects', function (Blueprint $table) {
@@ -17,6 +14,7 @@ return new class extends Migration
             $table->json('head');
             $table->json('subhead');
             $table->string('media')->nullable();
+            $table->string('youtube_link')->nullable();
             $table->timestamps();
         });
     }

@@ -51,6 +51,7 @@
                                     <th>Head</th>
                                     <th>Subhead</th>
                                     <th>Media</th>
+                                    <th>YouTube</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -81,6 +82,15 @@
                                             @endif
                                         </td>
                                         <td>
+                                            @if ($update->youtube_link)
+                                                <a href="{{ $update->youtube_link }}" target="_blank" class="btn btn-sm btn-outline-danger">
+                                                    <i class="fab fa-youtube"></i> Watch
+                                                </a>
+                                            @else
+                                                <span class="text-muted">—</span>
+                                            @endif
+                                        </td>
+                                        <td>
                                             <button class="btn btn-sm btn-warning"
                                                 data-toggle="modal"
                                                 data-target="#editModal{{ $update->id }}">
@@ -95,7 +105,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="6" class="text-center text-muted">No records found.</td>
+                                        <td colspan="7" class="text-center text-muted">No records found.</td>
                                     </tr>
                                 @endforelse
                             </tbody>
@@ -185,6 +195,22 @@
                             <div class="col-sm-12 col-md-7">
                                 <input type="text" name="subhead[ar]" class="form-control"
                                     value="{{ old('subhead.ar') }}" placeholder="Subhead (Arabic)" dir="rtl">
+                            </div>
+                        </div>
+
+                        {{-- YouTube Link --}}
+                        <div class="form-group row mb-4">
+                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                                <i class="fab fa-youtube text-danger"></i> YouTube Link
+                            </label>
+                            <div class="col-sm-12 col-md-7">
+                                <input type="url" name="youtube_link"
+                                    class="form-control @error('youtube_link') is-invalid @enderror"
+                                    value="{{ old('youtube_link') }}"
+                                    placeholder="e.g. https://www.youtube.com/watch?v=xxxxx">
+                                @error('youtube_link')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
@@ -292,6 +318,22 @@
                                 <div class="col-sm-12 col-md-7">
                                     <input type="text" name="subhead[ar]" class="form-control" dir="rtl"
                                         value="{{ old('subhead.ar', $update->getTranslation('subhead', 'ar')) }}">
+                                </div>
+                            </div>
+
+                            {{-- YouTube Link --}}
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                                    <i class="fab fa-youtube text-danger"></i> YouTube Link
+                                </label>
+                                <div class="col-sm-12 col-md-7">
+                                    <input type="url" name="youtube_link"
+                                        class="form-control @error('youtube_link') is-invalid @enderror"
+                                        value="{{ old('youtube_link', $update->youtube_link) }}"
+                                        placeholder="e.g. https://www.youtube.com/watch?v=xxxxx">
+                                    @error('youtube_link')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 

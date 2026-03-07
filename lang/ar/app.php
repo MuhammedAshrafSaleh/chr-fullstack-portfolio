@@ -37,4 +37,5 @@ return [
     'breadcrumb_projects' => 'المشاريع',
     // --- Construction Updates ---
     'construction_tooltip' => 'عرض المشروع كاملاً',
+    'progress_tracking' => 'تتبع التقدم',
 ];
