@@ -107,7 +107,22 @@ document.addEventListener('DOMContentLoaded', function () {
         cursor.style.opacity = '1';
         cursorDot.style.opacity = '1';
     });
-    
+
+    const whiteTargets = document.querySelectorAll(
+        '.navbar, .navbar *, .menu-overlay, .menu-overlay *, .footer, .footer *, img, video, .side-actions__btn'
+    );
+
+    whiteTargets.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.style.borderColor = 'white';
+            cursorDot.style.background = 'white';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.style.borderColor = 'var(--color-text-white)'; 
+            cursorDot.style.background = 'var(--color-text-white)'; 
+        });
+    });
+
 });
 
 const menuToggle = document.getElementById('menuToggle');

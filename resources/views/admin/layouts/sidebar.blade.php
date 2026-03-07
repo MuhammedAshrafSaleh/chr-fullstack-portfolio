@@ -9,19 +9,23 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">Logged in 5 min ago</div>
+
                 <a href="{{ route('profile.edit') }}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
-                <a href="features-settings.html" class="dropdown-item has-icon">
-                    <i class="fas fa-cog"></i> Settings
+
+                <a href="{{ route('lang.switch', app()->getLocale() === 'en' ? 'ar' : 'en') }}"
+                    class="dropdown-item has-icon">
+                    <i class="fas fa-globe"></i> {{ app()->getLocale() === 'en' ? 'AR' : 'EN' }}
                 </a>
+
                 <div class="dropdown-divider"></div>
-                <!-- Authentication -->
+
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <a href="route('logout')"
+                    <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
-                                        this.closest('form').submit();"
+                     this.closest('form').submit();"
                         class="dropdown-item has-icon text-danger">
                         <i class="fas fa-sign-out-alt"></i> Logout
                     </a>
