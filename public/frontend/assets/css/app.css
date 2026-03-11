@@ -520,6 +520,12 @@ body {
     width: 100%;
     z-index: 1;
 }
+@media (max-width: 768px) {
+    .map-card__wrapper {
+        height: 80vh;
+        /* touch-action: none; prevents map from capturing page scroll */
+    }
+}
 
 .map-card__canvas {
     width: 100%;

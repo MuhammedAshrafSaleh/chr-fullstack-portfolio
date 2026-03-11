@@ -26,7 +26,7 @@ class PageController extends Controller
         $aboutHome = AboutHome::firstOrFail();
         $hero = Hero::first();
         $contactLocations = ContactLocations::firstOrFail();
-        $currentProjects = CurrentProject::latest()->get();
+        $currentProjects = CurrentProject::with('project')->latest()->get();
         $navItems = Nav::all();
 
         return view('frontend.home.home', compact('blogs', 'aboutHome', 'hero', 'contactLocations', 'currentProjects', 'navItems'));
