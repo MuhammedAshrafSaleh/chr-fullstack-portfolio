@@ -1,7 +1,6 @@
 <section class="hero">
     <!-- Video Background - Optimized with preload and poster -->
-    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto"
-        poster="media/video-poster.jpg">
+    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto">
         @if ($hero && $hero->video)
             <source src="{{ asset('storage/' . $hero->video) }}" type="video/mp4">
         @else

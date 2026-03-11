@@ -7,7 +7,7 @@
             </button>
             <a href="{{ $fixedLinks->logo_link }}" class="navbar__logo">
                 <img src="{{ asset('storage/' . $fixedLinks->logo_image) }}" alt="CHR Developments"
-                    class="navbar__logo-img" height="100" loading="eager">
+                    class="navbar__logo-img" height="100" loading="eager" fetchpriority="high">
             </a>
         </div>
 
