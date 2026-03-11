@@ -8,19 +8,28 @@
         content="CHR Developments - Crafting landmark properties that redefine luxury. Excellence in real estate development across Egypt.">
     <title>@yield('title')</title>
 
-    <!-- Preconnect to external domains for faster loading -->
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://unpkg.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- DNS Prefetch for faster domain resolution -->
+    <!-- DNS Prefetch fallback -->
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
 
     <!-- Critical CSS - Load immediately -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/app.css') }}">
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" <!-- Favicons -->
+    <!-- AOS CSS - Non-blocking (was missing closing > and was render-blocking) -->
+    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    </noscript>
+
+
+    <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32"
         href="{{ asset('frontend/assets/media/favicon_io/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16"
@@ -30,6 +39,7 @@
         href="{{ asset('frontend/assets/media/favicon_io/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('frontend/assets/media/favicon_io/site.webmanifest') }}">
 
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome - Load with defer to not block rendering -->
@@ -58,7 +68,7 @@
     @include('frontend.layout.footer')
 
     <!-- JavaScript Files - ALL WITH DEFER for non-blocking load -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js" defer></script>
     <script src="{{ asset('frontend/assets/js/theme_toggle.js') }}" defer></script>
     <script src="{{ asset('frontend/assets/js/main.js') }}" defer></script>
