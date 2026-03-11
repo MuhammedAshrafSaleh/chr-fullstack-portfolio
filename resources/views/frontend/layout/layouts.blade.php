@@ -39,7 +39,7 @@
         href="{{ asset('frontend/assets/media/favicon_io/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('frontend/assets/media/favicon_io/site.webmanifest') }}">
 
-    <!-- Google Fonts -->
+   <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome - Load with defer to not block rendering -->
@@ -68,7 +68,7 @@
     @include('frontend.layout.footer')
 
     <!-- JavaScript Files - ALL WITH DEFER for non-blocking load -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js" defer></script>
     <script src="{{ asset('frontend/assets/js/theme_toggle.js') }}" defer></script>
     <script src="{{ asset('frontend/assets/js/main.js') }}" defer></script>
