@@ -110,6 +110,17 @@ chr-backend/
 ├── public/                   # Public assets
 └── vite.config.js            # Frontend build config
 ```
+## 🎨 Theme Support
+
+The application supports **multiple themes** that can be switched dynamically by the user.
+
+| Theme | Description |
+|-------|-------------|
+| 🌑 Dark Mode | Default sleek dark theme |
+| ☀️ Light Mode | Clean light theme |
+
+Themes are applied globally using CSS custom properties (variables),
+allowing instant switching without page reload.
 
 ---
 ## 🌍 Multi-Language Support
