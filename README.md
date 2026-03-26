@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/PHP-8.1-blue?logo=php&logoColor=white" />
   <img src="https://img.shields.io/badge/SCSS-Enabled-CC6699?logo=sass&logoColor=white" />
     <img src="https://img.shields.io/badge/Multi--Theme-Dark%20%7C%20Light-FFD700?logo=css3&logoColor=white" />
-    ر<img src="https://img.shields.io/badge/Admin-Dashboard-blue?logo=googlechrome&logoColor=white" />
+   <img src="https://img.shields.io/badge/Admin-Dashboard-blue?logo=googlechrome&logoColor=white" />
 <img src="https://img.shields.io/badge/Bootstrap-5.x-7952B3?logo=bootstrap&logoColor=white" />
   <img src="https://img.shields.io/badge/Vite-Build-646CFF?logo=vite&logoColor=white" />
   <img src="https://img.shields.io/badge/Multi--Language-AR%20%7C%20EN-green" />
@@ -75,9 +75,9 @@
 
 | Technology | Usage |
 |------------|-------|
-| **Laravel 11** | Backend framework (PHP) |
+| **Laravel 10.5** | Backend framework (PHP) |
 | **Blade** | Server-side templating engine |
-| **PHP 8.x** | Core backend language |
+| **PHP 8.1** | Core backend language |
 | **MySQL** | Relational database |
 | **Tailwind CSS** | Utility-first CSS framework |
 | **SCSS / Sass** | Custom styling & theming |
