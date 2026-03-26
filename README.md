@@ -5,6 +5,7 @@
   <img src="https://img.shields.io/badge/PHP-8.1-blue?logo=php&logoColor=white" />
   <img src="https://img.shields.io/badge/SCSS-Enabled-CC6699?logo=sass&logoColor=white" />
     <img src="https://img.shields.io/badge/Multi--Theme-Dark%20%7C%20Light-FFD700?logo=css3&logoColor=white" />
+    ر<img src="https://img.shields.io/badge/Admin-Dashboard-blue?logo=googlechrome&logoColor=white" />
 <img src="https://img.shields.io/badge/Bootstrap-5.x-7952B3?logo=bootstrap&logoColor=white" />
   <img src="https://img.shields.io/badge/Vite-Build-646CFF?logo=vite&logoColor=white" />
   <img src="https://img.shields.io/badge/Multi--Language-AR%20%7C%20EN-green" />
@@ -111,6 +112,25 @@ chr-backend/
 ├── public/                   # Public assets
 └── vite.config.js            # Frontend build config
 ```
+
+## 🛠️ Admin Dashboard
+
+The application includes a full **Admin Panel** to manage all website content without touching the code.
+
+| Section | What you can manage |
+|---------|-------------------|
+| 🏠 Home | Hero title, description, background video (AR & EN) |
+| 👥 About | Company info, stats, team members, testimonials |
+| 📞 Contact Us | Office locations, phone numbers, map |
+| 🔄 Construction Updates | Project phases, images, videos |
+| 🏗️ Current Projects | Add/edit/delete ongoing projects |
+| ✅ Previous Projects | Add/edit/delete completed projects |
+| 📝 Blogs | Create and manage blog posts |
+| 🔗 Website Links | Social media & external links |
+
+> All content is fully editable in **both Arabic and English** directly from the dashboard.
+
+
 ## 🎨 Theme Support
 
 The application supports **multiple themes** that can be switched dynamically by the user.
