@@ -178,5 +178,3 @@ The app supports **Arabic (AR)** and **English (EN)**. Language can be switched 
 This project is proprietary software developed for CHR Developments. All rights reserved.
 
 ---
-
-<p align="center">Built with ❤️ using Laravel & Tailwind CSS</p>
