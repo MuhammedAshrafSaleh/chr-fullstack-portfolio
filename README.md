@@ -1,10 +1,10 @@
 # 🏢 CHR Developments — Real Estate Company Website
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Laravel-11.x-red?logo=laravel&logoColor=white" />
-  <img src="https://img.shields.io/badge/PHP-8.x-blue?logo=php&logoColor=white" />
-  <img src="https://img.shields.io/badge/TailwindCSS-3.x-38BDF8?logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/Laravel-10.5-red?logo=laravel&logoColor=white" />
+  <img src="https://img.shields.io/badge/PHP-8.1-blue?logo=php&logoColor=white" />
   <img src="https://img.shields.io/badge/SCSS-Enabled-CC6699?logo=sass&logoColor=white" />
+<img src="https://img.shields.io/badge/Bootstrap-5.x-7952B3?logo=bootstrap&logoColor=white" />
   <img src="https://img.shields.io/badge/Vite-Build-646CFF?logo=vite&logoColor=white" />
   <img src="https://img.shields.io/badge/Multi--Language-AR%20%7C%20EN-green" />
 </p>
